@@ -3,12 +3,12 @@
 | Document control | Value |
 |---|---|
 | Document ID | SF-CI-GOV-001 |
-| Revision | 0.3 |
+| Revision | 0.4 |
 | Date | 26 November 2026 |
-| Status | Proposed. Exact-revision independent review and authorized adoption are pending. Verify effective status under §3.3 |
+| Status | Proposed successor to v0.3. Exact-revision independent review and authorized adoption are pending under §3.3 |
 | Intended repository | `sf-codeintel` |
 | Intended canonical path | `docs/governance/SF-CI-GOV-001.md` |
-| Authority domain | Project-level document coordination, authority registration, gate and assignment routing, approval records and conflict escalation |
+| Authority domain | Project-level document coordination, authority registration, gate and assignment routing, approval records, conflict escalation, artifact persistence and restart recovery |
 | Project owner / accountable acceptance authorities | Project owner verified in the standing directive. Check each delegated mandate in its trusted record |
 | Current delivery gate | P0-A admission preparation; NOT ADMITTED / NOT RUN |
 | Phase execution authorization | P0-A, P0-B and P1 require separate permissions. See §6 |
@@ -29,7 +29,7 @@ MUST and MUST NOT in this document express proposed coordination obligations upo
 
 | Authority | Owns | Does not own |
 |---|---|---|
-| SF-CI-GOV-001 (this document) | Authority index, adoption routing, status coordination and escalation | Product, architectural, ADR, technical or execution contract content; cannot self-approve |
+| SF-CI-GOV-001 (this document) | Authority index, adoption routing, status coordination, escalation, artifact persistence and restart recovery | Product, architectural, ADR, technical or execution contract content; cannot self-approve |
 | SF-CI-PRD-001 | Product purpose, users, capabilities, scope, experience, product outcomes and acceptance | Dependency choices, exact schemas or permission to execute |
 | SF-CI-SPEC-001 | Architecture, technical invariants, component ownership, security boundaries, technical validation and phase dependencies | Unilateral changes to product intent, specific execution grants |
 | SF-CI-ADR-001 | Governance of technical decisions, decision lifecycle and ADR template | Specific technology selection or production implementation |
@@ -83,6 +83,8 @@ SFCI-2 owns the actual baseline adoption. SFCI-12 records the procedure. A desig
 5. Record each exact revision and immutable reference, independent review, decision maker and mandate, disposition, effective scope and date, and conditions or supersession under §3.4. A coordinated record may carry multiple decisions if it identifies each one explicitly.
 6. Update the register from those trusted records and retain historical revisions and links. The [SFCI-2 applicability record](sfci-2-baseline-adoption.md) records the effective SFCI-2 revisions and supersession by reference to trusted decisions under §3.4. It satisfies the register update for SFCI-2. Verify the referenced decisions and activation conditions before relying on any disposition. Route missing, conflicting or unverifiable evidence under §4.2. Apply separate decisions for document adoption, technical acceptance, phase execution, merge and release.
 
+For SFCI-5, review the exact v0.4 successor and its `AGENTS.md` entry point together against the v0.3 pair pinned by SFCI-2 D3 and the owner directive in §4.1. Record a separate disposition under §3.4 that binds both files and specifies supersession and effective conditions. Keep the D3 pair applicable until its successor takes effect. The owner directive applies directly within its scope. This amendment requires no joint readoption of the product, architecture, qualification, ADR or TDD baselines.
+
 ### 3.4 Minimum trusted record (human-readable)
 
 Use the existing ADR decision-event requirements (SF-CI-ADR-001 §7.2) and TDD acceptance requirements (SF-CI-TDD-001 §6) for their respective records. For project-level coordination, record at least:
@@ -124,6 +126,8 @@ Designate accountable technical and design approval roles within the authorized 
 The owner reserves material product or scope decisions, deployment, P2–P7 implementation, and increases in risk, permissions or resource budgets. Separate authorization is required for those decisions. The directive grants routine coordination and conditional merge authority. Phase execution depends on separate effective permissions under §6.
 
 Before dispatch and merge, verify the current directive, mandate, applicable scope and any revocation or supersession. If the owner revokes or supersedes the directive, record the trusted decision, effective time, affected scope and assignments, and replacement authority where applicable. Notify affected roles and stop affected reliance until effective authority and evidence are reconciled. Use the same checks for affected delegated mandates.
+
+The owner issued the permanent artifact persistence and restart-recovery directive in message `turn-item:message:c62abe53-66b5-4ab6-8eac-1bbdf576c169` in [SF CodeIntel Governed Delivery Loop](t3-thread://v2/fdfd1f03-53cf-41e7-8d37-6f5313c72d55/2211b596-9b80-4ba4-b4fd-5343f5000a87). Section 7.2 records its permanent rules. Apply any assignment-specific recovery permission within the bounds of its own trusted record and the separate §6 gates.
 
 ### 4.2 Conflict and missing-authority protocol
 
@@ -238,6 +242,23 @@ Every assignment records the actor, ticket and goal, exact authorities and input
 
 Stop affected work for missing, revoked, conflicting or out-of-scope authority or permission, security or containment failure, unresolved cleanup, unavailable mandatory independent review or exact verification, exhausted retry or execution budgets, or a decision beyond the mandate. Record the evidence and resume only after verified resolution. Continue safely separable eligible work. End the loop when no eligible authorized work remains or the authorized MVP acceptance gate is reached.
 
+### 7.2 Artifact persistence and restart recovery
+
+Preserve implementation source, infrastructure and provisioning scripts, qualification runners, tests and fixtures, operator procedures, approved plans, independent reviews, admission records, execution manifests, resource and budget accounting, checksums, provenance, recovery checkpoints and important intermediate work. Use temporary directories only for disposable scratch that can be safely regenerated from persistent, verified sources. Use existing Git, persistent files, Plane and approved execution mechanisms.
+
+- Keep reproducible project-owned source, scripts, tests, fixtures and procedures in Git on an issue-linked persistent branch and worktree. Make early, scoped commits as meaningful work accrues. A checkpoint commit preserves work. Approval, acceptance and merge permission each require their own evidence.
+- Before execution, verify the exact dedicated persistent root, its backing storage and its lifecycle across host reboots, agent restarts and cleanup. Verify permissions, capacity and applicable quota enforcement. Use it for mutable state, VM images, caches, accounting and recovery checkpoints outside the source tree where appropriate. Follow the applicable write allowlist, storage ceilings, cleanup and retention rules. Restrict access and retain only authorized material for the permitted period. Keep VM images, large binaries, secrets, credentials, private keys and unsanitized sensitive evidence out of Git. Route any conflict between persistence and containment or retention under §4.2 before proceeding.
+- For long-running or multi-stage work, record durable checkpoints before expensive or irreversible operations and at meaningful stage boundaries, including handoff. Each checkpoint records the Plane ID, current stage, exact Git revision and approved assignment and authority references. Record persistent artifact paths, relevant hashes and provenance, completed and outstanding operations, verification results, resource use, elapsed and remaining budgets, recovery attempts, cleanup status and the next permitted action. Account for important changes beyond the checkpoint revision by exact artifact path and hash until committed.
+
+Define the states, guards and cleanup duties for each durable execution lifecycle in the assignment or its approved procedure. Apply the execution contract's STOP rules and limits at each step.
+
+1. **Interruption.** Record the interruption and last confirmed state when possible. On return, treat operations without completion evidence as unresolved.
+2. **Reconciliation.** Before issuing further execution commands, compare the checkpoint with the actual repository revision and changes, host and backing storage, live processes, surviving artifacts and hashes, and current authority. Check for partial side effects and reconcile elapsed time, resource use, retained downloads and storage, and attempts against cumulative limits. A restart grants no budget reset. Apply any separately authorized recovery grant within its stated scope and preserve the earlier accounting.
+3. **Recovery and retry.** Use authorized cleanup or quarantine procedures for partial state. Resume at the next permitted action only after verifying the prerequisites. Retry only when the prior attempt's side effects and cleanup are accounted for, repeating the operation is safe, and authority and remaining budgets permit it. Checkpoint the retry and reverify restored or reconstructed artifacts before relying on them.
+4. **Failure and terminal states.** If reconciliation cannot establish safe state, authority or remaining budget, or if required cleanup fails, stop affected execution. Record the blocker, cleanup or quarantine status and next permitted action. Close the attempt as completed, failed or cancelled under the applicable contract after recording the observed outcome and required cleanup evidence. Before a new attempt, verify that an effective grant covers it and write a new checkpoint that preserves prior accounting.
+
+Implementation and infrastructure subagents identify persistent artifact locations before substantive work. The Lead Orchestrator verifies the locations and checkpoint plan during assignment planning, and verifies the saved artifacts and resume evidence at handoff. Include persistence and restart recovery in relevant acceptance criteria. Independent reviewers verify those criteria against the actual artifacts and evidence. Loss of important work or resume evidence on restart is a correctness and recoverability defect.
+
 ## 8. Verification, independent review and merge boundary
 
 The PRD owns product acceptance; the architecture owns system technical gates; the P0 specification owns qualification scoring; phase TDDs own exact implementation assertions. The independent reviewer must distinguish source association, intended verification, observed execution and a passing test in a particular run. Neither a related test nor absence of an index edge proves an invariant.
@@ -321,5 +342,6 @@ The v0.1 archive preserves the original review and document-creation context. Th
 | 0.1 | Initial scoped authority register, adoption procedure, accountability, gate routing, merge boundary and coordination of inherited findings | Proposed; exact-revision independent review and authorized acceptance outstanding |
 | 0.2 | Records the standing owner directive, delegated adoption and decision mandates, delivery loop, final hosted PR review and separate phase permissions under SFCI-12 | Proposed. Exact-revision independent review and adoption are pending |
 | 0.3 | Routes SFCI-2 applicability and records the accountable adoption and technical acceptance mandate | Proposed. Verify effective status through the applicability record in §3.3 |
+| 0.4 | Records the SFCI-5 owner directive on persistent artifacts, checkpoints and restart recovery, with a matching repository entry point | Proposed. Exact-revision independent review and authorized adoption are pending under §3.3. See [v0.3 predecessor](https://github.com/Carpe-Diem-Media/sf-codeintel/blob/34bf62dc06759a658eafbf70956d42a7bd1602a1/docs/governance/SF-CI-GOV-001.md) |
 
 SFCI-2 owns coordinated adoption. P0-A remains `NOT ADMITTED / NOT RUN`.

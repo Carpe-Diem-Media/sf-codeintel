@@ -30,6 +30,10 @@ P0-A remains `NOT ADMITTED / NOT RUN`. Before a P0-A assignment can run, the app
 
 The Lead Orchestrator accepted proposed SF-CI-GOV-001 v0.3 directly as project governance for document applicability, assignment routing, evidence and integration. GOV v0.2 remains the reviewed amendment basis and v0.1 the archived initial proposal. The owner directives retain their authority. GOV §§3.3 and 10 route SFCI-2 applicability through this record and §4.1 persists the standing mandate. The reviewed stage-one `AGENTS.md` carries the matching entry-point wording and separate phase gates.
 
+#### SFCI-5 conditional successor
+
+The Lead Orchestrator conditionally adopted SF-CI-GOV-001 v0.4 and its matching `AGENTS.md` at commit `82bfd0122477e41b497287f72df3984bb28e4833`. The pair takes effect only after independent review of this pointer and approval of the exact hosted candidate, applicable CI and repository protections, the separate GOV §8 integration check, authorized integration, and the Lead Orchestrator's verification of both exact file contents on remote `main`. Until then, the D3 pair applies. At activation, the successor supersedes only that pair. D3 remains part of the historical record, and all other dispositions retain their scope. [SFCI-5 conditional adoption decision](https://app.plane.so/symphony-development/projects/cf209680-d677-4875-9245-ed7b235654dd/issues/d658fe4a-3473-4231-bd0a-0f5cc77e7251#comment-89bd1d3c-969c-41f6-8f39-65f73eae694e)
+
 ### D4. Separate architectural decision governance adoption
 
 The Lead Orchestrator accepted proposed SF-CI-ADR-001 v0.1 as the ADR governance standard. Its scope covers decision records and architectural decision lifecycle, including the trusted event requirements in §7.2. Subsequent ADRs require their own exact-revision evidence and decision within the applicable mandate. D7 records the status of the current backend proposal. [ADR governance §7.2](https://github.com/Carpe-Diem-Media/sf-codeintel/blob/34bf62dc06759a658eafbf70956d42a7bd1602a1/docs/adr/SF-CI-ADR-001.md#72-trusted-decision-event-documentation-contract)
