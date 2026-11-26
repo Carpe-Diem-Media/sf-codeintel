@@ -2,13 +2,13 @@
 ## Technical Architecture Specification
 
 **Document ID:** SF-CI-SPEC-001  
-**Revision:** 0.3 — Standalone technical authority (proposed document separation)  
-**Date:** 25 November 2026  
-**Status:** Proposed revision 0.3; the inherited v0.2.1 architecture was reviewed and approved in principle by the supplied independent review. This document separation has not yet been independently accepted. P0-A remains conditional on execution admission. No implementation, backend adoption or release authorization.  
+**Revision:** 0.4 (proposed correction to the standalone technical architecture)\
+**Date:** 26 November 2026\
+**Status:** Proposed. Exact-revision independent review and joint adoption with PRD v0.1 are pending. The inherited v0.2.1 architecture was approved in principle. P0-A remains conditional on execution admission. Implementation, backend adoption and release require separate decisions.\
 **Scope:** System architecture, technical invariants, component boundaries, technology qualification strategy and technical delivery gates for reusable Elixir, Phoenix and Ash code intelligence.
 **Intended repository path:** `docs/architecture/SF-CI-SPEC-001.md`
-**Product reference:** SF-CI-PRD-001 v0.1 (proposed; see §01).
-**Qualification reference:** SF-CI-P0-001 v0.2.1.
+**Product reference:** SF-CI-PRD-001 v0.1 upon joint activation with this architecture v0.4. See §01.
+**Qualification reference:** SF-CI-P0-001 v0.2.1 was the separation source and remains the qualification baseline until the separate compatible P0 v0.3 decision takes effect. Verify activation through [GOV §3.3](../governance/SF-CI-GOV-001.md#33-coordinated-adoption-procedure).
 
 ### Design intent
 Build one independently versioned development tool that indexes each authorized repository and worktree, understands framework-specific behaviour, and returns a compact, source-grounded evidence package to an agent. Reduce exploration cost without reducing engineering or review quality.
@@ -50,7 +50,7 @@ This document defines **how SF CodeIntel is architected**, the technical invaria
 Authority is scoped rather than a global precedence order. Where an applicable product requirement, architecture invariant, accepted ADR, TDD or execution assignment conflicts, stop the affected decision, record exact document IDs/revisions and clauses, and obtain an accepted amendment from the responsible authority. Do not choose an interpretation merely because a document is newer, a search result ranks higher, or an agent prefers it. Execution must satisfy all applicable constraints; missing authorization denies the operation. Architecture or product approval is not merge, release or execution approval.
 
 ### Adoption and transition from the combined specification
-The current reviewed baseline remains SF-CI-SPEC-001 v0.2.1 until this revision is accepted. SF-CI-PRD-001 v0.1 is itself proposed. Accept the standalone PRD and this architecture revision as a coordinated change, recording their exact revisions and explicit supersession of the combined baseline. If either is not accepted, retain the existing applicable authority; do not create a gap in product or technical requirements. The P0 assignment remains SF-CI-P0-001 v0.2.1 unless separately amended and accepted. Subsequent accepted document revisions must retain explicit compatibility or resolve conflicts through reviewed amendments.
+Keep the combined SF-CI-SPEC-001 v0.2.1 baseline applicable until joint adoption of SF-CI-PRD-001 v0.1 and SF-CI-SPEC-001 v0.4 takes effect. Record the exact revisions, effective scope and explicit supersession of the combined baseline in that joint decision. SF-CI-P0-001 v0.2.1 governs until the separate compatible decision for P0 v0.3 takes effect. Verify both decisions and their activation conditions through [GOV §3.3](../governance/SF-CI-GOV-001.md#33-coordinated-adoption-procedure). Subsequent accepted document revisions must retain explicit compatibility or resolve conflicts through reviewed amendments.
 
 Use the document governance lifecycle in SF-CI-PRD-001 §1.3 for these authority revisions (proposed, accepted, rejected, withdrawn, superseded, revoked; see its guards, side effects and terminal semantics). This is documentation governance, not authorization to implement a document workflow engine. Preserve accepted revisions and review evidence; edits create new proposed revisions. Technical domain lifecycles remain governed by §§11–11B of this document.
 
@@ -365,11 +365,13 @@ Watchers schedule debounced updates; missed events are repaired by reconciliatio
 ### Query execution algorithm
 1. Authenticate grant, derive workspace, pin authorized snapshot and check freshness. Bound input length, query count and work. Validate requested intent and budget.
 2. Extract identifiers and classify intent (explicit caller intent preferred; deterministic rules first). Exact identifiers and errors use exact/lexical lookup; unknown feature discovery uses FTS/BM25 and optional vectors; dependency questions use typed edges.
-3. Fuse ranked candidates, prioritize exact matches, filter by scope and resolution. Reciprocal Rank Fusion is a candidate for heterogeneous ranks; compare against simpler rules.
-4. Traverse permitted edge types/directions based on intent. Apply depth, fan-out, visited set, max nodes, max work and time limits. Downrank generic hubs and historical correlation. Preserve reasons and unresolved targets.
-5. Resolve approved mandatory authority deterministically through trusted project/domain/resource/action scope and inheritance before relevance ranking can exclude any requirement. Populate minimum evidence profiles; deduplicate identical ranges. Distinguish a complete authority set from an unresolved scope; mandatory references cannot be displaced by optional evidence.
+3. Discover candidates within the authorized snapshot. Traverse permitted edge types and directions based on intent. Apply depth, fan-out, visited-set, maximum node, maximum work and time limits. Preserve reasons and unresolved targets. Ranking may order investigation. Preserve every potentially applicable target for scope resolution. If a discovery cutoff or traversal limit leaves any potentially applicable scope unresolved, report authority coverage as incomplete.
+4. Resolve mandatory approved authority deterministically under §10 using the trusted registry, scope and inheritance rules. Complete this resolution before optional relevance ranking can exclude any applicable requirement. Record the applicable requirements, scope exclusions with reasons, and unresolved scope. Report incomplete authority coverage whenever the mandatory set cannot be established.
+5. Rank and filter optional evidence by scope and resolution. Fuse ranked optional candidates, prioritize exact matches, and downrank generic hubs and historical correlation. Preserve ranking reasons. Reciprocal Rank Fusion is a candidate for heterogeneous ranks. Compare it against simpler rules. Populate minimum evidence profiles and deduplicate identical ranges. Preserve mandatory references and unresolved scope through rendering. Apply step 6 if mandatory evidence exceeds the budget.
 6. Render a compact package; count full serialized output including metadata and continuation. Use a qualified tokenizer when available; otherwise conservative estimate and clearly report method. If mandatory evidence exceeds budget, deliver explicit incomplete status with continuation or budget error; never silently omit it.
 7. Re-check grant and snapshot validity before delivery. Include evidence IDs, exact references, coverage, truncation, freshness, ranking reasons and suggested next reads. No hidden LLM call is needed for deterministic retrieval.
+
+For CI-F16, the P3 design must cover a low-ranked applicable target, a bounded discovery or traversal that leaves potentially applicable scope unresolved, and mandatory evidence that exceeds the output budget.
 
 ### Minimum evidence profiles
 | Intent | Required attempted categories |
@@ -826,14 +828,14 @@ The supplied second review approves the architecture and P0-A in principle subje
 
 ## 19 | Authority separation and revision record
 
-### Source baseline and traceability
-| Source document | Exact revision | Role in this revision |
+### v0.3 separation sources
+| Source document | Exact revision | Role in the v0.3 separation |
 |---|---|---|
 | SF-CI-SPEC-001 | 0.2.1 | Reviewed technical baseline; §§02–18 retained with narrowly scoped editorial additions and qualification/authority cross-references |
 | SF-CI-PRD-001 | 0.1 (proposed) | Product authority candidate; requirement IDs, product acceptance scenarios, scope and document governance |
 | SF-CI-P0-001 | 0.2.1 | Existing qualification assignment, execution envelope and admission constraints; unchanged |
 
-Source artifact SHA-256 values (identify the actual documents used for the separation; hashes are not acceptance signatures):
+These SHA-256 values identify the v0.3 separation sources. Acceptance requires a trusted decision.
 
 ```text
 eec236699730173e0612bd9bfbe6d100f417119c3efe3397de2ad24905b85ced  SF-CodeIntel-Specification-v0.2.1.md
@@ -847,11 +849,12 @@ b35b92081956fffc7f50ef973afa9591da3e5aef291254af82f12f9db9c2a2ce  SF-CodeIntel-P
 | 0.1 | Original combined architecture and product baseline | Historical |
 | 0.2 | First independent-review dispositions CI-F01–CI-F13 | Historical |
 | 0.2.1 | Narrow P0 admission and sequencing amendments; CI-F14–CI-F21 dispositions | Existing reviewed baseline, conditional P0-A admission |
-| 0.3 | Scoped authority split; product traceability, coordinated adoption guard, qualification and technical validation cross-references; technical design preserved | Proposed; independent acceptance pending |
+| [0.3](https://github.com/Carpe-Diem-Media/sf-codeintel/blob/78e246a135da2ca65eaab87bd283af3d92f93e7f/docs/architecture/SF-CI-SPEC-001.md) | Scoped authority split, product traceability, coordinated adoption guard, and qualification and technical validation cross-references | Predecessor separation proposal |
+| 0.4 | Corrects mandatory authority resolution before optional evidence ranking and updates adoption routing | Proposed corrective successor. Verify effective status through [GOV §3.3](../governance/SF-CI-GOV-001.md#33-coordinated-adoption-procedure) |
 
 ### Acceptance and outstanding work
-- Independently review the exact document diff against v0.2.1 and the PRD requirement/acceptance mapping. Accept the coordinated authority separation before treating v0.3 as the active architecture.
-- Preserve the existing qualification assignment and admission restrictions; no P0-A execution until the actual environment and frozen expectations are authorized. P0-B and P1+ remain unauthorized unless separately approved.
+- Independently review exact PRD v0.1 and architecture v0.4 against the combined v0.2.1 baseline and architecture v0.3 predecessor, including the PRD requirement and acceptance mapping. Jointly adopt and activate the pair under [GOV §3.3](../governance/SF-CI-GOV-001.md#33-coordinated-adoption-procedure) before relying on the separated authorities.
+- Use the separately accepted compatible qualification revision after its activation under [GOV §3.3](../governance/SF-CI-GOV-001.md#33-coordinated-adoption-procedure). Preserve the admission restrictions. P0-A execution requires authorization of the actual environment and frozen expectations. P0-B and P1+ require separate execution grants.
 - Do not select a backend, finalize schema/library choices or create a binding P1 TDD before the necessary qualification and decision evidence. ADR-001 must remain proposed until accepted by an authorized review.
 - The reference register and implementation contracts are inherited, not reverified against upstream revisions in this document split. No code, upstream tooling, benchmark, private repository or Factory API was executed or audited for this amendment. No external authority has been accepted or changed by writing this document.
 
