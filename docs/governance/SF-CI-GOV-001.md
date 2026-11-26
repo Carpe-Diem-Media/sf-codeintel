@@ -3,9 +3,9 @@
 | Document control | Value |
 |---|---|
 | Document ID | SF-CI-GOV-001 |
-| Revision | 0.2 |
+| Revision | 0.3 |
 | Date | 26 November 2026 |
-| Status | Proposed. Exact-revision independent review and authorized adoption are pending |
+| Status | Proposed. Exact-revision independent review and authorized adoption are pending. Verify effective status under §3.3 |
 | Intended repository | `sf-codeintel` |
 | Intended canonical path | `docs/governance/SF-CI-GOV-001.md` |
 | Authority domain | Project-level document coordination, authority registration, gate and assignment routing, approval records and conflict escalation |
@@ -47,39 +47,41 @@ The technical architecture's security model governs CodeIntel's future retrieval
 
 ## 3. Authority register and adoption status
 
-### 3.1 Current reviewed baseline
+### 3.1 Reviewed baseline before adoption
 
-The supplied independent reviews approved the inherited architecture in principle and P0-A subject to admission. Narrow amendments v0.2.1 addressed CI-F14 and the design portion of CI-F15. The subsequently separated documents expressly state that they are proposed until adopted. The following existing baseline therefore remains the conservative working reference pending coordinated adoption; no verified trusted approval record for the new exact revisions has been supplied.
+The supplied independent reviews approved the inherited architecture in principle and P0-A subject to admission. Narrow amendments v0.2.1 addressed CI-F14 and the design portion of CI-F15. The table records the baseline before coordinated adoption. Keep that baseline applicable until the corresponding decisions take effect. The applicability record in §3.3 identifies effective revisions after verification of the trusted decisions and their activation conditions.
 
-| Document | Current baseline revision | Status / application |
+| Document | Pre-activation baseline revision | Role before activation |
 |---|---|---|
 | SF-CI-SPEC-001 | 0.2.1 | Existing reviewed combined architecture and product baseline; no production implementation authority |
 | SF-CI-P0-001 | 0.2.1 | Existing qualification baseline; execution conditional on actual admission |
 
-The wording “reviewed baseline” is not an assertion that the exact v0.2.1 amendment hashes have independently received formal acceptance. Record amendment review and applicable revisions before admission. If acceptance evidence establishes a different valid baseline, reconcile the register explicitly rather than silently selecting one.
+Formal historical acceptance of the exact v0.2.1 amendment bytes remains unestablished. Record amendment review and applicable revisions before admission. Route any conflicting evidence under §4.2.
 
-### 3.2 Separated authority set awaiting formal adoption
+### 3.2 Separated authority set before adoption
 
-| Document / revision | Canonical repository path | Recorded status / next action |
+This table compares proposals before adoption. The paths identify document families. Verify exact immutable revisions and effective dispositions through the applicability record in §3.3.
+
+| Document / revision | Canonical repository path | Role before adoption |
 |---|---|---|
-| SF-CI-PRD-001 v0.1 | `docs/product/SF-CI-PRD-001.md` | Proposed; coordinated review with architecture v0.3 |
-| SF-CI-SPEC-001 v0.3 | `docs/architecture/SF-CI-SPEC-001.md` | Proposed; preserves reviewed technical design, pending separation acceptance |
-| SF-CI-P0-001 v0.3 | `docs/qualification/SF-CI-P0-001.md` | Proposed; explicitly adopt successor and preserve admission restrictions |
+| SF-CI-PRD-001 v0.1 | `docs/product/SF-CI-PRD-001.md` | Proposed for joint adoption with architecture v0.4 |
+| SF-CI-SPEC-001 v0.4 | `docs/architecture/SF-CI-SPEC-001.md` | Proposed correction to the [v0.3 separation proposal](https://github.com/Carpe-Diem-Media/sf-codeintel/blob/78e246a135da2ca65eaab87bd283af3d92f93e7f/docs/architecture/SF-CI-SPEC-001.md) |
+| SF-CI-P0-001 v0.3 | `docs/qualification/SF-CI-P0-001.md` | Proposed qualification successor with unchanged admission restrictions |
 | SF-CI-ADR-001 v0.1 | `docs/adr/SF-CI-ADR-001.md` | Proposed governance; independent review and adoption required |
 | ADR-001 v0.1 | `docs/adr/ADR-001-backend-selection.md` | Proposed pre-qualification scaffold; no selected backend; evidence NOT RUN |
 | SF-CI-TDD-001 v0.1 | `docs/technical-design/SF-CI-TDD-001.md` | User concurrence expressed in conversation; independent exact-revision acceptance not established |
-| SF-CI-GOV-001 v0.2 | `docs/governance/SF-CI-GOV-001.md` | Proposed. The owner directive has its own authority under §4.1 |
+| SF-CI-GOV-001 v0.3 | `docs/governance/SF-CI-GOV-001.md` | Proposed correction to the [v0.2 governance proposal](https://github.com/Carpe-Diem-Media/sf-codeintel/blob/78e246a135da2ca65eaab87bd283af3d92f93e7f/docs/governance/SF-CI-GOV-001.md). The owner directives retain their authority under §4.1 |
 
 ### 3.3 Coordinated adoption procedure
 
 SFCI-2 owns the actual baseline adoption. SFCI-12 records the procedure. A designated accountable acceptance authority may adopt exact revisions within a verified, recorded mandate after independent review and prerequisite verification. The mandate covers routine decisions without a further owner vote. Route gaps and conflicts under §4.2.
 
 1. Verify the accountable owner, independent reviewer, authorized decision maker and scope of the decision maker's mandate in a trusted project record.
-2. Review the exact PRD v0.1 and architecture v0.3 together against the reviewed combined v0.2.1 baseline, including normative IDs, security, scope and phase gates. Resolve material mismatches before adoption. Accept the pair together with explicit supersession and effective scope, or retain the applicable combined baseline.
+2. Review exact PRD v0.1 and corrective architecture v0.4 together against the reviewed combined v0.2.1 baseline and the [pinned architecture v0.3 proposal](https://github.com/Carpe-Diem-Media/sf-codeintel/blob/78e246a135da2ca65eaab87bd283af3d92f93e7f/docs/architecture/SF-CI-SPEC-001.md). Verify normative IDs, security, scope and phase gates. Resolve material mismatches before adoption. Require one joint acceptance with explicit supersession and effective scope. Keep the combined baseline applicable until the joint decision takes effect.
 3. Record separately which exact P0 revision governs admission and the disposition of the P0 v0.3 successor. Review the exact successor before accepting it and preserve the admission restrictions.
 4. Record a separate exact-revision disposition for each governance, ADR and TDD standard. Keep the backend decision in ADR-001 proposed until actual qualification evidence, independent review and accountable decision acceptance support it.
 5. Record each exact revision and immutable reference, independent review, decision maker and mandate, disposition, effective scope and date, and conditions or supersession under §3.4. A coordinated record may carry multiple decisions if it identifies each one explicitly.
-6. Update the register from those trusted records and retain historical revisions and links. Apply separate decisions for document adoption, technical acceptance, phase execution, merge and release.
+6. Update the register from those trusted records and retain historical revisions and links. The [SFCI-2 applicability record](sfci-2-baseline-adoption.md) records the effective SFCI-2 revisions and supersession by reference to trusted decisions under §3.4. It satisfies the register update for SFCI-2. Verify the referenced decisions and activation conditions before relying on any disposition. Route missing, conflicting or unverifiable evidence under §4.2. Apply separate decisions for document adoption, technical acceptance, phase execution, merge and release.
 
 ### 3.4 Minimum trusted record (human-readable)
 
@@ -112,6 +114,8 @@ Verify each role's mandate in the applicable trusted record. A person may hold c
 ### 4.1 Standing owner directive
 
 The verified issuer is the SF CodeIntel project owner acting in that role. The directive is dated 26 November 2026. Its source is the owner's message in [SF CodeIntel Governed Delivery Loop](t3-thread://v2/fdfd1f03-53cf-41e7-8d37-6f5313c72d55/2211b596-9b80-4ba4-b4fd-5343f5000a87), tracked in Plane SFCI-12. The owner designated the persistent Lead Orchestrator to coordinate delivery through P0-A and P1 as each phase becomes eligible. The directive applies from issuance within its recorded scope and conditions.
+
+The project owner designates the persistent SF CodeIntel Lead Orchestrator as accountable adoption and technical acceptance authority within the approved MVP. The mandate covers the scoped SFCI-2 corrective amendments and coordinated adoption, routine in-scope decisions through P0-A and P1, and designation of specialized accountable authorities within the recorded scope. It remains effective until explicitly superseded or revoked by the project owner. Keep substantive authorship separate from independent review and accountable acceptance. Verify applicable prerequisites and apply the separate §6 execution and §8 integration gates. The sources are the exact owner message `turn-item:message:ecf61b59-1925-4c56-a5cb-d3e9d7a4c921` in [SF CodeIntel Governed Delivery Loop](t3-thread://v2/fdfd1f03-53cf-41e7-8d37-6f5313c72d55/2211b596-9b80-4ba4-b4fd-5343f5000a87) and the [trusted Plane authorization event](https://app.plane.so/symphony-development/projects/cf209680-d677-4875-9245-ed7b235654dd/issues/758bc9f3-fb7e-4974-ac35-fbe4e760b280#comment-6fb273b0-ae84-4ba7-a9a2-07251faef323).
 
 The Lead Orchestrator may manage the SFCI Plane queue, verify eligibility, promote and claim work, create bounded tickets from accepted designs, delegate assignments and corrections, and manage PRs through subagents. The mandate covers routine merges that satisfy §8, checkout synchronization, evidence recording, closure and advancement. Verify the relevant permissions and prerequisites before dispatch. The orchestrator coordinates, performs read-only verification and integrates independently reviewed work. It delegates substantive authoring, fixtures, test development, qualification execution and corrective work.
 
@@ -149,7 +153,7 @@ Maintain distinct status axes:
 | Axis | Current observation |
 |---|---|
 | Architecture direction | Approved in principle by supplied independent reviews |
-| Separated document adoption | Pending under SFCI-2. Governance v0.2 remains Proposed |
+| Separated document adoption | Verify the SFCI-2 applicability record and activation conditions under §3.3 |
 | Operating authorization | Standing owner directive applies within §4.1 |
 | Routine merge | Authorized for the Lead Orchestrator when §8 is satisfied |
 | P0-A execution | NOT ADMITTED / NOT RUN |
@@ -169,7 +173,7 @@ A completed qualification may recommend rejection or further qualification. A pa
 | Phase | Purpose | Gate / current authorization |
 |---|---|---|
 | P0-A | Dexter/Dexterity qualification and structural ownership decision | Independent admission verification, execution operator ratification and effective bounded permission required before dispatch |
-| P0-B | Optional early agent-value experiment | Separate authorization; otherwise explicitly defer to P1 |
+| P0-B | Optional early agent-value experiment | A separate grant is required to run. If the applicable P0 gate proceeds without P0-B, the accountable authority must explicitly defer it to P1 and record `NOT RUN`. Explicit deferral alone does not block P0-A completion |
 | P1 | Thin CLI and experimental read-only MCP/context MVP | Await applicable P0 exit, accepted viable backend decision, independently reviewed and accepted P1 design, and a bounded P1 execution grant |
 | P2 | Ash action intelligence | Await P1 exit and applicable design/admission |
 | P3 | Phoenix/LiveView, authority and test associations | Await P2 exit and authority contract clarification |
@@ -293,11 +297,11 @@ sf-codeintel/
 
 Keep historical revisions, trusted acceptance/review records and immutable content references available in version control or the designated approved records system. Canonical paths identify a document family, not an accepted immutable revision. Do not overwrite history by replacing a file without recording its predecessor. Add phase TDDs, contracts and evidence as required, not as empty speculative modules. The operator must ensure committed evidence contains no unauthorized source or secrets and meets applicable retention policy.
 
-Update this register when a trusted decision changes document applicability, a gate decision changes phase readiness, or a recorded blocker is resolved. Treat status updates as factual coordination changes with evidence references; amendments to governance rules themselves require review and acceptance of a new revision. Keep this entry point compact; do not copy technical thresholds, full schemas, lifecycle tables or ADR templates into it. A stale register must not override the underlying accepted authority or trusted authorization record.
+Update this register when a trusted decision changes document applicability, a gate decision changes phase readiness, or a recorded blocker is resolved. The applicability record under §3.3 is the register update for SFCI-2. Treat status updates as factual coordination changes with evidence references; amendments to governance rules themselves require review and acceptance of a new revision. Keep this entry point compact; do not copy technical thresholds, full schemas, lifecycle tables or ADR templates into it. A stale register must not override the underlying accepted authority or trusted authorization record.
 
 ## 11. Source identity and revision history
 
-The source hashes below are preserved from [SF-CI-GOV-001 v0.1](history/SF-CI-GOV-001-v0.1.md). See the [bootstrap verification record](bootstrap-verification.md) for the archived v0.1 digest and links to all nine verified source blobs. The hashes establish content identity. Adoption and qualification require their own evidence.
+The historical source hashes below are preserved from [SF-CI-GOV-001 v0.1](history/SF-CI-GOV-001-v0.1.md). See the [bootstrap verification record](bootstrap-verification.md) for the archived v0.1 digest and links to all nine verified source blobs. The hashes establish content identity. Adoption and qualification require their own evidence.
 
 | Source file | SHA-256 |
 |---|---|
@@ -310,11 +314,12 @@ The source hashes below are preserved from [SF-CI-GOV-001 v0.1](history/SF-CI-GO
 | ADR-001-backend-selection-v0.1.md | `708ff8f35bbe818476fd9153053413ae6fc86e592942f43c73e9e531f3d71417` |
 | SF-CI-TDD-001-v0.1.md | `ba2bdd1a242b92c2b9db9b1ab3599414ec6a41227ca005d96aa17147001bbd93` |
 
-The v0.1 archive preserves the original review and document-creation context. The standing directive and its scope are recorded in §4.1.
+The v0.1 archive preserves the original review and document-creation context. The v0.1 and v0.2 rows record their proposal-era statuses. The standing directives and their scope are recorded in §4.1.
 
 | Revision | Change | Approval status |
 |---|---|---|
 | 0.1 | Initial scoped authority register, adoption procedure, accountability, gate routing, merge boundary and coordination of inherited findings | Proposed; exact-revision independent review and authorized acceptance outstanding |
 | 0.2 | Records the standing owner directive, delegated adoption and decision mandates, delivery loop, final hosted PR review and separate phase permissions under SFCI-12 | Proposed. Exact-revision independent review and adoption are pending |
+| 0.3 | Routes SFCI-2 applicability and records the accountable adoption and technical acceptance mandate | Proposed. Verify effective status through the applicability record in §3.3 |
 
 SFCI-2 owns coordinated adoption. P0-A remains `NOT ADMITTED / NOT RUN`.
