@@ -1,0 +1,5170 @@
+{
+  "capability_requirements": {
+    "Dexter": {
+      "bounded_map": {
+        "evidence_to_classify": "Documented or inspectable public operation at the exact approved revision, with applicable binding, ranges and generation.",
+        "pinned_support": "pending",
+        "requirement": "conditional"
+      },
+      "clause_lookup": {
+        "evidence_to_classify": "Exact ordered clause set with separate clause IDs and a shared function identity.",
+        "pinned_support": "pending",
+        "requirement": "conditional"
+      },
+      "cleanup": {
+        "evidence_to_classify": "Independent execution-operator evidence under admitted OS controls.",
+        "pinned_support": "not_applicable",
+        "requirement": "out_of_scope"
+      },
+      "definition": {
+        "evidence_to_classify": "Documented or inspectable public operation at the exact approved revision, with applicable binding, ranges and generation.",
+        "pinned_support": "pending",
+        "requirement": "required"
+      },
+      "dynamic_target_without_evidence": {
+        "evidence_to_classify": "Source bytes provide insufficient evidence for this claim.",
+        "pinned_support": "not_applicable",
+        "requirement": "out_of_scope"
+      },
+      "effective_framework_semantics": {
+        "evidence_to_classify": "Source bytes provide insufficient evidence for this claim.",
+        "pinned_support": "not_applicable",
+        "requirement": "out_of_scope"
+      },
+      "generated_default_lookup": {
+        "evidence_to_classify": "Exact supported generated callable identity with declared origin and no invented definition range.",
+        "pinned_support": "pending",
+        "requirement": "conditional"
+      },
+      "historical_read": {
+        "evidence_to_classify": "Documented or inspectable public operation at the exact approved revision, with applicable binding, ranges and generation.",
+        "pinned_support": "pending",
+        "requirement": "conditional"
+      },
+      "immutable_capture": {
+        "evidence_to_classify": "Documented or inspectable public operation at the exact approved revision, with applicable binding, ranges and generation.",
+        "pinned_support": "pending",
+        "requirement": "conditional"
+      },
+      "impact": {
+        "evidence_to_classify": "Documented or inspectable public operation at the exact approved revision, with applicable binding, ranges and generation.",
+        "pinned_support": "pending",
+        "requirement": "conditional"
+      },
+      "live_freshness": {
+        "evidence_to_classify": "Documented or inspectable public operation at the exact approved revision, with applicable binding, ranges and generation.",
+        "pinned_support": "pending",
+        "requirement": "conditional"
+      },
+      "os_containment": {
+        "evidence_to_classify": "Independent execution-operator evidence under admitted OS controls.",
+        "pinned_support": "not_applicable",
+        "requirement": "out_of_scope"
+      },
+      "overlapping_capture": {
+        "evidence_to_classify": "Admitted public interface can demonstrate ordered capture events and independently identify consumed bytes.",
+        "pinned_support": "pending",
+        "requirement": "conditional"
+      },
+      "pinned_consistency": {
+        "evidence_to_classify": "Documented or inspectable public operation at the exact approved revision, with applicable binding, ranges and generation.",
+        "pinned_support": "pending",
+        "requirement": "conditional"
+      },
+      "ranking": {
+        "evidence_to_classify": "Documented or inspectable public operation at the exact approved revision, with applicable binding, ranges and generation.",
+        "pinned_support": "pending",
+        "requirement": "conditional"
+      },
+      "references": {
+        "evidence_to_classify": "Documented or inspectable public operation at the exact approved revision, with applicable binding, ranges and generation.",
+        "pinned_support": "pending",
+        "requirement": "required"
+      },
+      "refresh": {
+        "evidence_to_classify": "Documented or inspectable public operation at the exact approved revision, with applicable binding, ranges and generation.",
+        "pinned_support": "pending",
+        "requirement": "required"
+      },
+      "resolution_limits": {
+        "evidence_to_classify": "Documented or inspectable public operation at the exact approved revision, with applicable binding, ranges and generation.",
+        "pinned_support": "pending",
+        "requirement": "conditional"
+      },
+      "runtime_observation": {
+        "evidence_to_classify": "Source bytes provide insufficient evidence for this claim.",
+        "pinned_support": "not_applicable",
+        "requirement": "out_of_scope"
+      },
+      "scoped_definition": {
+        "evidence_to_classify": "Documented or inspectable public operation at the exact approved revision, with applicable binding, ranges and generation.",
+        "pinned_support": "pending",
+        "requirement": "required"
+      },
+      "scoped_references": {
+        "evidence_to_classify": "Documented or inspectable public operation at the exact approved revision, with applicable binding, ranges and generation.",
+        "pinned_support": "pending",
+        "requirement": "conditional"
+      },
+      "source_ash": {
+        "evidence_to_classify": "Declared source text or structure with exact spans. A structured Ash operation must expose declaration-edge directions.",
+        "pinned_support": "pending",
+        "requirement": "conditional"
+      },
+      "source_config": {
+        "evidence_to_classify": "Declared source text or structure with exact spans. A structured Ash operation must expose declaration-edge directions.",
+        "pinned_support": "pending",
+        "requirement": "conditional"
+      },
+      "source_heex": {
+        "evidence_to_classify": "Declared source text or structure with exact spans. A structured Ash operation must expose declaration-edge directions.",
+        "pinned_support": "pending",
+        "requirement": "conditional"
+      },
+      "source_sql": {
+        "evidence_to_classify": "Declared source text or structure with exact spans. A structured Ash operation must expose declaration-edge directions.",
+        "pinned_support": "pending",
+        "requirement": "conditional"
+      },
+      "structural_export": {
+        "evidence_to_classify": "Documented or inspectable public operation at the exact approved revision, with applicable binding, ranges and generation.",
+        "pinned_support": "pending",
+        "requirement": "conditional"
+      },
+      "worktree_isolation": {
+        "evidence_to_classify": "Documented or inspectable public operation at the exact approved revision, with applicable binding, ranges and generation.",
+        "pinned_support": "pending",
+        "requirement": "required"
+      }
+    },
+    "Dexterity": {
+      "bounded_map": {
+        "evidence_to_classify": "Documented or inspectable public operation at the exact approved revision, with applicable binding, ranges and generation.",
+        "pinned_support": "pending",
+        "requirement": "required"
+      },
+      "clause_lookup": {
+        "evidence_to_classify": "Exact ordered clause set with separate clause IDs and a shared function identity.",
+        "pinned_support": "pending",
+        "requirement": "conditional"
+      },
+      "cleanup": {
+        "evidence_to_classify": "Independent execution-operator evidence under admitted OS controls.",
+        "pinned_support": "not_applicable",
+        "requirement": "out_of_scope"
+      },
+      "definition": {
+        "evidence_to_classify": "Documented or inspectable public operation at the exact approved revision, with applicable binding, ranges and generation.",
+        "pinned_support": "pending",
+        "requirement": "required"
+      },
+      "dynamic_target_without_evidence": {
+        "evidence_to_classify": "Source bytes provide insufficient evidence for this claim.",
+        "pinned_support": "not_applicable",
+        "requirement": "out_of_scope"
+      },
+      "effective_framework_semantics": {
+        "evidence_to_classify": "Source bytes provide insufficient evidence for this claim.",
+        "pinned_support": "not_applicable",
+        "requirement": "out_of_scope"
+      },
+      "generated_default_lookup": {
+        "evidence_to_classify": "Exact supported generated callable identity with declared origin and no invented definition range.",
+        "pinned_support": "pending",
+        "requirement": "conditional"
+      },
+      "historical_read": {
+        "evidence_to_classify": "Documented or inspectable public operation at the exact approved revision, with applicable binding, ranges and generation.",
+        "pinned_support": "pending",
+        "requirement": "conditional"
+      },
+      "immutable_capture": {
+        "evidence_to_classify": "Documented or inspectable public operation at the exact approved revision, with applicable binding, ranges and generation.",
+        "pinned_support": "pending",
+        "requirement": "required"
+      },
+      "impact": {
+        "evidence_to_classify": "Documented or inspectable public operation at the exact approved revision, with applicable binding, ranges and generation.",
+        "pinned_support": "pending",
+        "requirement": "required"
+      },
+      "live_freshness": {
+        "evidence_to_classify": "Documented or inspectable public operation at the exact approved revision, with applicable binding, ranges and generation.",
+        "pinned_support": "pending",
+        "requirement": "required"
+      },
+      "os_containment": {
+        "evidence_to_classify": "Independent execution-operator evidence under admitted OS controls.",
+        "pinned_support": "not_applicable",
+        "requirement": "out_of_scope"
+      },
+      "overlapping_capture": {
+        "evidence_to_classify": "Admitted public interface can demonstrate ordered capture events and independently identify consumed bytes.",
+        "pinned_support": "pending",
+        "requirement": "conditional"
+      },
+      "pinned_consistency": {
+        "evidence_to_classify": "Documented or inspectable public operation at the exact approved revision, with applicable binding, ranges and generation.",
+        "pinned_support": "pending",
+        "requirement": "required"
+      },
+      "ranking": {
+        "evidence_to_classify": "Documented or inspectable public operation at the exact approved revision, with applicable binding, ranges and generation.",
+        "pinned_support": "pending",
+        "requirement": "required"
+      },
+      "references": {
+        "evidence_to_classify": "Documented or inspectable public operation at the exact approved revision, with applicable binding, ranges and generation.",
+        "pinned_support": "pending",
+        "requirement": "required"
+      },
+      "refresh": {
+        "evidence_to_classify": "Documented or inspectable public operation at the exact approved revision, with applicable binding, ranges and generation.",
+        "pinned_support": "pending",
+        "requirement": "required"
+      },
+      "resolution_limits": {
+        "evidence_to_classify": "Documented or inspectable public operation at the exact approved revision, with applicable binding, ranges and generation.",
+        "pinned_support": "pending",
+        "requirement": "conditional"
+      },
+      "runtime_observation": {
+        "evidence_to_classify": "Source bytes provide insufficient evidence for this claim.",
+        "pinned_support": "not_applicable",
+        "requirement": "out_of_scope"
+      },
+      "scoped_definition": {
+        "evidence_to_classify": "Documented or inspectable public operation at the exact approved revision, with applicable binding, ranges and generation.",
+        "pinned_support": "pending",
+        "requirement": "required"
+      },
+      "scoped_references": {
+        "evidence_to_classify": "Documented or inspectable public operation at the exact approved revision, with applicable binding, ranges and generation.",
+        "pinned_support": "pending",
+        "requirement": "conditional"
+      },
+      "source_ash": {
+        "evidence_to_classify": "Declared source text or structure with exact spans. A structured Ash operation must expose declaration-edge directions.",
+        "pinned_support": "pending",
+        "requirement": "conditional"
+      },
+      "source_config": {
+        "evidence_to_classify": "Declared source text or structure with exact spans. A structured Ash operation must expose declaration-edge directions.",
+        "pinned_support": "pending",
+        "requirement": "conditional"
+      },
+      "source_heex": {
+        "evidence_to_classify": "Declared source text or structure with exact spans. A structured Ash operation must expose declaration-edge directions.",
+        "pinned_support": "pending",
+        "requirement": "conditional"
+      },
+      "source_sql": {
+        "evidence_to_classify": "Declared source text or structure with exact spans. A structured Ash operation must expose declaration-edge directions.",
+        "pinned_support": "pending",
+        "requirement": "conditional"
+      },
+      "structural_export": {
+        "evidence_to_classify": "Documented or inspectable public operation at the exact approved revision, with applicable binding, ranges and generation.",
+        "pinned_support": "pending",
+        "requirement": "required"
+      },
+      "worktree_isolation": {
+        "evidence_to_classify": "Documented or inspectable public operation at the exact approved revision, with applicable binding, ranges and generation.",
+        "pinned_support": "pending",
+        "requirement": "required"
+      }
+    },
+    "direct_read": {
+      "bounded_map": {
+        "evidence_to_classify": "This operation needs generation, backend output or operator evidence beyond the lexical baseline.",
+        "pinned_support": "not_applicable",
+        "requirement": "out_of_scope"
+      },
+      "clause_lookup": {
+        "evidence_to_classify": "Manual inspection of exact source bytes, file ranges and declared lexical bindings.",
+        "pinned_support": "not_applicable",
+        "requirement": "required"
+      },
+      "cleanup": {
+        "evidence_to_classify": "Independent execution-operator evidence under admitted OS controls.",
+        "pinned_support": "not_applicable",
+        "requirement": "out_of_scope"
+      },
+      "definition": {
+        "evidence_to_classify": "Manual inspection of exact source bytes, file ranges and declared lexical bindings.",
+        "pinned_support": "not_applicable",
+        "requirement": "required"
+      },
+      "dynamic_target_without_evidence": {
+        "evidence_to_classify": "Source bytes provide insufficient evidence for this claim.",
+        "pinned_support": "not_applicable",
+        "requirement": "out_of_scope"
+      },
+      "effective_framework_semantics": {
+        "evidence_to_classify": "Source bytes provide insufficient evidence for this claim.",
+        "pinned_support": "not_applicable",
+        "requirement": "out_of_scope"
+      },
+      "generated_default_lookup": {
+        "evidence_to_classify": "This operation needs generation, backend output or operator evidence beyond the lexical baseline.",
+        "pinned_support": "not_applicable",
+        "requirement": "out_of_scope"
+      },
+      "historical_read": {
+        "evidence_to_classify": "Manual inspection of exact source bytes, file ranges and declared lexical bindings.",
+        "pinned_support": "not_applicable",
+        "requirement": "required"
+      },
+      "immutable_capture": {
+        "evidence_to_classify": "This operation needs generation, backend output or operator evidence beyond the lexical baseline.",
+        "pinned_support": "not_applicable",
+        "requirement": "out_of_scope"
+      },
+      "impact": {
+        "evidence_to_classify": "This operation needs generation, backend output or operator evidence beyond the lexical baseline.",
+        "pinned_support": "not_applicable",
+        "requirement": "out_of_scope"
+      },
+      "live_freshness": {
+        "evidence_to_classify": "This operation needs generation, backend output or operator evidence beyond the lexical baseline.",
+        "pinned_support": "not_applicable",
+        "requirement": "out_of_scope"
+      },
+      "os_containment": {
+        "evidence_to_classify": "Independent execution-operator evidence under admitted OS controls.",
+        "pinned_support": "not_applicable",
+        "requirement": "out_of_scope"
+      },
+      "overlapping_capture": {
+        "evidence_to_classify": "This operation needs generation, backend output or operator evidence beyond the lexical baseline.",
+        "pinned_support": "not_applicable",
+        "requirement": "out_of_scope"
+      },
+      "pinned_consistency": {
+        "evidence_to_classify": "This operation needs generation, backend output or operator evidence beyond the lexical baseline.",
+        "pinned_support": "not_applicable",
+        "requirement": "out_of_scope"
+      },
+      "ranking": {
+        "evidence_to_classify": "This operation needs generation, backend output or operator evidence beyond the lexical baseline.",
+        "pinned_support": "not_applicable",
+        "requirement": "out_of_scope"
+      },
+      "references": {
+        "evidence_to_classify": "Manual inspection of exact source bytes, file ranges and declared lexical bindings.",
+        "pinned_support": "not_applicable",
+        "requirement": "required"
+      },
+      "refresh": {
+        "evidence_to_classify": "This operation needs generation, backend output or operator evidence beyond the lexical baseline.",
+        "pinned_support": "not_applicable",
+        "requirement": "out_of_scope"
+      },
+      "resolution_limits": {
+        "evidence_to_classify": "Manual inspection of exact source bytes, file ranges and declared lexical bindings.",
+        "pinned_support": "not_applicable",
+        "requirement": "required"
+      },
+      "runtime_observation": {
+        "evidence_to_classify": "Source bytes provide insufficient evidence for this claim.",
+        "pinned_support": "not_applicable",
+        "requirement": "out_of_scope"
+      },
+      "scoped_definition": {
+        "evidence_to_classify": "Manual inspection of exact source bytes, file ranges and declared lexical bindings.",
+        "pinned_support": "not_applicable",
+        "requirement": "required"
+      },
+      "scoped_references": {
+        "evidence_to_classify": "Manual inspection of exact source bytes, file ranges and declared lexical bindings.",
+        "pinned_support": "not_applicable",
+        "requirement": "required"
+      },
+      "source_ash": {
+        "evidence_to_classify": "Manual inspection of exact source bytes, file ranges and declared lexical bindings.",
+        "pinned_support": "not_applicable",
+        "requirement": "required"
+      },
+      "source_config": {
+        "evidence_to_classify": "Manual inspection of exact source bytes, file ranges and declared lexical bindings.",
+        "pinned_support": "not_applicable",
+        "requirement": "required"
+      },
+      "source_heex": {
+        "evidence_to_classify": "Manual inspection of exact source bytes, file ranges and declared lexical bindings.",
+        "pinned_support": "not_applicable",
+        "requirement": "required"
+      },
+      "source_sql": {
+        "evidence_to_classify": "Manual inspection of exact source bytes, file ranges and declared lexical bindings.",
+        "pinned_support": "not_applicable",
+        "requirement": "required"
+      },
+      "structural_export": {
+        "evidence_to_classify": "This operation needs generation, backend output or operator evidence beyond the lexical baseline.",
+        "pinned_support": "not_applicable",
+        "requirement": "out_of_scope"
+      },
+      "worktree_isolation": {
+        "evidence_to_classify": "This operation needs generation, backend output or operator evidence beyond the lexical baseline.",
+        "pinned_support": "not_applicable",
+        "requirement": "out_of_scope"
+      }
+    }
+  },
+  "cases": [
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "spans": [
+              "exact.module"
+            ],
+            "symbol": "exact"
+          },
+          "id": "D01.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "definition",
+          "outcome": "positive",
+          "query": {
+            "symbol": "exact"
+          },
+          "scoring_bucket": "exact_definition"
+        }
+      ],
+      "id": "D01"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "forbidden_spans": [
+              "same1"
+            ],
+            "spans": [
+              "same0"
+            ],
+            "symbol": "same0"
+          },
+          "id": "D02.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "definition",
+          "outcome": "positive",
+          "query": {
+            "symbol": "same0"
+          },
+          "scoring_bucket": "exact_definition"
+        }
+      ],
+      "id": "D02"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "forbidden_spans": [
+              "same0"
+            ],
+            "spans": [
+              "same1"
+            ],
+            "symbol": "same1"
+          },
+          "id": "D03.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "definition",
+          "outcome": "positive",
+          "query": {
+            "symbol": "same1"
+          },
+          "scoring_bucket": "exact_definition"
+        }
+      ],
+      "id": "D03"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "forbidden_claims": [
+              "public export"
+            ],
+            "spans": [
+              "local"
+            ],
+            "symbol": "local",
+            "visibility": "private"
+          },
+          "id": "D04.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "definition",
+          "outcome": "positive",
+          "query": {
+            "symbol": "local"
+          },
+          "scoring_bucket": "exact_definition"
+        }
+      ],
+      "id": "D04"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "clauses": [
+              {
+                "function": "choose",
+                "id": "choose:red",
+                "span": "choose-red"
+              },
+              {
+                "function": "choose",
+                "id": "choose:other",
+                "span": "choose-other"
+              }
+            ],
+            "forbidden_claims": [
+              "extra clause span",
+              "separate function identities"
+            ],
+            "symbol": "choose"
+          },
+          "id": "D05.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "clause_lookup",
+          "outcome": "positive",
+          "query": {
+            "symbol": "choose"
+          },
+          "scoring_bucket": "exact_definition"
+        }
+      ],
+      "id": "D05"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "declared_arity": 2,
+            "default_span": "greet.default",
+            "spans": [
+              "greet"
+            ],
+            "symbol": "greet"
+          },
+          "id": "D06.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "definition",
+          "outcome": "positive",
+          "query": {
+            "symbol": "greet"
+          },
+          "scoring_bucket": "exact_definition"
+        }
+      ],
+      "id": "D06"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "forbidden_claims": [
+              "definition span for greet/1"
+            ],
+            "origin": "greet.default",
+            "origin_declaration": "greet",
+            "symbol": "greet-generated"
+          },
+          "id": "D07.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "generated_default_lookup",
+          "outcome": "positive",
+          "query": {
+            "symbol": "greet-generated"
+          },
+          "scoring_bucket": "exact_definition"
+        }
+      ],
+      "id": "D07"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "exact_results": [],
+            "forbidden_identity": "P0.Exact.greet/0"
+          },
+          "id": "D08.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "definition",
+          "outcome": "forbidden",
+          "query": {
+            "arity": 0,
+            "generation_binding": "observed generation for W0/G0",
+            "qualified_name": "P0.Exact.greet",
+            "universe": "W0/G0 alpha/production exact definitions"
+          },
+          "scoring_bucket": "exact_absence"
+        }
+      ],
+      "id": "D08"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "direction": "source_to_target",
+            "kind": "calls",
+            "site": "outer.site",
+            "source": "outer",
+            "target": "same0"
+          },
+          "id": "R01.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "references",
+          "outcome": "positive",
+          "query": {
+            "generation_binding": "observed generation for W0/G0",
+            "path": "apps/alpha/lib/p0/refs.ex",
+            "selector": {
+              "binding_span": "outer.binding",
+              "callable_span": "outer",
+              "module_span": "outer.module",
+              "reference_span": "outer.site"
+            },
+            "source": "outer",
+            "universe": "all claimed exact edges at the selected source site"
+          },
+          "scoring_bucket": "reference_positive"
+        },
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "forbid_every_exact_edge_except": {
+              "direction": "source_to_target",
+              "kind": "calls",
+              "site": "outer.site",
+              "source": "outer",
+              "target": "same0"
+            },
+            "forbidden_direction": "target_to_source",
+            "forbidden_kinds": [
+              "delegates_to",
+              "implements"
+            ],
+            "forbidden_targets": [
+              "alternate",
+              "same1"
+            ]
+          },
+          "id": "R01.2",
+          "matching_policy": "match all expected evidence",
+          "operation": "references",
+          "outcome": "forbidden",
+          "query": {
+            "generation_binding": "observed generation for W0/G0",
+            "path": "apps/alpha/lib/p0/refs.ex",
+            "selector": {
+              "binding_span": "outer.binding",
+              "callable_span": "outer",
+              "module_span": "outer.module",
+              "reference_span": "outer.site"
+            },
+            "source": "outer",
+            "universe": "all claimed exact edges at the selected source site"
+          },
+          "scoring_bucket": "reference_guard"
+        }
+      ],
+      "id": "R01"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "direction": "source_to_target",
+            "kind": "calls",
+            "site": "inner.site",
+            "source": "inner",
+            "target": "alternate"
+          },
+          "id": "R02.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "references",
+          "outcome": "positive",
+          "query": {
+            "generation_binding": "observed generation for W0/G0",
+            "path": "apps/alpha/lib/p0/refs.ex",
+            "selector": {
+              "binding_span": "inner.binding",
+              "callable_span": "inner",
+              "module_span": "inner.module",
+              "reference_span": "inner.site"
+            },
+            "source": "inner",
+            "universe": "all claimed exact edges at the selected source site"
+          },
+          "scoring_bucket": "reference_positive"
+        },
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "forbid_every_exact_edge_except": {
+              "direction": "source_to_target",
+              "kind": "calls",
+              "site": "inner.site",
+              "source": "inner",
+              "target": "alternate"
+            },
+            "forbidden_direction": "target_to_source",
+            "forbidden_kinds": [
+              "delegates_to",
+              "implements"
+            ],
+            "forbidden_targets": [
+              "same0",
+              "same1"
+            ]
+          },
+          "id": "R02.2",
+          "matching_policy": "match all expected evidence",
+          "operation": "references",
+          "outcome": "forbidden",
+          "query": {
+            "generation_binding": "observed generation for W0/G0",
+            "path": "apps/alpha/lib/p0/refs.ex",
+            "selector": {
+              "binding_span": "inner.binding",
+              "callable_span": "inner",
+              "module_span": "inner.module",
+              "reference_span": "inner.site"
+            },
+            "source": "inner",
+            "universe": "all claimed exact edges at the selected source site"
+          },
+          "scoring_bucket": "reference_guard"
+        }
+      ],
+      "id": "R02"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "direction": "source_to_target",
+            "kind": "calls",
+            "site": "accepted.site",
+            "source": "accepted",
+            "target": "same1"
+          },
+          "id": "R03.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "references",
+          "outcome": "positive",
+          "query": {
+            "generation_binding": "observed generation for W0/G0",
+            "path": "apps/alpha/lib/p0/refs.ex",
+            "selector": {
+              "binding_span": "import.binding",
+              "callable_span": "accepted",
+              "module_span": "import.module",
+              "reference_span": "accepted.site"
+            },
+            "source": "accepted",
+            "universe": "all claimed exact edges at the selected source site"
+          },
+          "scoring_bucket": "reference_positive"
+        },
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "forbid_every_exact_edge_except": {
+              "direction": "source_to_target",
+              "kind": "calls",
+              "site": "accepted.site",
+              "source": "accepted",
+              "target": "same1"
+            },
+            "forbidden_direction": "target_to_source",
+            "forbidden_kinds": [
+              "delegates_to",
+              "implements"
+            ],
+            "forbidden_targets": [
+              "same0"
+            ]
+          },
+          "id": "R03.2",
+          "matching_policy": "match all expected evidence",
+          "operation": "references",
+          "outcome": "forbidden",
+          "query": {
+            "generation_binding": "observed generation for W0/G0",
+            "path": "apps/alpha/lib/p0/refs.ex",
+            "selector": {
+              "binding_span": "import.binding",
+              "callable_span": "accepted",
+              "module_span": "import.module",
+              "reference_span": "accepted.site"
+            },
+            "source": "accepted",
+            "universe": "all claimed exact edges at the selected source site"
+          },
+          "scoring_bucket": "reference_guard"
+        }
+      ],
+      "id": "R03"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "allowed_resolutions": [
+              "unresolved"
+            ],
+            "forbidden_claims": [
+              "any exact target"
+            ],
+            "forbidden_targets": [
+              "same0",
+              "same1"
+            ]
+          },
+          "id": "R04.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "references",
+          "outcome": "unresolved",
+          "query": {
+            "generation_binding": "observed generation for W0/G0",
+            "path": "apps/alpha/lib/p0/refs.ex",
+            "selector": {
+              "binding_span": "import.binding",
+              "callable_span": "excluded",
+              "module_span": "import.module",
+              "reference_span": "excluded.site"
+            },
+            "source": "excluded",
+            "universe": "all claimed exact edges at the selected W0/G0 alpha/production source site"
+          },
+          "scoring_bucket": "reference_negative"
+        }
+      ],
+      "id": "R04"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "direction": "source_to_target",
+            "kind": "delegates_to",
+            "site": "echo.site",
+            "source": "echo",
+            "target": "same1"
+          },
+          "id": "R05.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "references",
+          "outcome": "positive",
+          "query": {
+            "generation_binding": "observed generation for W0/G0",
+            "path": "apps/alpha/lib/p0/refs.ex",
+            "selector": {
+              "binding_span": "echo",
+              "callable_span": "echo",
+              "module_span": "proxy.module",
+              "reference_span": "echo.site"
+            },
+            "source": "echo",
+            "universe": "all claimed exact edges at the selected source site"
+          },
+          "scoring_bucket": "reference_positive"
+        },
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "forbid_every_exact_edge_except": {
+              "direction": "source_to_target",
+              "kind": "delegates_to",
+              "site": "echo.site",
+              "source": "echo",
+              "target": "same1"
+            },
+            "forbidden_direction": "target_to_source",
+            "forbidden_kinds": [
+              "calls",
+              "implements"
+            ],
+            "forbidden_targets": [
+              "same0"
+            ]
+          },
+          "id": "R05.2",
+          "matching_policy": "match all expected evidence",
+          "operation": "references",
+          "outcome": "forbidden",
+          "query": {
+            "generation_binding": "observed generation for W0/G0",
+            "path": "apps/alpha/lib/p0/refs.ex",
+            "selector": {
+              "binding_span": "echo",
+              "callable_span": "echo",
+              "module_span": "proxy.module",
+              "reference_span": "echo.site"
+            },
+            "source": "echo",
+            "universe": "all claimed exact edges at the selected source site"
+          },
+          "scoring_bucket": "reference_guard"
+        }
+      ],
+      "id": "R05"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "direction": "source_to_target",
+            "kind": "implements",
+            "site": "shade.site",
+            "source": "shade",
+            "target": "callback"
+          },
+          "id": "R06.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "references",
+          "outcome": "positive",
+          "query": {
+            "generation_binding": "observed generation for W0/G0",
+            "path": "apps/alpha/lib/p0/refs.ex",
+            "selector": {
+              "binding_span": "palette.binding",
+              "callable_span": "shade",
+              "module_span": "palette.module",
+              "reference_span": "shade.site"
+            },
+            "source": "shade",
+            "universe": "all claimed exact edges at the selected source site"
+          },
+          "scoring_bucket": "reference_positive"
+        },
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "forbid_every_exact_edge_except": {
+              "direction": "source_to_target",
+              "kind": "implements",
+              "site": "shade.site",
+              "source": "shade",
+              "target": "callback"
+            },
+            "forbidden_direction": "target_to_source",
+            "forbidden_kinds": [
+              "calls",
+              "delegates_to"
+            ],
+            "forbidden_targets": []
+          },
+          "id": "R06.2",
+          "matching_policy": "match all expected evidence",
+          "operation": "references",
+          "outcome": "forbidden",
+          "query": {
+            "generation_binding": "observed generation for W0/G0",
+            "path": "apps/alpha/lib/p0/refs.ex",
+            "selector": {
+              "binding_span": "palette.binding",
+              "callable_span": "shade",
+              "module_span": "palette.module",
+              "reference_span": "shade.site"
+            },
+            "source": "shade",
+            "universe": "all claimed exact edges at the selected source site"
+          },
+          "scoring_bucket": "reference_guard"
+        }
+      ],
+      "id": "R06"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "allowed_resolutions": [
+              "exact"
+            ],
+            "exact_symbol": "shared.alpha",
+            "forbidden_symbols": [
+              "shared.beta",
+              "shared.alpha-test"
+            ]
+          },
+          "id": "U01.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "scoped_definition",
+          "outcome": "positive",
+          "query": {
+            "app": "alpha",
+            "arity": 0,
+            "context": "production",
+            "path": "apps/alpha/lib/p0/shared.ex",
+            "qualified_name": "P0.Shared.marker"
+          },
+          "scoring_bucket": "gate"
+        }
+      ],
+      "id": "U01"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "beta",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "allowed_resolutions": [
+              "exact"
+            ],
+            "exact_symbol": "shared.beta",
+            "forbidden_symbols": [
+              "shared.alpha",
+              "shared.alpha-test"
+            ]
+          },
+          "id": "U02.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "scoped_definition",
+          "outcome": "positive",
+          "query": {
+            "app": "beta",
+            "arity": 0,
+            "context": "production",
+            "path": "apps/beta/lib/p0/shared.ex",
+            "qualified_name": "P0.Shared.marker"
+          },
+          "scoring_bucket": "gate"
+        }
+      ],
+      "id": "U02"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "test",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "allowed_resolutions": [
+              "exact",
+              "ambiguous",
+              "unsupported"
+            ],
+            "exact_symbol": "shared.alpha-test",
+            "forbidden_symbols": [
+              "shared.alpha",
+              "shared.beta"
+            ]
+          },
+          "id": "U03.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "scoped_definition",
+          "outcome": "positive",
+          "query": {
+            "app": "alpha",
+            "arity": 0,
+            "context": "test",
+            "path": "apps/alpha/test/support/p0/shared.ex",
+            "qualified_name": "P0.Shared.marker"
+          },
+          "scoring_bucket": "gate"
+        }
+      ],
+      "id": "U03"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "allowed_resolutions": [
+              "ambiguous"
+            ],
+            "candidate_symbols": [
+              "shared.alpha",
+              "shared.beta",
+              "shared.alpha-test"
+            ],
+            "forbidden_claims": [
+              "exact selection",
+              "merged definition"
+            ],
+            "require_candidate_set_when_supported": true
+          },
+          "id": "U04.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "scoped_definition",
+          "outcome": "unresolved",
+          "query": {
+            "arity": 0,
+            "qualified_name": "P0.Shared.marker",
+            "universe": "all three G0 shared declarations"
+          },
+          "scoring_bucket": "gate"
+        },
+        {
+          "binding": {
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "allowed_exact_edges": [
+              {
+                "direction": "source_to_target",
+                "kind": "calls",
+                "site": "caller.alpha.site",
+                "source": "caller.alpha",
+                "target": "shared.alpha"
+              },
+              {
+                "direction": "source_to_target",
+                "kind": "calls",
+                "site": "caller.beta.site",
+                "source": "caller.beta",
+                "target": "shared.beta"
+              }
+            ],
+            "forbidden_claims": [
+              "exact edge without caller binding",
+              "cross-app exact edge",
+              "test-context substitution"
+            ],
+            "origins": [
+              {
+                "reference_span": "caller.alpha.site",
+                "requires": "caller app binding evidence",
+                "source": "caller.alpha"
+              },
+              {
+                "reference_span": "caller.beta.site",
+                "requires": "caller app binding evidence",
+                "source": "caller.beta"
+              }
+            ]
+          },
+          "id": "U04.2",
+          "matching_policy": "match all expected evidence",
+          "operation": "scoped_references",
+          "outcome": "positive",
+          "query": {
+            "universe": "both production caller sites"
+          },
+          "scoring_bucket": "gate"
+        }
+      ],
+      "id": "U04"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "allowed_resolutions": [
+              "dynamic",
+              "unresolved"
+            ],
+            "arity_hint": 0,
+            "forbidden_claims": [
+              "exact callable target",
+              "exact generated export"
+            ]
+          },
+          "id": "Y01.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "resolution_limits",
+          "outcome": "unresolved",
+          "query": {
+            "reference_span": "by-name.site",
+            "source": "by-name"
+          },
+          "scoring_bucket": "gate"
+        }
+      ],
+      "id": "Y01"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "allowed_resolutions": [
+              "dynamic",
+              "unresolved"
+            ],
+            "arity_hint": 1,
+            "forbidden_claims": [
+              "exact callable target",
+              "exact generated export"
+            ]
+          },
+          "id": "Y02.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "resolution_limits",
+          "outcome": "unresolved",
+          "query": {
+            "reference_span": "by-fun.site",
+            "source": "by-fun"
+          },
+          "scoring_bucket": "gate"
+        }
+      ],
+      "id": "Y02"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "allowed_resolutions": [
+              "dynamic",
+              "unresolved",
+              "module_candidate"
+            ],
+            "arity_hint": 0,
+            "forbidden_claims": [
+              "exact callable target",
+              "exact generated export"
+            ],
+            "module_candidate": "catalog"
+          },
+          "id": "Y03.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "resolution_limits",
+          "outcome": "unresolved",
+          "query": {
+            "reference_span": "from-catalog.site",
+            "source": "from-catalog"
+          },
+          "scoring_bucket": "gate"
+        }
+      ],
+      "id": "Y03"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "allowed_resolutions": [
+              "candidate",
+              "unresolved"
+            ],
+            "arity_hint": 0,
+            "forbidden_claims": [
+              "exact callable target",
+              "exact generated export"
+            ],
+            "requested_identity": "P0.Catalog.list_colors/0",
+            "source_association": {
+              "declared_edges": [
+                {
+                  "direction": "source_to_target",
+                  "kind": "declares_action",
+                  "site": "color.action",
+                  "source": "color",
+                  "target": "read-action"
+                },
+                {
+                  "direction": "source_to_target",
+                  "kind": "binds_action",
+                  "site": "catalog.define",
+                  "source": "list-interface",
+                  "target": "read-action"
+                }
+              ],
+              "spans": [
+                "color.module",
+                "catalog.module",
+                "color.action",
+                "catalog.resource",
+                "catalog.define"
+              ]
+            }
+          },
+          "id": "Y04.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "resolution_limits",
+          "outcome": "unresolved",
+          "query": {
+            "reference_span": "generated.site",
+            "source": "generated"
+          },
+          "scoring_bucket": "gate"
+        }
+      ],
+      "id": "Y04"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "declared_edges": [
+              {
+                "direction": "source_to_target",
+                "kind": "declares_action",
+                "site": "color.action",
+                "source": "color",
+                "target": "read-action"
+              },
+              {
+                "direction": "source_to_target",
+                "kind": "binds_action",
+                "site": "catalog.define",
+                "source": "list-interface",
+                "target": "read-action"
+              }
+            ],
+            "forbidden_claims": [
+              "generated export",
+              "effective policy",
+              "observed invocation"
+            ],
+            "require_directions_when_structure_supported": true,
+            "spans": [
+              "color.module",
+              "catalog.module",
+              "color.action",
+              "catalog.resource",
+              "catalog.define"
+            ]
+          },
+          "id": "F01.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "source_ash",
+          "outcome": "positive",
+          "query": {
+            "declaration_spans": [
+              "color.module",
+              "catalog.module",
+              "color.action",
+              "catalog.resource",
+              "catalog.define"
+            ]
+          },
+          "scoring_bucket": "gate"
+        }
+      ],
+      "id": "F01"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "forbidden_claims": [
+              "exact function edge from assign",
+              "exact component edge from assign"
+            ],
+            "spans": [
+              "panel.tag",
+              "panel.assign"
+            ]
+          },
+          "id": "F02.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "source_heex",
+          "outcome": "positive",
+          "query": {
+            "text": "<p id=\"p0-color\">{@color}</p>"
+          },
+          "scoring_bucket": "gate"
+        }
+      ],
+      "id": "F02"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "forbidden_claims": [
+              "database state",
+              "executed query"
+            ],
+            "spans": [
+              "sql.statement",
+              "sql.table"
+            ]
+          },
+          "id": "F03.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "source_sql",
+          "outcome": "positive",
+          "query": {
+            "identifier": "p0_colors"
+          },
+          "scoring_bucket": "gate"
+        }
+      ],
+      "id": "F03"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "umbrella",
+            "context": "config",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "declared_value": ":blue",
+            "forbidden_claims": [
+              "effective runtime configuration"
+            ],
+            "spans": [
+              "config.declaration",
+              "config.app",
+              "config.key",
+              "config.value"
+            ]
+          },
+          "id": "F04.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "source_config",
+          "outcome": "positive",
+          "query": {
+            "key": ":palette"
+          },
+          "scoring_bucket": "gate"
+        }
+      ],
+      "id": "F04"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "b9e8d94bd79f2d5fe7010e62d7c1758366b310ab2be157ecbc3e16825c28da2f",
+            "state": "G-edit",
+            "worktree": "W0"
+          },
+          "expected": {
+            "edge": {
+              "direction": "source_to_target",
+              "kind": "calls",
+              "site": "consumer.after.site",
+              "source": "consumer.after",
+              "target": "after"
+            },
+            "symbol": "after"
+          },
+          "id": "M01.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "refresh",
+          "outcome": "positive",
+          "query": {
+            "recipe": "edit"
+          },
+          "scoring_bucket": "gate"
+        },
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "b9e8d94bd79f2d5fe7010e62d7c1758366b310ab2be157ecbc3e16825c28da2f",
+            "state": "G-edit",
+            "worktree": "W0"
+          },
+          "expected": {
+            "forbidden_edge": {
+              "direction": "source_to_target",
+              "kind": "calls",
+              "site": "consumer.before.site",
+              "source": "consumer.before",
+              "target": "before"
+            },
+            "forbidden_symbol": "before"
+          },
+          "id": "M01.2",
+          "matching_policy": "match all expected evidence",
+          "operation": "refresh",
+          "outcome": "forbidden",
+          "query": {
+            "universe": "current G-edit lifecycle definitions and incident edges"
+          },
+          "scoring_bucket": "gate"
+        },
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "edge": {
+              "direction": "source_to_target",
+              "kind": "calls",
+              "site": "consumer.before.site",
+              "source": "consumer.before",
+              "target": "before"
+            },
+            "symbol": "before"
+          },
+          "id": "M01.3",
+          "matching_policy": "match all expected evidence",
+          "operation": "historical_read",
+          "outcome": "positive",
+          "query": {
+            "capture": "immutable G0"
+          },
+          "scoring_bucket": "gate"
+        }
+      ],
+      "id": "M01"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "feb3db86f0ef302577b1f58bc296d55e788d14ba444eed4f0f55d3e995c80116",
+            "state": "G-delete",
+            "worktree": "W0"
+          },
+          "expected": {
+            "allowed_resolutions": [
+              "unresolved",
+              "external"
+            ],
+            "forbidden_claims": [
+              "exact edge to a current in-repo symbol"
+            ],
+            "forbidden_definition": "retired",
+            "reference_span": "retired-ref.deleted.site"
+          },
+          "id": "M02.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "refresh",
+          "outcome": "unresolved",
+          "query": {
+            "recipe": "delete",
+            "universe": "G-delete current fixture definitions and the retired reference site"
+          },
+          "scoring_bucket": "gate"
+        },
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "edge": {
+              "direction": "source_to_target",
+              "kind": "calls",
+              "site": "retired-ref.base.site",
+              "source": "retired-ref.base",
+              "target": "retired"
+            },
+            "symbol": "retired"
+          },
+          "id": "M02.2",
+          "matching_policy": "match all expected evidence",
+          "operation": "historical_read",
+          "outcome": "positive",
+          "query": {
+            "capture": "immutable G0"
+          },
+          "scoring_bucket": "gate"
+        }
+      ],
+      "id": "M02"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "4a842e230d0f0447f85d0539ba141b80c568623240fbaef3b70b8b0a6d4e9844",
+            "state": "G-rename",
+            "worktree": "W0"
+          },
+          "expected": {
+            "edge": {
+              "direction": "source_to_target",
+              "kind": "calls",
+              "site": "moved-ref.new.site",
+              "source": "moved-ref.new",
+              "target": "moved.new"
+            },
+            "forbidden_current_path": "apps/alpha/lib/p0/move_me.ex",
+            "preserve_identity_of": "moved.old",
+            "symbol": "moved.new"
+          },
+          "id": "M03.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "refresh",
+          "outcome": "positive",
+          "query": {
+            "recipe": "rename",
+            "universe": "G-rename definitions and the moved reference site"
+          },
+          "scoring_bucket": "gate"
+        }
+      ],
+      "id": "M03"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "2129448d3dcf61f9cc4ad9a8b05aa8ecc3367f795bc583bb2927bb57f9dc8825",
+            "state": "G-broken",
+            "worktree": "W0"
+          },
+          "expected": {
+            "allow_unaffected_evidence_when_supported": true,
+            "allowed_dispositions": [
+              "partial",
+              "rejected"
+            ],
+            "diagnostic": "invalid_source",
+            "diagnostic_span": "broken.head",
+            "forbidden_current_path_evidence_from": "G0:apps/alpha/lib/p0/lifecycle.ex"
+          },
+          "id": "M04.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "refresh",
+          "outcome": "positive",
+          "query": {
+            "recipe": "break",
+            "universe": "G-broken lifecycle evidence"
+          },
+          "scoring_bucket": "gate"
+        }
+      ],
+      "id": "M04"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G-recovered",
+            "worktree": "W0"
+          },
+          "expected": {
+            "distinct_observation_events": [
+              "baseline",
+              "broken_attempt",
+              "recovery"
+            ],
+            "distinct_publications_if_observed": [
+              "baseline",
+              "recovery"
+            ],
+            "edge": {
+              "direction": "source_to_target",
+              "kind": "calls",
+              "site": "consumer.recovered.site",
+              "source": "consumer.recovered",
+              "target": "recovered"
+            },
+            "forbidden_current_diagnostic": "invalid_source at apps/alpha/lib/p0/lifecycle.ex",
+            "record_backend_generations_separately": true,
+            "rejected_broken_attempt_has_publication": false,
+            "required_source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "symbol": "recovered"
+          },
+          "id": "M05.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "refresh",
+          "outcome": "positive",
+          "query": {
+            "sequence": [
+              "break",
+              "recover"
+            ]
+          },
+          "scoring_bucket": "gate"
+        }
+      ],
+      "id": "M05"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "exact_edges": [
+              {
+                "direction": "source_to_target",
+                "kind": "calls",
+                "site": "graph.entry.site",
+                "source": "graph.entry",
+                "target": "graph.mid"
+              },
+              {
+                "direction": "source_to_target",
+                "kind": "calls",
+                "site": "graph.mid.site",
+                "source": "graph.mid",
+                "target": "graph.leaf"
+              }
+            ],
+            "forbidden_source_target_pairs": [
+              [
+                "graph.mid",
+                "graph.entry"
+              ],
+              [
+                "graph.leaf",
+                "graph.mid"
+              ],
+              [
+                "graph.entry",
+                "graph.leaf"
+              ]
+            ],
+            "record": [
+              "graph_owner",
+              "schema",
+              "generation"
+            ],
+            "symbols": [
+              "graph.entry",
+              "graph.mid",
+              "graph.leaf"
+            ]
+          },
+          "id": "S01.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "structural_export",
+          "outcome": "positive",
+          "query": {
+            "universe": "P0.Graph functions and calls"
+          },
+          "scoring_bucket": "gate"
+        },
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "compare_projection": [
+              "entities",
+              "edges",
+              "evidence"
+            ],
+            "exclude_from_projection": [
+              "volatile run metadata"
+            ],
+            "repeat_count": 2,
+            "retain_raw": true
+          },
+          "id": "S01.2",
+          "matching_policy": "match all expected evidence",
+          "operation": "structural_export",
+          "outcome": "positive",
+          "query": {
+            "capture": "same immutable G0"
+          },
+          "scoring_bucket": "gate"
+        }
+      ],
+      "id": "S01"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "ahead_of_if_returned": "noise",
+            "maximum_rank": 3,
+            "symbol": "graph.leaf"
+          },
+          "id": "S02.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "ranking",
+          "outcome": "positive",
+          "query": {
+            "text": "P0.Graph.leaf/0 p0orchidmarker"
+          },
+          "scoring_bucket": "gate"
+        },
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "encoding_evidence": "exact local implementation and encoding data under admission",
+            "fallback": "record bytes and characters; token-cap PASS unavailable",
+            "proposed_encoding": "o200k_base",
+            "proposed_max_tokens": 1200,
+            "require_generation_binding": true,
+            "span": "graph.leaf",
+            "symbol": "graph.leaf"
+          },
+          "id": "S02.2",
+          "matching_policy": "match all expected evidence",
+          "operation": "bounded_map",
+          "outcome": "positive",
+          "query": {
+            "limit_scope": "entire model-facing map",
+            "module": "P0.Graph"
+          },
+          "scoring_bucket": "gate"
+        }
+      ],
+      "id": "S02"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "direct": [
+              "graph.mid"
+            ],
+            "excluded": [
+              "noise"
+            ],
+            "forbidden_direct": [
+              "graph.entry"
+            ],
+            "paths": [
+              {
+                "direction": "source_to_target",
+                "kind": "calls",
+                "site": "graph.entry.site",
+                "source": "graph.entry",
+                "target": "graph.mid"
+              },
+              {
+                "direction": "source_to_target",
+                "kind": "calls",
+                "site": "graph.mid.site",
+                "source": "graph.mid",
+                "target": "graph.leaf"
+              }
+            ],
+            "transitive_only": [
+              "graph.entry"
+            ]
+          },
+          "id": "S03.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "impact",
+          "outcome": "positive",
+          "query": {
+            "depths": [
+              1,
+              2
+            ],
+            "direction": "incoming",
+            "target": "graph.leaf"
+          },
+          "scoring_bucket": "gate"
+        },
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "direct": [
+              "graph.mid"
+            ],
+            "excluded": [
+              "noise"
+            ],
+            "paths": [
+              {
+                "direction": "source_to_target",
+                "kind": "calls",
+                "site": "graph.entry.site",
+                "source": "graph.entry",
+                "target": "graph.mid"
+              },
+              {
+                "direction": "source_to_target",
+                "kind": "calls",
+                "site": "graph.mid.site",
+                "source": "graph.mid",
+                "target": "graph.leaf"
+              }
+            ],
+            "transitive_only": [
+              "graph.leaf"
+            ]
+          },
+          "id": "S03.2",
+          "matching_policy": "match all expected evidence",
+          "operation": "impact",
+          "outcome": "positive",
+          "query": {
+            "depths": [
+              1,
+              2
+            ],
+            "direction": "outgoing",
+            "target": "graph.entry"
+          },
+          "scoring_bucket": "gate"
+        }
+      ],
+      "id": "S03"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "forbidden_path": "apps/alpha/lib/p0/untracked_note.ex",
+            "repeat_count": 2,
+            "require_equal": [
+              "source_id",
+              "normalized evidence"
+            ]
+          },
+          "id": "G01.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "immutable_capture",
+          "outcome": "positive",
+          "query": {
+            "capture": "identical immutable G0 inputs"
+          },
+          "scoring_bucket": "gate"
+        },
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "93e8642fe488d8290e6f47fe0ce7fba4bc17a84bb33f614eda3f873f28888fd7",
+            "state": "G-untracked",
+            "worktree": "W0"
+          },
+          "expected": {
+            "different_source_id_from": "G0",
+            "evidence_present_only_in": "G-untracked",
+            "same_materialization_base_commit": true,
+            "symbol": "untracked"
+          },
+          "id": "G01.2",
+          "matching_policy": "match all expected evidence",
+          "operation": "immutable_capture",
+          "outcome": "positive",
+          "query": {
+            "recipe": "include-untracked"
+          },
+          "scoring_bucket": "gate"
+        }
+      ],
+      "id": "G01"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "allowed_results": [
+              "only pinned G0 evidence",
+              "cannot guarantee consistency"
+            ],
+            "forbidden_claims": [
+              "mixed graph",
+              "fresh at delivery"
+            ]
+          },
+          "id": "G02.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "pinned_consistency",
+          "outcome": "positive",
+          "query": {
+            "order": [
+              "pin G0 reader",
+              "record barrier",
+              "replace-graph",
+              "observe pinned result"
+            ]
+          },
+          "scoring_bucket": "gate"
+        },
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "9820e8ec57ecd7148e8af5e31d194ee6cc5d82e5a995aa9c20072dc4ae43b7e2",
+            "state": "G-concurrent",
+            "worktree": "W0"
+          },
+          "expected": {
+            "forbidden_claims": [
+              "fresh at delivery"
+            ],
+            "required_evidence": [
+              "scope",
+              "time",
+              "method",
+              "manifest"
+            ],
+            "status": "changed_since_check"
+          },
+          "id": "G02.2",
+          "matching_policy": "match all expected evidence",
+          "operation": "live_freshness",
+          "outcome": "positive",
+          "query": {
+            "check": "later live check against G0"
+          },
+          "scoring_bucket": "gate"
+        },
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "9820e8ec57ecd7148e8af5e31d194ee6cc5d82e5a995aa9c20072dc4ae43b7e2",
+            "state": "G-concurrent",
+            "worktree": "W0"
+          },
+          "expected": {
+            "edge": {
+              "direction": "source_to_target",
+              "kind": "calls",
+              "site": "graph.mid.concurrent.site",
+              "source": "graph.mid.concurrent",
+              "target": "graph.bud.concurrent"
+            },
+            "forbidden_current_symbol": "graph.leaf",
+            "symbol": "graph.bud.concurrent"
+          },
+          "id": "G02.3",
+          "matching_policy": "match all expected evidence",
+          "operation": "immutable_capture",
+          "outcome": "positive",
+          "query": {
+            "capture": "immutable G-concurrent"
+          },
+          "scoring_bucket": "gate"
+        }
+      ],
+      "id": "G02"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "distinct_event_ids": true,
+            "forbidden_claims": [
+              "complete publication",
+              "whole-worktree freshness based on partial checks"
+            ],
+            "freshness_if_unestablished": "unknown",
+            "missing_order_or_consumed_byte_evidence": "NOT RUN",
+            "ordered_trace": [
+              {
+                "event": "precheck",
+                "sha256": "d408df2825fe692c3a931c4d1693c523435eff428164fec62e29517563dfc2f9",
+                "then": "pause before file consumption"
+              },
+              {
+                "event": "replace",
+                "recipe": "replace-graph",
+                "sha256": "8b2c56a30f41b9ae99553c19504b82ac3093545dfb09ae5d0480594e107be984"
+              },
+              {
+                "event": "consume",
+                "independent_observation": true,
+                "sha256": "8b2c56a30f41b9ae99553c19504b82ac3093545dfb09ae5d0480594e107be984",
+                "then": "pause before end check or publication"
+              },
+              {
+                "event": "restore",
+                "recipe": "restore-graph",
+                "sha256": "d408df2825fe692c3a931c4d1693c523435eff428164fec62e29517563dfc2f9"
+              },
+              {
+                "event": "end_check",
+                "sha256": "d408df2825fe692c3a931c4d1693c523435eff428164fec62e29517563dfc2f9"
+              },
+              {
+                "allowed": [
+                  "incomplete",
+                  "rejected"
+                ],
+                "event": "disposition"
+              }
+            ],
+            "same_live_capture": true
+          },
+          "id": "G03.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "overlapping_capture",
+          "outcome": "positive",
+          "query": {
+            "path": "apps/alpha/lib/p0/graph.ex"
+          },
+          "scoring_bucket": "gate"
+        },
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "single_manifest_per_result": true
+          },
+          "id": "G03.2",
+          "matching_policy": "match all expected evidence",
+          "operation": "immutable_capture",
+          "outcome": "positive",
+          "query": {
+            "capture": "immutable G0"
+          },
+          "scoring_bucket": "gate"
+        }
+      ],
+      "id": "G03"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "allowed_read": "in-scope fixture source",
+            "boundary_review": [
+              "parent paths",
+              "symlinks",
+              "dependency allowances",
+              "standard-library allowances"
+            ],
+            "canary_input": "variants/canary.txt",
+            "expected_denials": [
+              "out-of-scope synthetic canary read",
+              "out-of-scope scratch write"
+            ],
+            "require_unchanged": [
+              "fixture bytes",
+              "out-of-scope bytes"
+            ]
+          },
+          "id": "C01.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "os_containment",
+          "outcome": "positive",
+          "query": {
+            "observations": "admitted operator-designated controls"
+          },
+          "scoring_bucket": "gate"
+        },
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "require_independent_evidence": [
+              "OS-enforced no fixture evaluation",
+              "analysis egress denied"
+            ]
+          },
+          "id": "C01.2",
+          "matching_policy": "match all expected evidence",
+          "operation": "os_containment",
+          "outcome": "positive",
+          "query": {
+            "observations": "admitted operator-approved checks"
+          },
+          "scoring_bucket": "gate"
+        }
+      ],
+      "id": "C01"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "forbidden": [
+              "foreign generation IDs",
+              "foreign paths",
+              "foreign content"
+            ],
+            "order": [
+              "W0",
+              "W1",
+              "W0"
+            ],
+            "require_distinct_ranges_and_digests": true,
+            "separate": [
+              "state",
+              "cache",
+              "IPC"
+            ],
+            "symbols": [
+              "same0",
+              "same0.w1",
+              "same0"
+            ]
+          },
+          "id": "C02.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "worktree_isolation",
+          "outcome": "positive",
+          "query": {
+            "recipe": "worktree-b",
+            "states": [
+              "G0",
+              "G-worktree-b",
+              "G0"
+            ],
+            "symbol": "P0.Exact.same/0"
+          },
+          "scoring_bucket": "gate"
+        },
+        {
+          "binding": {
+            "app": "alpha",
+            "context": "production",
+            "repository": "sfci-p0-synthetic",
+            "source_id": "c3ba65c720aa13486b8e7f878f9c08886e68fad6d36afb061eb741f8530a7486",
+            "state": "G-worktree-b",
+            "worktree": "W1"
+          },
+          "expected": {
+            "forbidden_in_W1": "retired",
+            "require_independent_os_boundary_evidence": true,
+            "required_in_W0": "retired"
+          },
+          "id": "C02.2",
+          "matching_policy": "match all expected evidence",
+          "operation": "worktree_isolation",
+          "outcome": "positive",
+          "query": {
+            "universe": "W0/G0 and W1/G-worktree-b current in-repo definitions"
+          },
+          "scoring_bucket": "gate"
+        }
+      ],
+      "id": "C02"
+    },
+    {
+      "assertions": [
+        {
+          "binding": {
+            "repository": "sfci-p0-synthetic",
+            "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+            "state": "G0",
+            "worktree": "W0"
+          },
+          "expected": {
+            "after_termination": [
+              "independently empty worker tree",
+              "released IPC",
+              "owned state removed or approved for retention"
+            ],
+            "blocks_positive_security": [
+              "unexpected execution",
+              "egress",
+              "residue",
+              "unverifiable cleanup"
+            ],
+            "lifecycles": [
+              "normal",
+              "interrupted"
+            ],
+            "record_owned": [
+              "worker tree",
+              "IPC",
+              "daemon",
+              "staging",
+              "cache"
+            ],
+            "stop_policy": "SF-CI-P0-001 v0.3 §6, including quarantine"
+          },
+          "id": "C03.1",
+          "matching_policy": "match all expected evidence",
+          "operation": "cleanup",
+          "outcome": "positive",
+          "query": {
+            "observations": "admitted bounded-worker lifecycle"
+          },
+          "scoring_bucket": "gate"
+        }
+      ],
+      "id": "C03"
+    }
+  ],
+  "groups": {
+    "exact": {
+      "assertions": [
+        "D01.1",
+        "D02.1",
+        "D03.1",
+        "D04.1",
+        "D05.1",
+        "D06.1",
+        "D07.1",
+        "D08.1"
+      ],
+      "cases": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08"
+      ]
+    },
+    "formats": {
+      "assertions": [
+        "F01.1",
+        "F02.1",
+        "F03.1",
+        "F04.1"
+      ],
+      "cases": [
+        "F01",
+        "F02",
+        "F03",
+        "F04"
+      ]
+    },
+    "generation": {
+      "assertions": [
+        "G01.1",
+        "G01.2",
+        "G02.1",
+        "G02.2",
+        "G02.3",
+        "G03.1",
+        "G03.2"
+      ],
+      "cases": [
+        "G01",
+        "G02",
+        "G03"
+      ]
+    },
+    "references": {
+      "assertions": [
+        "R01.1",
+        "R01.2",
+        "R02.1",
+        "R02.2",
+        "R03.1",
+        "R03.2",
+        "R04.1",
+        "R05.1",
+        "R05.2",
+        "R06.1",
+        "R06.2"
+      ],
+      "cases": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06"
+      ]
+    },
+    "refresh": {
+      "assertions": [
+        "M01.1",
+        "M01.2",
+        "M01.3",
+        "M02.1",
+        "M02.2",
+        "M03.1",
+        "M04.1",
+        "M05.1"
+      ],
+      "cases": [
+        "M01",
+        "M02",
+        "M03",
+        "M04",
+        "M05"
+      ]
+    },
+    "resolution_limits": {
+      "assertions": [
+        "Y01.1",
+        "Y02.1",
+        "Y03.1",
+        "Y04.1"
+      ],
+      "cases": [
+        "Y01",
+        "Y02",
+        "Y03",
+        "Y04"
+      ]
+    },
+    "scope": {
+      "assertions": [
+        "U01.1",
+        "U02.1",
+        "U03.1",
+        "U04.1",
+        "U04.2"
+      ],
+      "cases": [
+        "U01",
+        "U02",
+        "U03",
+        "U04"
+      ]
+    },
+    "security": {
+      "assertions": [
+        "C01.1",
+        "C01.2",
+        "C02.1",
+        "C02.2",
+        "C03.1"
+      ],
+      "cases": [
+        "C01",
+        "C02",
+        "C03"
+      ]
+    },
+    "structure": {
+      "assertions": [
+        "S01.1",
+        "S01.2",
+        "S02.1",
+        "S02.2",
+        "S03.1",
+        "S03.2"
+      ],
+      "cases": [
+        "S01",
+        "S02",
+        "S03"
+      ]
+    }
+  },
+  "schema_version": 1,
+  "scoring": {
+    "adequacy": {
+      "fail": "Apply observed failures even if coverage is incomplete.",
+      "not_run": "No usable observations or required ratio undefined.",
+      "partial": "Usable observations with essential gaps or missing applicable mandatory assertions and no independent failure; report missing IDs.",
+      "report_subset_counts": true,
+      "separate_gate_pass": "Every applicable required assertion needs its own passing evidence.",
+      "supported_attempt_without_expected_positive": "miss"
+    },
+    "exact_absence": {
+      "allowed_reports": [
+        "0/1",
+        "1/1",
+        "NOT RUN"
+      ],
+      "contributes_to_positive_accuracy": false,
+      "eligible": [
+        "D08.1"
+      ],
+      "false_exact_result": "FAIL",
+      "unobserved": "incomplete"
+    },
+    "exact_definition": {
+      "eligible": [
+        "D01.1",
+        "D02.1",
+        "D03.1",
+        "D04.1",
+        "D05.1",
+        "D06.1",
+        "D07.1"
+      ],
+      "essential": [
+        "D01.1",
+        "D02.1",
+        "D03.1",
+        "D04.1",
+        "D06.1"
+      ],
+      "mandatory_when_supported": [
+        "D05.1",
+        "D07.1"
+      ],
+      "pass_percent": 100,
+      "reporting": "correct positives over supported positive IDs; D05.1 is all-or-nothing"
+    },
+    "references": {
+      "edge_key": [
+        "binding",
+        "generation",
+        "direction",
+        "kind",
+        "source_identity",
+        "target_identity",
+        "reference_span"
+      ],
+      "eligible": [
+        "R01.1",
+        "R02.1",
+        "R03.1",
+        "R05.1",
+        "R06.1"
+      ],
+      "essential": [
+        "R01.1",
+        "R02.1",
+        "R03.1",
+        "R05.1",
+        "R06.1"
+      ],
+      "essential_negative": [
+        "R04.1"
+      ],
+      "fn": "Count each missing supported expected edge, including displacement by a wrong edge and abstention.",
+      "fp": "Count extra or wrong exact edges within the frozen site universes, including falsely promoted unresolved or unsupported sites claimed exact.",
+      "guards": [
+        "R01.2",
+        "R02.2",
+        "R03.2",
+        "R05.2",
+        "R06.2"
+      ],
+      "negative_credit": 0,
+      "precision": "TP/(TP+FP)",
+      "precision_percent": 98,
+      "recall": "TP/(TP+FN)",
+      "recall_percent": 90,
+      "report": [
+        "TP",
+        "FP",
+        "FN",
+        "precision",
+        "recall",
+        "supported IDs",
+        "correct negatives",
+        "unresolved",
+        "abstentions",
+        "unsupported coverage",
+        "execution gaps"
+      ],
+      "tp": "Count each matching normalized edge once.",
+      "universe_ids": [
+        "R01.1",
+        "R02.1",
+        "R03.1",
+        "R04.1",
+        "R05.1",
+        "R06.1"
+      ]
+    },
+    "separate_gates": {
+      "formats": [
+        "F01.1",
+        "F02.1",
+        "F03.1",
+        "F04.1"
+      ],
+      "generation": [
+        "G01.1",
+        "G01.2",
+        "G02.1",
+        "G02.2",
+        "G02.3",
+        "G03.1",
+        "G03.2"
+      ],
+      "refresh": [
+        "M01.1",
+        "M01.2",
+        "M01.3",
+        "M02.1",
+        "M02.2",
+        "M03.1",
+        "M04.1",
+        "M05.1"
+      ],
+      "resolution_limits": [
+        "Y01.1",
+        "Y02.1",
+        "Y03.1",
+        "Y04.1"
+      ],
+      "scope": [
+        "U01.1",
+        "U02.1",
+        "U03.1",
+        "U04.1",
+        "U04.2"
+      ],
+      "security": [
+        "C01.1",
+        "C01.2",
+        "C02.1",
+        "C02.2",
+        "C03.1"
+      ],
+      "structure": [
+        "S01.1",
+        "S01.2",
+        "S02.1",
+        "S02.2",
+        "S03.1",
+        "S03.2"
+      ]
+    },
+    "support_freeze": {
+      "bind_to": [
+        "manifest SHA-256",
+        "expectations SHA-256",
+        "accepted corpus hashes"
+      ],
+      "owner_issue": "SFCI-5",
+      "pending_satisfies_admission": false,
+      "record_membership_evidence_and_exclusion_reasons": true,
+      "require_independent_review": true,
+      "required_before": "any qualification output",
+      "required_unsupported": "coverage_gap",
+      "results_driven_relabelling": false,
+      "separate_for": [
+        "admitted primary",
+        "permitted fallback"
+      ]
+    },
+    "thresholds_ratification": "SF-CI-P0-001 v0.3 §5A; operator ratification pending"
+  },
+  "source_manifest_sha256": "a03266a242f3d1c50592f4f4fc3c975392c16f6b9e63b6890faffeed64bc60fe",
+  "spans": {
+    "accepted": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 339,
+      "excerpt": "def accepted(value), do: same(value)",
+      "excerpt_sha256": "37ef236cdc3cc9bd12e30b957431c914c0fa8c98cf8029a8e95f664d08137331",
+      "file_sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+      "line": 20,
+      "path": "apps/alpha/lib/p0/refs.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 303,
+      "state": "G0",
+      "within": "import.module",
+      "worktree": "W0"
+    },
+    "accepted.body": {
+      "app": "alpha",
+      "byte_column": 24,
+      "context": "production",
+      "end_byte": 339,
+      "excerpt": "do: same(value)",
+      "excerpt_sha256": "7482ec7825539e127cc68776f02dbbfaad5864ff880e311d17c99a183d29e4ab",
+      "file_sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+      "line": 20,
+      "path": "apps/alpha/lib/p0/refs.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "expression",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 324,
+      "state": "G0",
+      "within": "accepted",
+      "worktree": "W0"
+    },
+    "accepted.site": {
+      "app": "alpha",
+      "byte_column": 28,
+      "context": "production",
+      "end_byte": 339,
+      "excerpt": "same(value)",
+      "excerpt_sha256": "b9001982f55d381c2f748c757873d9386ce88889a28888adde7421045b88c101",
+      "file_sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+      "line": 20,
+      "path": "apps/alpha/lib/p0/refs.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "reference_site",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 328,
+      "state": "G0",
+      "within": "accepted.body",
+      "worktree": "W0"
+    },
+    "after": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 56,
+      "excerpt": "def after_edit(), do: :after",
+      "excerpt_sha256": "bb3e47a665828451fea7b2bc7b32a763bba4679b68698c505269c5e8693097c7",
+      "file_sha256": "4eb0b377c3b62f6946beb4691114fc6d92a14aae0fe6c10d7ae60e53602d8276",
+      "line": 2,
+      "path": "apps/alpha/lib/p0/lifecycle.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "b9e8d94bd79f2d5fe7010e62d7c1758366b310ab2be157ecbc3e16825c28da2f",
+      "start_byte": 28,
+      "state": "G-edit",
+      "worktree": "W0"
+    },
+    "alternate": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 234,
+      "excerpt": "def same(), do: :alternate",
+      "excerpt_sha256": "f00d71ab9f43352763771dfb971b3c04b2bdba153be0248617dac25db3136d52",
+      "file_sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+      "line": 14,
+      "path": "apps/alpha/lib/p0/refs.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 208,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "before": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 58,
+      "excerpt": "def before_edit(), do: :before",
+      "excerpt_sha256": "0c5892819cfc566ba5028dc77963162191c5df414bc760e4c36167a19c9d866e",
+      "file_sha256": "7e6a965d95ce88a2b2fab271d368defe94c00ff01ace3c4f17cd8d6113d2941d",
+      "line": 2,
+      "path": "apps/alpha/lib/p0/lifecycle.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 28,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "broken.head": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 44,
+      "excerpt": "def before_edit(",
+      "excerpt_sha256": "3dfab6910d3b754559a69016dbe69320c6a07e8ca44f8286bd8ac123e781329f",
+      "file_sha256": "98fc113421680a1c188e2d43ea51ad8209efe5d64e4640241288b53971158302",
+      "line": 2,
+      "path": "apps/alpha/lib/p0/lifecycle.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "invalid_source",
+      "source_id": "2129448d3dcf61f9cc4ad9a8b05aa8ecc3367f795bc583bb2927bb57f9dc8825",
+      "start_byte": 28,
+      "state": "G-broken",
+      "worktree": "W0"
+    },
+    "broken.module": {
+      "app": "alpha",
+      "byte_column": 1,
+      "context": "production",
+      "end_byte": 25,
+      "excerpt": "defmodule P0.Lifecycle do",
+      "excerpt_sha256": "8bde25b11503c6cd9e8363efdc3d6c9e69170c9a31c4855ab4df1898a62af955",
+      "file_sha256": "98fc113421680a1c188e2d43ea51ad8209efe5d64e4640241288b53971158302",
+      "line": 1,
+      "path": "apps/alpha/lib/p0/lifecycle.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "2129448d3dcf61f9cc4ad9a8b05aa8ecc3367f795bc583bb2927bb57f9dc8825",
+      "start_byte": 0,
+      "state": "G-broken",
+      "worktree": "W0"
+    },
+    "by-fun": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 115,
+      "excerpt": "def by_fun(fun), do: fun.(:blue)",
+      "excerpt_sha256": "69dc1b010835ae942137301d48b12949045cb698db71120f6d5d5f2112605b79",
+      "file_sha256": "13d9793e7376afae60ba14a5d7c51fa7f6770becbfba256092bce85997dfe7de",
+      "line": 3,
+      "path": "apps/alpha/lib/p0/dynamic.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 83,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "by-fun.site": {
+      "app": "alpha",
+      "byte_column": 24,
+      "context": "production",
+      "end_byte": 115,
+      "excerpt": "fun.(:blue)",
+      "excerpt_sha256": "7302b50c15b142009926150ac10708bdbebb9f8749cc2c727a0ffc7e619d7bb2",
+      "file_sha256": "13d9793e7376afae60ba14a5d7c51fa7f6770becbfba256092bce85997dfe7de",
+      "line": 3,
+      "path": "apps/alpha/lib/p0/dynamic.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "reference_site",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 104,
+      "state": "G0",
+      "within": "by-fun",
+      "worktree": "W0"
+    },
+    "by-name": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 80,
+      "excerpt": "def by_name(module, name), do: apply(module, name, [])",
+      "excerpt_sha256": "b9e9932c4b460910fa92326528895c9a0afaae343d4e3d0bd182daf5665f0ef5",
+      "file_sha256": "13d9793e7376afae60ba14a5d7c51fa7f6770becbfba256092bce85997dfe7de",
+      "line": 2,
+      "path": "apps/alpha/lib/p0/dynamic.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 26,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "by-name.site": {
+      "app": "alpha",
+      "byte_column": 34,
+      "context": "production",
+      "end_byte": 80,
+      "excerpt": "apply(module, name, [])",
+      "excerpt_sha256": "522d709038479e97d48b9a0c513b97f25438d9b40f64780d06eb1c803790659d",
+      "file_sha256": "13d9793e7376afae60ba14a5d7c51fa7f6770becbfba256092bce85997dfe7de",
+      "line": 2,
+      "path": "apps/alpha/lib/p0/dynamic.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "reference_site",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 57,
+      "state": "G0",
+      "within": "by-name",
+      "worktree": "W0"
+    },
+    "callback": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 60,
+      "excerpt": "@callback shade(atom()) :: atom()",
+      "excerpt_sha256": "2900a624533ae5d0643b5157b6913c48f49ca97af0afbe72ced6a93a1b3b07e8",
+      "file_sha256": "4a05fe0bbecdbdf7cc171f685f2cc7eeed66c08fe07007257c0cae5db8108178",
+      "line": 2,
+      "path": "apps/alpha/lib/p0/contract.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 27,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "caller.alpha": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 66,
+      "excerpt": "def marker(), do: P0.Shared.marker()",
+      "excerpt_sha256": "b1bbf3fbe93da10b6a54a02bdf393632457070a1bb710330b63d71a167015995",
+      "file_sha256": "649f40d489fce60f2a2f07ffabc16787762bb670d95427e3c997d07d621ee5f8",
+      "line": 2,
+      "path": "apps/alpha/lib/p0/shared_caller.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 30,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "caller.alpha.site": {
+      "app": "alpha",
+      "byte_column": 21,
+      "context": "production",
+      "end_byte": 66,
+      "excerpt": "P0.Shared.marker()",
+      "excerpt_sha256": "de636240bfab035f7c9f92350900dd3e1463537e75712ab5380efd11dcd58050",
+      "file_sha256": "649f40d489fce60f2a2f07ffabc16787762bb670d95427e3c997d07d621ee5f8",
+      "line": 2,
+      "path": "apps/alpha/lib/p0/shared_caller.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "reference_site",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 48,
+      "state": "G0",
+      "within": "caller.alpha",
+      "worktree": "W0"
+    },
+    "caller.beta": {
+      "app": "beta",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 65,
+      "excerpt": "def marker(), do: P0.Shared.marker()",
+      "excerpt_sha256": "b1bbf3fbe93da10b6a54a02bdf393632457070a1bb710330b63d71a167015995",
+      "file_sha256": "af3a8cef861ee8ce6a32e47274ddc0d27376da259f05687a142f3738dcedf280",
+      "line": 2,
+      "path": "apps/beta/lib/p0/shared_caller.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 29,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "caller.beta.site": {
+      "app": "beta",
+      "byte_column": 21,
+      "context": "production",
+      "end_byte": 65,
+      "excerpt": "P0.Shared.marker()",
+      "excerpt_sha256": "de636240bfab035f7c9f92350900dd3e1463537e75712ab5380efd11dcd58050",
+      "file_sha256": "af3a8cef861ee8ce6a32e47274ddc0d27376da259f05687a142f3738dcedf280",
+      "line": 2,
+      "path": "apps/beta/lib/p0/shared_caller.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "reference_site",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 47,
+      "state": "G0",
+      "within": "caller.beta",
+      "worktree": "W0"
+    },
+    "catalog.define": {
+      "app": "alpha",
+      "byte_column": 7,
+      "context": "production",
+      "end_byte": 223,
+      "excerpt": "define :list_colors, action: :read",
+      "excerpt_sha256": "abb5273277f524d42eed1c7e5d41c471f568c185c090d6c622f0230c3a62f3c9",
+      "file_sha256": "9227fabb38d1d0184869f1f67cfd8ba15c368ac2c31626f5076663e93d085e47",
+      "line": 14,
+      "path": "apps/alpha/lib/p0/resource.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 189,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "catalog.module": {
+      "app": "alpha",
+      "byte_column": 1,
+      "context": "production",
+      "end_byte": 124,
+      "excerpt": "defmodule P0.Catalog do",
+      "excerpt_sha256": "fde03dcf553a08b1a8352894d46e97f50377de7d4dcd9c4d5c06eceac0344710",
+      "file_sha256": "9227fabb38d1d0184869f1f67cfd8ba15c368ac2c31626f5076663e93d085e47",
+      "line": 9,
+      "path": "apps/alpha/lib/p0/resource.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 101,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "catalog.resource": {
+      "app": "alpha",
+      "byte_column": 5,
+      "context": "production",
+      "end_byte": 182,
+      "excerpt": "resource P0.Color do",
+      "excerpt_sha256": "2424c5f5a8a5e7b20e7951bde814f08c87d8a6b99e6ae3d265cbc0b7e349010e",
+      "file_sha256": "9227fabb38d1d0184869f1f67cfd8ba15c368ac2c31626f5076663e93d085e47",
+      "line": 13,
+      "path": "apps/alpha/lib/p0/resource.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "binding_declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 162,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "choose-other": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 180,
+      "excerpt": "def choose(value), do: local(value)",
+      "excerpt_sha256": "284f114ba0d0fb8f5bd262702e7af4e87a7adb6bc49d86f0b0841e12e53dee62",
+      "file_sha256": "4aa805d5bcc7ea6993ece9ce628a37c0d2690755ebcca8e3d7a2908154e4c2cd",
+      "line": 7,
+      "path": "apps/alpha/lib/p0/exact.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 145,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "choose-red": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 142,
+      "excerpt": "def choose(:red), do: local(:red)",
+      "excerpt_sha256": "43344d0b072f0b40f5e4d79aaad3da9a04199fda02f6d46e3a745c6941b27156",
+      "file_sha256": "4aa805d5bcc7ea6993ece9ce628a37c0d2690755ebcca8e3d7a2908154e4c2cd",
+      "line": 6,
+      "path": "apps/alpha/lib/p0/exact.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 109,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "color.action": {
+      "app": "alpha",
+      "byte_column": 5,
+      "context": "production",
+      "end_byte": 89,
+      "excerpt": "read :read",
+      "excerpt_sha256": "1dd4738a2f50cb3b6d2bffe3785bab02d81be18151db1756b29e7be5a36d7fff",
+      "file_sha256": "9227fabb38d1d0184869f1f67cfd8ba15c368ac2c31626f5076663e93d085e47",
+      "line": 5,
+      "path": "apps/alpha/lib/p0/resource.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 79,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "color.module": {
+      "app": "alpha",
+      "byte_column": 1,
+      "context": "production",
+      "end_byte": 21,
+      "excerpt": "defmodule P0.Color do",
+      "excerpt_sha256": "25b8570233280d4a1eef17d15783e8db2d0f0f9df103e108b0040182518b59ad",
+      "file_sha256": "9227fabb38d1d0184869f1f67cfd8ba15c368ac2c31626f5076663e93d085e47",
+      "line": 1,
+      "path": "apps/alpha/lib/p0/resource.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 0,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "config.app": {
+      "app": "umbrella",
+      "byte_column": 8,
+      "context": "config",
+      "end_byte": 28,
+      "excerpt": ":alpha",
+      "excerpt_sha256": "0cb404f41a6dcc2da4235eca661b1207b79cac3b361dd8b1d6d51a754c8e908c",
+      "file_sha256": "b3587774392f48b4873b529d8a93dfa0bf81abc8f991439564bf94fa9dddeed2",
+      "line": 3,
+      "path": "config/config.exs",
+      "repository": "sfci-p0-synthetic",
+      "role": "source_text",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 22,
+      "state": "G0",
+      "within": "config.declaration",
+      "worktree": "W0"
+    },
+    "config.declaration": {
+      "app": "umbrella",
+      "byte_column": 1,
+      "context": "config",
+      "end_byte": 45,
+      "excerpt": "config :alpha, :palette, :blue",
+      "excerpt_sha256": "3c588c43b08a80c55691e0ca0cccaeea5a043eaa1aa92a992f11792495b5e805",
+      "file_sha256": "b3587774392f48b4873b529d8a93dfa0bf81abc8f991439564bf94fa9dddeed2",
+      "line": 3,
+      "path": "config/config.exs",
+      "repository": "sfci-p0-synthetic",
+      "role": "source_text",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 15,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "config.key": {
+      "app": "umbrella",
+      "byte_column": 16,
+      "context": "config",
+      "end_byte": 38,
+      "excerpt": ":palette",
+      "excerpt_sha256": "1b70fc5c6eb8681d7efa1726c19a6865c0fdf719855b0a056eeb3425cd30488f",
+      "file_sha256": "b3587774392f48b4873b529d8a93dfa0bf81abc8f991439564bf94fa9dddeed2",
+      "line": 3,
+      "path": "config/config.exs",
+      "repository": "sfci-p0-synthetic",
+      "role": "source_text",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 30,
+      "state": "G0",
+      "within": "config.declaration",
+      "worktree": "W0"
+    },
+    "config.value": {
+      "app": "umbrella",
+      "byte_column": 26,
+      "context": "config",
+      "end_byte": 45,
+      "excerpt": ":blue",
+      "excerpt_sha256": "f05a45b66728bb761f399e5c8d6b186fc7119ffedf43595cf975cd5e2da95d82",
+      "file_sha256": "b3587774392f48b4873b529d8a93dfa0bf81abc8f991439564bf94fa9dddeed2",
+      "line": 3,
+      "path": "config/config.exs",
+      "repository": "sfci-p0-synthetic",
+      "role": "source_text",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 40,
+      "state": "G0",
+      "within": "config.declaration",
+      "worktree": "W0"
+    },
+    "consumer.after": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 91,
+      "excerpt": "def consumer(), do: after_edit()",
+      "excerpt_sha256": "1ef4c8d063ff260753e6de77471a60ab938d39522babf03398c5298052f388c7",
+      "file_sha256": "4eb0b377c3b62f6946beb4691114fc6d92a14aae0fe6c10d7ae60e53602d8276",
+      "line": 3,
+      "path": "apps/alpha/lib/p0/lifecycle.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "b9e8d94bd79f2d5fe7010e62d7c1758366b310ab2be157ecbc3e16825c28da2f",
+      "start_byte": 59,
+      "state": "G-edit",
+      "worktree": "W0"
+    },
+    "consumer.after.site": {
+      "app": "alpha",
+      "byte_column": 23,
+      "context": "production",
+      "end_byte": 91,
+      "excerpt": "after_edit()",
+      "excerpt_sha256": "13378b860dab991250336030b55c799b838e909a86590d83fd05f266a9a6b8cf",
+      "file_sha256": "4eb0b377c3b62f6946beb4691114fc6d92a14aae0fe6c10d7ae60e53602d8276",
+      "line": 3,
+      "path": "apps/alpha/lib/p0/lifecycle.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "reference_site",
+      "source_id": "b9e8d94bd79f2d5fe7010e62d7c1758366b310ab2be157ecbc3e16825c28da2f",
+      "start_byte": 79,
+      "state": "G-edit",
+      "within": "consumer.after",
+      "worktree": "W0"
+    },
+    "consumer.before": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 94,
+      "excerpt": "def consumer(), do: before_edit()",
+      "excerpt_sha256": "72154c98594143a6b50e5ff35bcc19cd0c59d71d7b55c87056ab1b986b3c8753",
+      "file_sha256": "7e6a965d95ce88a2b2fab271d368defe94c00ff01ace3c4f17cd8d6113d2941d",
+      "line": 3,
+      "path": "apps/alpha/lib/p0/lifecycle.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 61,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "consumer.before.site": {
+      "app": "alpha",
+      "byte_column": 23,
+      "context": "production",
+      "end_byte": 94,
+      "excerpt": "before_edit()",
+      "excerpt_sha256": "1321edc510c3b4b877176d60c5f1b9ee5422c23b6a651df08725a676f9e1c62b",
+      "file_sha256": "7e6a965d95ce88a2b2fab271d368defe94c00ff01ace3c4f17cd8d6113d2941d",
+      "line": 3,
+      "path": "apps/alpha/lib/p0/lifecycle.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "reference_site",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 81,
+      "state": "G0",
+      "within": "consumer.before",
+      "worktree": "W0"
+    },
+    "consumer.recovered": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 94,
+      "excerpt": "def consumer(), do: before_edit()",
+      "excerpt_sha256": "72154c98594143a6b50e5ff35bcc19cd0c59d71d7b55c87056ab1b986b3c8753",
+      "file_sha256": "7e6a965d95ce88a2b2fab271d368defe94c00ff01ace3c4f17cd8d6113d2941d",
+      "line": 3,
+      "path": "apps/alpha/lib/p0/lifecycle.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 61,
+      "state": "G-recovered",
+      "worktree": "W0"
+    },
+    "consumer.recovered.site": {
+      "app": "alpha",
+      "byte_column": 23,
+      "context": "production",
+      "end_byte": 94,
+      "excerpt": "before_edit()",
+      "excerpt_sha256": "1321edc510c3b4b877176d60c5f1b9ee5422c23b6a651df08725a676f9e1c62b",
+      "file_sha256": "7e6a965d95ce88a2b2fab271d368defe94c00ff01ace3c4f17cd8d6113d2941d",
+      "line": 3,
+      "path": "apps/alpha/lib/p0/lifecycle.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "reference_site",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 81,
+      "state": "G-recovered",
+      "within": "consumer.recovered",
+      "worktree": "W0"
+    },
+    "echo": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 446,
+      "excerpt": "defdelegate echo(value), to: P0.Exact, as: :same",
+      "excerpt_sha256": "adb0308201f290ae2b27ba566441e2871b22a6276daed1ba96bf52e00676215b",
+      "file_sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+      "line": 25,
+      "path": "apps/alpha/lib/p0/refs.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 398,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "echo.site": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 446,
+      "excerpt": "defdelegate echo(value), to: P0.Exact, as: :same",
+      "excerpt_sha256": "adb0308201f290ae2b27ba566441e2871b22a6276daed1ba96bf52e00676215b",
+      "file_sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+      "line": 25,
+      "path": "apps/alpha/lib/p0/refs.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "reference_site",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 398,
+      "state": "G0",
+      "within": "echo",
+      "worktree": "W0"
+    },
+    "exact.module": {
+      "app": "alpha",
+      "byte_column": 1,
+      "context": "production",
+      "end_byte": 21,
+      "excerpt": "defmodule P0.Exact do",
+      "excerpt_sha256": "e8db91020447e34bd6dfbd4a45a9ee05a9375fc9407c50fb3cd00cfc83d8e5c9",
+      "file_sha256": "4aa805d5bcc7ea6993ece9ce628a37c0d2690755ebcca8e3d7a2908154e4c2cd",
+      "line": 1,
+      "path": "apps/alpha/lib/p0/exact.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 0,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "excluded": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 368,
+      "excerpt": "def excluded(), do: same()",
+      "excerpt_sha256": "486e9b108ba44b0856e4fce5f290becba46a72301a64a57947516b615fdae08b",
+      "file_sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+      "line": 21,
+      "path": "apps/alpha/lib/p0/refs.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 342,
+      "state": "G0",
+      "within": "import.module",
+      "worktree": "W0"
+    },
+    "excluded.site": {
+      "app": "alpha",
+      "byte_column": 23,
+      "context": "production",
+      "end_byte": 368,
+      "excerpt": "same()",
+      "excerpt_sha256": "c477b6b406b5ddb4536dff79398994d0a60e095c390ad430ef22ffe0d895bb35",
+      "file_sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+      "line": 21,
+      "path": "apps/alpha/lib/p0/refs.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "reference_site",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 362,
+      "state": "G0",
+      "within": "excluded",
+      "worktree": "W0"
+    },
+    "from-catalog": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 173,
+      "excerpt": "def from_catalog(name), do: apply(P0.Catalog, name, [])",
+      "excerpt_sha256": "dbd5a845babf179fff02cc34b81c41f8b88cab6a3699d97a1ec4ba27893f7c06",
+      "file_sha256": "13d9793e7376afae60ba14a5d7c51fa7f6770becbfba256092bce85997dfe7de",
+      "line": 4,
+      "path": "apps/alpha/lib/p0/dynamic.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 118,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "from-catalog.site": {
+      "app": "alpha",
+      "byte_column": 31,
+      "context": "production",
+      "end_byte": 173,
+      "excerpt": "apply(P0.Catalog, name, [])",
+      "excerpt_sha256": "0a4d33331754d318b95009eea3ead3561da58f3efe4fbf2559549bf37475d4a0",
+      "file_sha256": "13d9793e7376afae60ba14a5d7c51fa7f6770becbfba256092bce85997dfe7de",
+      "line": 4,
+      "path": "apps/alpha/lib/p0/dynamic.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "reference_site",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 146,
+      "state": "G0",
+      "within": "from-catalog",
+      "worktree": "W0"
+    },
+    "generated": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 221,
+      "excerpt": "def generated(), do: P0.Catalog.list_colors()",
+      "excerpt_sha256": "f6ced36348823548ab6e791f691b19c0778e2990258f2768dabb749d1524a2f1",
+      "file_sha256": "13d9793e7376afae60ba14a5d7c51fa7f6770becbfba256092bce85997dfe7de",
+      "line": 5,
+      "path": "apps/alpha/lib/p0/dynamic.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 176,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "generated.site": {
+      "app": "alpha",
+      "byte_column": 24,
+      "context": "production",
+      "end_byte": 221,
+      "excerpt": "P0.Catalog.list_colors()",
+      "excerpt_sha256": "371ce5d19a0b5469292b3e1cdb1b2fdd61f3678b36b0e9349429c5ad969b9bdc",
+      "file_sha256": "13d9793e7376afae60ba14a5d7c51fa7f6770becbfba256092bce85997dfe7de",
+      "line": 5,
+      "path": "apps/alpha/lib/p0/dynamic.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "reference_site",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 197,
+      "state": "G0",
+      "within": "generated",
+      "worktree": "W0"
+    },
+    "graph.bud.concurrent": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 103,
+      "excerpt": "def bud(), do: \"p0orchidmarker\"",
+      "excerpt_sha256": "37196a389e557ed1aa2a69871dda549fbf24aa7ae7d0d47386e59cf158bf7d03",
+      "file_sha256": "8b2c56a30f41b9ae99553c19504b82ac3093545dfb09ae5d0480594e107be984",
+      "line": 4,
+      "path": "apps/alpha/lib/p0/graph.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "9820e8ec57ecd7148e8af5e31d194ee6cc5d82e5a995aa9c20072dc4ae43b7e2",
+      "start_byte": 72,
+      "state": "G-concurrent",
+      "worktree": "W0"
+    },
+    "graph.entry": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 46,
+      "excerpt": "def entry(), do: mid()",
+      "excerpt_sha256": "8cc871b2619fe090ad4b8c9fce0be3578f68bc4ef937fa8a122a2351ebd115b4",
+      "file_sha256": "d408df2825fe692c3a931c4d1693c523435eff428164fec62e29517563dfc2f9",
+      "line": 2,
+      "path": "apps/alpha/lib/p0/graph.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 24,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "graph.entry.concurrent": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 46,
+      "excerpt": "def entry(), do: mid()",
+      "excerpt_sha256": "8cc871b2619fe090ad4b8c9fce0be3578f68bc4ef937fa8a122a2351ebd115b4",
+      "file_sha256": "8b2c56a30f41b9ae99553c19504b82ac3093545dfb09ae5d0480594e107be984",
+      "line": 2,
+      "path": "apps/alpha/lib/p0/graph.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "9820e8ec57ecd7148e8af5e31d194ee6cc5d82e5a995aa9c20072dc4ae43b7e2",
+      "start_byte": 24,
+      "state": "G-concurrent",
+      "worktree": "W0"
+    },
+    "graph.entry.concurrent.site": {
+      "app": "alpha",
+      "byte_column": 20,
+      "context": "production",
+      "end_byte": 46,
+      "excerpt": "mid()",
+      "excerpt_sha256": "4ef5afb29c2dc464379cda88f8a394c965205affa58442ceae505f4d642f39b0",
+      "file_sha256": "8b2c56a30f41b9ae99553c19504b82ac3093545dfb09ae5d0480594e107be984",
+      "line": 2,
+      "path": "apps/alpha/lib/p0/graph.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "reference_site",
+      "source_id": "9820e8ec57ecd7148e8af5e31d194ee6cc5d82e5a995aa9c20072dc4ae43b7e2",
+      "start_byte": 41,
+      "state": "G-concurrent",
+      "within": "graph.entry.concurrent",
+      "worktree": "W0"
+    },
+    "graph.entry.site": {
+      "app": "alpha",
+      "byte_column": 20,
+      "context": "production",
+      "end_byte": 46,
+      "excerpt": "mid()",
+      "excerpt_sha256": "4ef5afb29c2dc464379cda88f8a394c965205affa58442ceae505f4d642f39b0",
+      "file_sha256": "d408df2825fe692c3a931c4d1693c523435eff428164fec62e29517563dfc2f9",
+      "line": 2,
+      "path": "apps/alpha/lib/p0/graph.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "reference_site",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 41,
+      "state": "G0",
+      "within": "graph.entry",
+      "worktree": "W0"
+    },
+    "graph.leaf": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 105,
+      "excerpt": "def leaf(), do: \"p0orchidmarker\"",
+      "excerpt_sha256": "0ad6f03401e31eebaec626122153732840edb8bd5942e446214f5b20923d95fa",
+      "file_sha256": "d408df2825fe692c3a931c4d1693c523435eff428164fec62e29517563dfc2f9",
+      "line": 4,
+      "path": "apps/alpha/lib/p0/graph.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 73,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "graph.mid": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 70,
+      "excerpt": "def mid(), do: leaf()",
+      "excerpt_sha256": "065ddb36e32d011003e8a7cc3a2920b224f775e076713afa605a0a5a29d529eb",
+      "file_sha256": "d408df2825fe692c3a931c4d1693c523435eff428164fec62e29517563dfc2f9",
+      "line": 3,
+      "path": "apps/alpha/lib/p0/graph.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 49,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "graph.mid.concurrent": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 69,
+      "excerpt": "def mid(), do: bud()",
+      "excerpt_sha256": "39e46c962083628cee5ff5103099cda83589f19b491a5e3e210ef18d8be4899c",
+      "file_sha256": "8b2c56a30f41b9ae99553c19504b82ac3093545dfb09ae5d0480594e107be984",
+      "line": 3,
+      "path": "apps/alpha/lib/p0/graph.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "9820e8ec57ecd7148e8af5e31d194ee6cc5d82e5a995aa9c20072dc4ae43b7e2",
+      "start_byte": 49,
+      "state": "G-concurrent",
+      "worktree": "W0"
+    },
+    "graph.mid.concurrent.site": {
+      "app": "alpha",
+      "byte_column": 18,
+      "context": "production",
+      "end_byte": 69,
+      "excerpt": "bud()",
+      "excerpt_sha256": "6af48df35d0d63346f9d11c07a8f95a13dad5294ddb1c6fac5479bd5e715bc1b",
+      "file_sha256": "8b2c56a30f41b9ae99553c19504b82ac3093545dfb09ae5d0480594e107be984",
+      "line": 3,
+      "path": "apps/alpha/lib/p0/graph.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "reference_site",
+      "source_id": "9820e8ec57ecd7148e8af5e31d194ee6cc5d82e5a995aa9c20072dc4ae43b7e2",
+      "start_byte": 64,
+      "state": "G-concurrent",
+      "within": "graph.mid.concurrent",
+      "worktree": "W0"
+    },
+    "graph.mid.site": {
+      "app": "alpha",
+      "byte_column": 18,
+      "context": "production",
+      "end_byte": 70,
+      "excerpt": "leaf()",
+      "excerpt_sha256": "7a5c3d835400ad026aeab63465d557a8576006c6a1f3993c4e1580edf50c048b",
+      "file_sha256": "d408df2825fe692c3a931c4d1693c523435eff428164fec62e29517563dfc2f9",
+      "line": 3,
+      "path": "apps/alpha/lib/p0/graph.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "reference_site",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 64,
+      "state": "G0",
+      "within": "graph.mid",
+      "worktree": "W0"
+    },
+    "greet": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 215,
+      "excerpt": "def greet(name, tone \\\\ :plain)",
+      "excerpt_sha256": "e1f99d648ca6eafa901bfe3835e71331b8fa2112a739ec457cf2873a94f6facd",
+      "file_sha256": "4aa805d5bcc7ea6993ece9ce628a37c0d2690755ebcca8e3d7a2908154e4c2cd",
+      "line": 9,
+      "path": "apps/alpha/lib/p0/exact.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 184,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "greet.default": {
+      "app": "alpha",
+      "byte_column": 19,
+      "context": "production",
+      "end_byte": 214,
+      "excerpt": "tone \\\\ :plain",
+      "excerpt_sha256": "b5e929679520ce98b78d8b3dcf0e7814e10b7ecb500141a6c372ec97dc2a1531",
+      "file_sha256": "4aa805d5bcc7ea6993ece9ce628a37c0d2690755ebcca8e3d7a2908154e4c2cd",
+      "line": 9,
+      "path": "apps/alpha/lib/p0/exact.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "generated_origin",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 200,
+      "state": "G0",
+      "within": "greet",
+      "worktree": "W0"
+    },
+    "import.binding": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 299,
+      "excerpt": "import P0.Exact, only: [same: 1]",
+      "excerpt_sha256": "cfc443de1983755636af07931b202d65aae39d79964304bb197df3b5b8a667d2",
+      "file_sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+      "line": 18,
+      "path": "apps/alpha/lib/p0/refs.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "binding_declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 267,
+      "state": "G0",
+      "within": "import.module",
+      "worktree": "W0"
+    },
+    "import.module": {
+      "app": "alpha",
+      "byte_column": 1,
+      "context": "production",
+      "end_byte": 372,
+      "excerpt": "defmodule P0.Imported do\n  import P0.Exact, only: [same: 1]\n\n  def accepted(value), do: same(value)\n  def excluded(), do: same()\nend",
+      "excerpt_sha256": "ae15ba44a9bb3bd7186c6c0a2cbf9729696d0e9fe8d35199510e2a0c71be840c",
+      "file_sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+      "line": 17,
+      "path": "apps/alpha/lib/p0/refs.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 240,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "inner": {
+      "app": "alpha",
+      "byte_column": 5,
+      "context": "production",
+      "end_byte": 168,
+      "excerpt": "def inner(), do: Pick.same()",
+      "excerpt_sha256": "63cd0965040f931aa10bb0210e7858ecaefe0c009c3f8758f058780cca43d138",
+      "file_sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+      "line": 9,
+      "path": "apps/alpha/lib/p0/refs.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 140,
+      "state": "G0",
+      "within": "inner.module",
+      "worktree": "W0"
+    },
+    "inner.binding": {
+      "app": "alpha",
+      "byte_column": 5,
+      "context": "production",
+      "end_byte": 134,
+      "excerpt": "alias P0.Alternate, as: Pick",
+      "excerpt_sha256": "308d55b5a463a72c77b85d18177c155a13f52f3a568e0d86b29353d86a0b0cba",
+      "file_sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+      "line": 7,
+      "path": "apps/alpha/lib/p0/refs.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "binding_declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 106,
+      "state": "G0",
+      "within": "inner.module",
+      "worktree": "W0"
+    },
+    "inner.module": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 174,
+      "excerpt": "defmodule Inner do\n    alias P0.Alternate, as: Pick\n\n    def inner(), do: Pick.same()\n  end",
+      "excerpt_sha256": "db90eb84617bae6471625f9bdf159383104894f72d6cde990e24f503bb8a29ad",
+      "file_sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+      "line": 6,
+      "path": "apps/alpha/lib/p0/refs.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 83,
+      "state": "G0",
+      "within": "outer.module",
+      "worktree": "W0"
+    },
+    "inner.site": {
+      "app": "alpha",
+      "byte_column": 22,
+      "context": "production",
+      "end_byte": 168,
+      "excerpt": "Pick.same()",
+      "excerpt_sha256": "ee1a5ae0b5b87da613020b1781a4b1ddbceebbcb07d4beeb653ae59852a3ab71",
+      "file_sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+      "line": 9,
+      "path": "apps/alpha/lib/p0/refs.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "reference_site",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 157,
+      "state": "G0",
+      "within": "inner",
+      "worktree": "W0"
+    },
+    "local": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 105,
+      "excerpt": "defp local(value), do: value",
+      "excerpt_sha256": "6f0a2614e0141eba25e200658c6222b13c8cb092cf22d8ee63de9055b42a2ee6",
+      "file_sha256": "4aa805d5bcc7ea6993ece9ce628a37c0d2690755ebcca8e3d7a2908154e4c2cd",
+      "line": 4,
+      "path": "apps/alpha/lib/p0/exact.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 77,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "moved-ref.new": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 180,
+      "excerpt": "def moved_ref(), do: P0.Moved.marker()",
+      "excerpt_sha256": "fdd92964a55138a66c116bbaf562f68c54b7afa01bf096ff02dea8c6f3c14def",
+      "file_sha256": "7e6a965d95ce88a2b2fab271d368defe94c00ff01ace3c4f17cd8d6113d2941d",
+      "line": 5,
+      "path": "apps/alpha/lib/p0/lifecycle.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "4a842e230d0f0447f85d0539ba141b80c568623240fbaef3b70b8b0a6d4e9844",
+      "start_byte": 142,
+      "state": "G-rename",
+      "worktree": "W0"
+    },
+    "moved-ref.new.site": {
+      "app": "alpha",
+      "byte_column": 24,
+      "context": "production",
+      "end_byte": 180,
+      "excerpt": "P0.Moved.marker()",
+      "excerpt_sha256": "0546bef15e822acc7fb08a5c579dd8ed516b0e05c4e57a67493fe04dd5564b07",
+      "file_sha256": "7e6a965d95ce88a2b2fab271d368defe94c00ff01ace3c4f17cd8d6113d2941d",
+      "line": 5,
+      "path": "apps/alpha/lib/p0/lifecycle.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "reference_site",
+      "source_id": "4a842e230d0f0447f85d0539ba141b80c568623240fbaef3b70b8b0a6d4e9844",
+      "start_byte": 163,
+      "state": "G-rename",
+      "within": "moved-ref.new",
+      "worktree": "W0"
+    },
+    "moved-ref.old": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 180,
+      "excerpt": "def moved_ref(), do: P0.Moved.marker()",
+      "excerpt_sha256": "fdd92964a55138a66c116bbaf562f68c54b7afa01bf096ff02dea8c6f3c14def",
+      "file_sha256": "7e6a965d95ce88a2b2fab271d368defe94c00ff01ace3c4f17cd8d6113d2941d",
+      "line": 5,
+      "path": "apps/alpha/lib/p0/lifecycle.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 142,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "moved-ref.old.site": {
+      "app": "alpha",
+      "byte_column": 24,
+      "context": "production",
+      "end_byte": 180,
+      "excerpt": "P0.Moved.marker()",
+      "excerpt_sha256": "0546bef15e822acc7fb08a5c579dd8ed516b0e05c4e57a67493fe04dd5564b07",
+      "file_sha256": "7e6a965d95ce88a2b2fab271d368defe94c00ff01ace3c4f17cd8d6113d2941d",
+      "line": 5,
+      "path": "apps/alpha/lib/p0/lifecycle.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "reference_site",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 163,
+      "state": "G0",
+      "within": "moved-ref.old",
+      "worktree": "W0"
+    },
+    "moved.new": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 48,
+      "excerpt": "def marker(), do: :moved",
+      "excerpt_sha256": "fb638a7a329d1e3bcdc5a8ed98b2e5c47ef49d44a8e5c757e1aab8492b278e0d",
+      "file_sha256": "9c2dd3a3e21b6c1cb9a3ec0916334c3fe62cdf77a09a3b61274b2fc12303faa4",
+      "line": 2,
+      "path": "apps/alpha/lib/p0/moved.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "4a842e230d0f0447f85d0539ba141b80c568623240fbaef3b70b8b0a6d4e9844",
+      "start_byte": 24,
+      "state": "G-rename",
+      "worktree": "W0"
+    },
+    "moved.old": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 48,
+      "excerpt": "def marker(), do: :moved",
+      "excerpt_sha256": "fb638a7a329d1e3bcdc5a8ed98b2e5c47ef49d44a8e5c757e1aab8492b278e0d",
+      "file_sha256": "9c2dd3a3e21b6c1cb9a3ec0916334c3fe62cdf77a09a3b61274b2fc12303faa4",
+      "line": 2,
+      "path": "apps/alpha/lib/p0/move_me.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 24,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "noise": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 51,
+      "excerpt": "def unrelated(), do: :noise",
+      "excerpt_sha256": "f756d5edab6d70f81e487c890dc79fd325989760c5cb850f9152865b25df1853",
+      "file_sha256": "86ce77d4b2065d83a120cc216783daee2f5691e384a09c8c10a23560ae75fead",
+      "line": 2,
+      "path": "apps/alpha/lib/p0/noise.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 24,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "outer": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 79,
+      "excerpt": "def outer(), do: Pick.same()",
+      "excerpt_sha256": "0ef39f5c1d836f7ec665475480fb226939f9cf963badc5d97be495ea5b52cfcd",
+      "file_sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+      "line": 4,
+      "path": "apps/alpha/lib/p0/refs.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 51,
+      "state": "G0",
+      "within": "outer.module",
+      "worktree": "W0"
+    },
+    "outer.binding": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 47,
+      "excerpt": "alias P0.Exact, as: Pick",
+      "excerpt_sha256": "2fe083e08fbc80dc50a17ff9ed0d1415f5cb087dbcbdf0f7748813cc6fd013fb",
+      "file_sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+      "line": 2,
+      "path": "apps/alpha/lib/p0/refs.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "binding_declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 23,
+      "state": "G0",
+      "within": "outer.module",
+      "worktree": "W0"
+    },
+    "outer.module": {
+      "app": "alpha",
+      "byte_column": 1,
+      "context": "production",
+      "end_byte": 178,
+      "excerpt": "defmodule P0.Refs do\n  alias P0.Exact, as: Pick\n\n  def outer(), do: Pick.same()\n\n  defmodule Inner do\n    alias P0.Alternate, as: Pick\n\n    def inner(), do: Pick.same()\n  end\nend",
+      "excerpt_sha256": "63662dcbd4b1bd4624daf9a7f1ad578e5dc43a5ebaa8a62bf356ea617f363cff",
+      "file_sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+      "line": 1,
+      "path": "apps/alpha/lib/p0/refs.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 0,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "outer.site": {
+      "app": "alpha",
+      "byte_column": 20,
+      "context": "production",
+      "end_byte": 79,
+      "excerpt": "Pick.same()",
+      "excerpt_sha256": "ee1a5ae0b5b87da613020b1781a4b1ddbceebbcb07d4beeb653ae59852a3ab71",
+      "file_sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+      "line": 4,
+      "path": "apps/alpha/lib/p0/refs.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "reference_site",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 68,
+      "state": "G0",
+      "within": "outer",
+      "worktree": "W0"
+    },
+    "palette.binding": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 500,
+      "excerpt": "@behaviour P0.Contract",
+      "excerpt_sha256": "b52a6d11ad510c46769a47980b24fac04e2714f996a9e8e47d72d07219db8aeb",
+      "file_sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+      "line": 29,
+      "path": "apps/alpha/lib/p0/refs.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "binding_declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 478,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "palette.module": {
+      "app": "alpha",
+      "byte_column": 1,
+      "context": "production",
+      "end_byte": 535,
+      "excerpt": "defmodule P0.Palette do\n  @behaviour P0.Contract\n\n  def shade(value), do: value\nend",
+      "excerpt_sha256": "04261b97e210ab5fcbdc81c3ff07fa760b23362b3ecc9d241651abef04403937",
+      "file_sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+      "line": 28,
+      "path": "apps/alpha/lib/p0/refs.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 452,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "panel.assign": {
+      "app": "alpha",
+      "byte_column": 19,
+      "context": "production",
+      "end_byte": 24,
+      "excerpt": "@color",
+      "excerpt_sha256": "30f971ad7e6d5d6653f29d94b685495dbe58217c77bd81f793e15c3e89baddf4",
+      "file_sha256": "3e9bba0118fd4368362416944fef9d657b1b2f65938ef563d243fa88b4f766f1",
+      "line": 1,
+      "path": "apps/alpha/lib/p0/panel.html.heex",
+      "repository": "sfci-p0-synthetic",
+      "role": "source_text",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 18,
+      "state": "G0",
+      "within": "panel.tag",
+      "worktree": "W0"
+    },
+    "panel.tag": {
+      "app": "alpha",
+      "byte_column": 1,
+      "context": "production",
+      "end_byte": 29,
+      "excerpt": "<p id=\"p0-color\">{@color}</p>",
+      "excerpt_sha256": "08c2874af6a764202cbfe4164f240ed142a179cc4049f4fce9da1d728ab4859d",
+      "file_sha256": "3e9bba0118fd4368362416944fef9d657b1b2f65938ef563d243fa88b4f766f1",
+      "line": 1,
+      "path": "apps/alpha/lib/p0/panel.html.heex",
+      "repository": "sfci-p0-synthetic",
+      "role": "source_text",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 0,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "proxy.module": {
+      "app": "alpha",
+      "byte_column": 1,
+      "context": "production",
+      "end_byte": 450,
+      "excerpt": "defmodule P0.Proxy do\n  defdelegate echo(value), to: P0.Exact, as: :same\nend",
+      "excerpt_sha256": "c5b1c77570a67b2f9187cc5077b77ae8a45f985ad2136ef6fe07288be6d9a6aa",
+      "file_sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+      "line": 24,
+      "path": "apps/alpha/lib/p0/refs.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 374,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "recovered": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 58,
+      "excerpt": "def before_edit(), do: :before",
+      "excerpt_sha256": "0c5892819cfc566ba5028dc77963162191c5df414bc760e4c36167a19c9d866e",
+      "file_sha256": "7e6a965d95ce88a2b2fab271d368defe94c00ff01ace3c4f17cd8d6113d2941d",
+      "line": 2,
+      "path": "apps/alpha/lib/p0/lifecycle.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 28,
+      "state": "G-recovered",
+      "worktree": "W0"
+    },
+    "retired": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 52,
+      "excerpt": "def marker(), do: :retired",
+      "excerpt_sha256": "a861aee0626c9a69cb9e62a20eaeb49e495d7d8412433d0133aed8d658a74e62",
+      "file_sha256": "49eabf4505a5b7c4bf4f3e3e6dce21e13dc6f175580103368874b23be7c3cdfa",
+      "line": 2,
+      "path": "apps/alpha/lib/p0/retired.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 26,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "retired-ref.base": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 139,
+      "excerpt": "def retired_ref(), do: P0.Retired.marker()",
+      "excerpt_sha256": "2576ecc8cf7bd8ee4aa97761f79ef89badbf95d878ce974e06cfac52e6e84e1a",
+      "file_sha256": "7e6a965d95ce88a2b2fab271d368defe94c00ff01ace3c4f17cd8d6113d2941d",
+      "line": 4,
+      "path": "apps/alpha/lib/p0/lifecycle.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 97,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "retired-ref.base.site": {
+      "app": "alpha",
+      "byte_column": 26,
+      "context": "production",
+      "end_byte": 139,
+      "excerpt": "P0.Retired.marker()",
+      "excerpt_sha256": "d0023a84339fcf628b4d7df98fc44a0a7d1c7cfd5d2fae58a384acec0f483ff7",
+      "file_sha256": "7e6a965d95ce88a2b2fab271d368defe94c00ff01ace3c4f17cd8d6113d2941d",
+      "line": 4,
+      "path": "apps/alpha/lib/p0/lifecycle.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "reference_site",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 120,
+      "state": "G0",
+      "within": "retired-ref.base",
+      "worktree": "W0"
+    },
+    "retired-ref.deleted": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 139,
+      "excerpt": "def retired_ref(), do: P0.Retired.marker()",
+      "excerpt_sha256": "2576ecc8cf7bd8ee4aa97761f79ef89badbf95d878ce974e06cfac52e6e84e1a",
+      "file_sha256": "7e6a965d95ce88a2b2fab271d368defe94c00ff01ace3c4f17cd8d6113d2941d",
+      "line": 4,
+      "path": "apps/alpha/lib/p0/lifecycle.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "feb3db86f0ef302577b1f58bc296d55e788d14ba444eed4f0f55d3e995c80116",
+      "start_byte": 97,
+      "state": "G-delete",
+      "worktree": "W0"
+    },
+    "retired-ref.deleted.site": {
+      "app": "alpha",
+      "byte_column": 26,
+      "context": "production",
+      "end_byte": 139,
+      "excerpt": "P0.Retired.marker()",
+      "excerpt_sha256": "d0023a84339fcf628b4d7df98fc44a0a7d1c7cfd5d2fae58a384acec0f483ff7",
+      "file_sha256": "7e6a965d95ce88a2b2fab271d368defe94c00ff01ace3c4f17cd8d6113d2941d",
+      "line": 4,
+      "path": "apps/alpha/lib/p0/lifecycle.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "reference_site",
+      "source_id": "feb3db86f0ef302577b1f58bc296d55e788d14ba444eed4f0f55d3e995c80116",
+      "start_byte": 120,
+      "state": "G-delete",
+      "within": "retired-ref.deleted",
+      "worktree": "W0"
+    },
+    "same0": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 45,
+      "excerpt": "def same(), do: :zero",
+      "excerpt_sha256": "852f7d48d6dcc04f743caf9b562f403b29bee61bcd4102fad9b3d250a185a10c",
+      "file_sha256": "4aa805d5bcc7ea6993ece9ce628a37c0d2690755ebcca8e3d7a2908154e4c2cd",
+      "line": 2,
+      "path": "apps/alpha/lib/p0/exact.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 24,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "same0.w1": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 80,
+      "excerpt": "def same(), do: :worktree_b",
+      "excerpt_sha256": "c94cbe371abf937667595931c642e92c78bd174db19f5ebde1f7d3fcd83e2ccf",
+      "file_sha256": "4f159abf8a9ac56fcca08a837edf853a825c8982a27c061b695d3894a02bd356",
+      "line": 3,
+      "path": "apps/alpha/lib/p0/exact.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "c3ba65c720aa13486b8e7f878f9c08886e68fad6d36afb061eb741f8530a7486",
+      "start_byte": 53,
+      "state": "G-worktree-b",
+      "worktree": "W1"
+    },
+    "same1": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 74,
+      "excerpt": "def same(value), do: value",
+      "excerpt_sha256": "324c117b5bbf30ed26ff05880ea84234b71650475326c9b04949ae161eb87b73",
+      "file_sha256": "4aa805d5bcc7ea6993ece9ce628a37c0d2690755ebcca8e3d7a2908154e4c2cd",
+      "line": 3,
+      "path": "apps/alpha/lib/p0/exact.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 48,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "shade": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 531,
+      "excerpt": "def shade(value), do: value",
+      "excerpt_sha256": "eb3fff5513956aa0a41426b7534a359db16e189de9fea65a36a968ddaedf696a",
+      "file_sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+      "line": 31,
+      "path": "apps/alpha/lib/p0/refs.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 504,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "shade.site": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 520,
+      "excerpt": "def shade(value)",
+      "excerpt_sha256": "66c6ebff4e45d207786cb9f80bff324c4583bfbd4669da9fe9eeedc102e786c9",
+      "file_sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+      "line": 31,
+      "path": "apps/alpha/lib/p0/refs.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "reference_site",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 504,
+      "state": "G0",
+      "within": "shade",
+      "worktree": "W0"
+    },
+    "shared.alpha": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 56,
+      "excerpt": "def marker(), do: :alpha_shared",
+      "excerpt_sha256": "bb2373f28de75c67df373f9a1a3e6a8c4a6a3057819b97830159c24860876ec3",
+      "file_sha256": "fb2ebf33c136bbc4e572515659021899b7da0ae049f785bc6b3569e2d5b74625",
+      "line": 2,
+      "path": "apps/alpha/lib/p0/shared.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 25,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "shared.alpha-test": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "test",
+      "end_byte": 61,
+      "excerpt": "def marker(), do: :alpha_test_shared",
+      "excerpt_sha256": "9f82f91555c87e94003bc5dcb1c877a843fc9668fb3c7edeaa9ed95fd215867d",
+      "file_sha256": "0f50c13b5421ff68dd3cd3b2833bcd33fa9171bb24ce0df4815969aa8151ac99",
+      "line": 2,
+      "path": "apps/alpha/test/support/p0/shared.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 25,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "shared.beta": {
+      "app": "beta",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 55,
+      "excerpt": "def marker(), do: :beta_shared",
+      "excerpt_sha256": "0e4fee07ef936e8ab388edbbb5873cb29f178f2b94200968b85c0e098c46b6fa",
+      "file_sha256": "89638e74d5274adfc998d769d84b34057a97a6a3e53be190dd624f7422f07f09",
+      "line": 2,
+      "path": "apps/beta/lib/p0/shared.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 25,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "sql.statement": {
+      "app": "alpha",
+      "byte_column": 1,
+      "context": "production",
+      "end_byte": 28,
+      "excerpt": "SELECT label FROM p0_colors;",
+      "excerpt_sha256": "11dc24f686236c11399a653c8a713d65816f679db47143981a8b3b27eb9dd6a6",
+      "file_sha256": "8beec54d7c7335e801bbf07c14488dfd7a1e826c2888c5bfa18ff319f7905bc2",
+      "line": 1,
+      "path": "apps/alpha/priv/sample.sql",
+      "repository": "sfci-p0-synthetic",
+      "role": "source_text",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 0,
+      "state": "G0",
+      "worktree": "W0"
+    },
+    "sql.table": {
+      "app": "alpha",
+      "byte_column": 19,
+      "context": "production",
+      "end_byte": 27,
+      "excerpt": "p0_colors",
+      "excerpt_sha256": "a95075b7375e189ad4e95534f7019125e00383f58227f964b1293e3024a6ccf1",
+      "file_sha256": "8beec54d7c7335e801bbf07c14488dfd7a1e826c2888c5bfa18ff319f7905bc2",
+      "line": 1,
+      "path": "apps/alpha/priv/sample.sql",
+      "repository": "sfci-p0-synthetic",
+      "role": "source_text",
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+      "start_byte": 18,
+      "state": "G0",
+      "within": "sql.statement",
+      "worktree": "W0"
+    },
+    "untracked": {
+      "app": "alpha",
+      "byte_column": 3,
+      "context": "production",
+      "end_byte": 56,
+      "excerpt": "def marker(), do: :untracked",
+      "excerpt_sha256": "fd87a1fe681eb8dbb05c8522da8593e9582087718f234e60e2de01f3d8828983",
+      "file_sha256": "ada6f003e7fbe979972ca1e05dbc0bd83d603d1a4410d1b21438cd7b884ad140",
+      "line": 2,
+      "path": "apps/alpha/lib/p0/untracked_note.ex",
+      "repository": "sfci-p0-synthetic",
+      "role": "declaration",
+      "source_id": "93e8642fe488d8290e6f47fe0ce7fba4bc17a84bb33f614eda3f873f28888fd7",
+      "start_byte": 28,
+      "state": "G-untracked",
+      "worktree": "W0"
+    }
+  },
+  "symbols": {
+    "accepted": {
+      "app": "alpha",
+      "arity": 1,
+      "context": "production",
+      "declaration": "accepted",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Imported.accepted",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "after": {
+      "app": "alpha",
+      "arity": 0,
+      "context": "production",
+      "declaration": "after",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Lifecycle.after_edit",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "alternate": {
+      "app": "alpha",
+      "arity": 0,
+      "context": "production",
+      "declaration": "alternate",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Alternate.same",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "before": {
+      "app": "alpha",
+      "arity": 0,
+      "context": "production",
+      "declaration": "before",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Lifecycle.before_edit",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "by-fun": {
+      "app": "alpha",
+      "arity": 1,
+      "context": "production",
+      "declaration": "by-fun",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Dynamic.by_fun",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "by-name": {
+      "app": "alpha",
+      "arity": 2,
+      "context": "production",
+      "declaration": "by-name",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Dynamic.by_name",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "callback": {
+      "app": "alpha",
+      "arity": 1,
+      "context": "production",
+      "declaration": "callback",
+      "kind": "callback",
+      "language": "elixir",
+      "qualified_name": "P0.Contract.shade",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "caller.alpha": {
+      "app": "alpha",
+      "arity": 0,
+      "context": "production",
+      "declaration": "caller.alpha",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.AlphaCaller.marker",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "caller.beta": {
+      "app": "beta",
+      "arity": 0,
+      "context": "production",
+      "declaration": "caller.beta",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.BetaCaller.marker",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "catalog": {
+      "app": "alpha",
+      "arity": null,
+      "context": "production",
+      "declaration": "catalog.module",
+      "kind": "module",
+      "language": "elixir",
+      "qualified_name": "P0.Catalog",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "choose": {
+      "app": "alpha",
+      "arity": 1,
+      "context": "production",
+      "declaration": "choose-red",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Exact.choose",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "color": {
+      "app": "alpha",
+      "arity": null,
+      "context": "production",
+      "declaration": "color.module",
+      "kind": "module",
+      "language": "elixir",
+      "qualified_name": "P0.Color",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "consumer.after": {
+      "app": "alpha",
+      "arity": 0,
+      "context": "production",
+      "declaration": "consumer.after",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Lifecycle.consumer",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "consumer.before": {
+      "app": "alpha",
+      "arity": 0,
+      "context": "production",
+      "declaration": "consumer.before",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Lifecycle.consumer",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "consumer.recovered": {
+      "app": "alpha",
+      "arity": 0,
+      "context": "production",
+      "declaration": "consumer.recovered",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Lifecycle.consumer",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "echo": {
+      "app": "alpha",
+      "arity": 1,
+      "context": "production",
+      "declaration": "echo",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Proxy.echo",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "exact": {
+      "app": "alpha",
+      "arity": null,
+      "context": "production",
+      "declaration": "exact.module",
+      "kind": "module",
+      "language": "elixir",
+      "qualified_name": "P0.Exact",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "excluded": {
+      "app": "alpha",
+      "arity": 0,
+      "context": "production",
+      "declaration": "excluded",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Imported.excluded",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "from-catalog": {
+      "app": "alpha",
+      "arity": 1,
+      "context": "production",
+      "declaration": "from-catalog",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Dynamic.from_catalog",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "generated": {
+      "app": "alpha",
+      "arity": 0,
+      "context": "production",
+      "declaration": "generated",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Dynamic.generated",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "graph.bud.concurrent": {
+      "app": "alpha",
+      "arity": 0,
+      "context": "production",
+      "declaration": "graph.bud.concurrent",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Graph.bud",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "graph.entry": {
+      "app": "alpha",
+      "arity": 0,
+      "context": "production",
+      "declaration": "graph.entry",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Graph.entry",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "graph.entry.concurrent": {
+      "app": "alpha",
+      "arity": 0,
+      "context": "production",
+      "declaration": "graph.entry.concurrent",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Graph.entry",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "graph.leaf": {
+      "app": "alpha",
+      "arity": 0,
+      "context": "production",
+      "declaration": "graph.leaf",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Graph.leaf",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "graph.mid": {
+      "app": "alpha",
+      "arity": 0,
+      "context": "production",
+      "declaration": "graph.mid",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Graph.mid",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "graph.mid.concurrent": {
+      "app": "alpha",
+      "arity": 0,
+      "context": "production",
+      "declaration": "graph.mid.concurrent",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Graph.mid",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "greet": {
+      "app": "alpha",
+      "arity": 2,
+      "context": "production",
+      "declaration": "greet",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Exact.greet",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "greet-generated": {
+      "app": "alpha",
+      "arity": 1,
+      "context": "production",
+      "generation_origin": "greet.default",
+      "kind": "generated_callable",
+      "language": "elixir",
+      "qualified_name": "P0.Exact.greet",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "inner": {
+      "app": "alpha",
+      "arity": 0,
+      "context": "production",
+      "declaration": "inner",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Refs.Inner.inner",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "list-interface": {
+      "app": "alpha",
+      "arity": null,
+      "context": "production",
+      "declaration": "catalog.define",
+      "kind": "ash_interface_declaration",
+      "language": "elixir",
+      "qualified_name": "P0.Catalog.:list_colors",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "local": {
+      "app": "alpha",
+      "arity": 1,
+      "context": "production",
+      "declaration": "local",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Exact.local",
+      "repository": "sfci-p0-synthetic",
+      "visibility": "private",
+      "worktree": "W0"
+    },
+    "moved-ref.new": {
+      "app": "alpha",
+      "arity": 0,
+      "context": "production",
+      "declaration": "moved-ref.new",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Lifecycle.moved_ref",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "moved-ref.old": {
+      "app": "alpha",
+      "arity": 0,
+      "context": "production",
+      "declaration": "moved-ref.old",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Lifecycle.moved_ref",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "moved.new": {
+      "app": "alpha",
+      "arity": 0,
+      "context": "production",
+      "declaration": "moved.new",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Moved.marker",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "moved.old": {
+      "app": "alpha",
+      "arity": 0,
+      "context": "production",
+      "declaration": "moved.old",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Moved.marker",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "noise": {
+      "app": "alpha",
+      "arity": 0,
+      "context": "production",
+      "declaration": "noise",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Noise.unrelated",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "outer": {
+      "app": "alpha",
+      "arity": 0,
+      "context": "production",
+      "declaration": "outer",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Refs.outer",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "read-action": {
+      "app": "alpha",
+      "arity": null,
+      "context": "production",
+      "declaration": "color.action",
+      "kind": "ash_action",
+      "language": "elixir",
+      "qualified_name": "P0.Color.:read",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "recovered": {
+      "app": "alpha",
+      "arity": 0,
+      "context": "production",
+      "declaration": "recovered",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Lifecycle.before_edit",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "retired": {
+      "app": "alpha",
+      "arity": 0,
+      "context": "production",
+      "declaration": "retired",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Retired.marker",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "retired-ref.base": {
+      "app": "alpha",
+      "arity": 0,
+      "context": "production",
+      "declaration": "retired-ref.base",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Lifecycle.retired_ref",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "retired-ref.deleted": {
+      "app": "alpha",
+      "arity": 0,
+      "context": "production",
+      "declaration": "retired-ref.deleted",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Lifecycle.retired_ref",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "same0": {
+      "app": "alpha",
+      "arity": 0,
+      "context": "production",
+      "declaration": "same0",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Exact.same",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "same0.w1": {
+      "app": "alpha",
+      "arity": 0,
+      "context": "production",
+      "declaration": "same0.w1",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Exact.same",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W1"
+    },
+    "same1": {
+      "app": "alpha",
+      "arity": 1,
+      "context": "production",
+      "declaration": "same1",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Exact.same",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "shade": {
+      "app": "alpha",
+      "arity": 1,
+      "context": "production",
+      "declaration": "shade",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Palette.shade",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "shared.alpha": {
+      "app": "alpha",
+      "arity": 0,
+      "context": "production",
+      "declaration": "shared.alpha",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Shared.marker",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "shared.alpha-test": {
+      "app": "alpha",
+      "arity": 0,
+      "context": "test",
+      "declaration": "shared.alpha-test",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Shared.marker",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "shared.beta": {
+      "app": "beta",
+      "arity": 0,
+      "context": "production",
+      "declaration": "shared.beta",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Shared.marker",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    },
+    "untracked": {
+      "app": "alpha",
+      "arity": 0,
+      "context": "production",
+      "declaration": "untracked",
+      "kind": "function",
+      "language": "elixir",
+      "qualified_name": "P0.Untracked.marker",
+      "repository": "sfci-p0-synthetic",
+      "worktree": "W0"
+    }
+  }
+}
