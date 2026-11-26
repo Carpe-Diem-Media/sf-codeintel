@@ -4,7 +4,7 @@ The seven attachments were copied byte for byte. The SHA-256 digests below ident
 
 ## Imported revisions
 
-- [SF-CI-GOV-001 v0.1](../governance/SF-CI-GOV-001.md) `56ea641ab590ac5b0d124af432fd9a5dec4d0e44104a7396acdaa8c520da3b65`
+- [SF-CI-GOV-001 v0.1](history/SF-CI-GOV-001-v0.1.md) `56ea641ab590ac5b0d124af432fd9a5dec4d0e44104a7396acdaa8c520da3b65`
 - [SF-CI-PRD-001 v0.1](../product/SF-CI-PRD-001.md) `f5374a4de6e6c021334e4965c25bb0dfe4ddf5d7671bbd007412e5a497c56a30`
 - [SF-CI-SPEC-001 v0.3](../architecture/SF-CI-SPEC-001.md) `5c7f7712b86638075c280fd236b9958c2973df7979a8b273809933e38341424e`
 - [SF-CI-ADR-001 v0.1](../adr/SF-CI-ADR-001.md) `ebeb0d092ef7f134feb628df5c462a264d4246f7cf4cd846d3ecb9395ed4528f`
@@ -14,7 +14,7 @@ The seven attachments were copied byte for byte. The SHA-256 digests below ident
 
 ## Archived predecessor revisions
 
-The v0.2.1 predecessors are byte-for-byte copies of the supplied originals. Both SHA-256 digests match §11 of the [governance register](SF-CI-GOV-001.md#11-source-identity-and-revision-history).
+The v0.2.1 predecessors are byte-for-byte copies of the supplied originals. Both SHA-256 digests match §11 of the [v0.1 governance register](history/SF-CI-GOV-001-v0.1.md#11-source-identity-and-revision-history).
 
 - [Architecture specification v0.2.1](../architecture/history/SF-CodeIntel-Specification-v0.2.1.md) `eec236699730173e0612bd9bfbe6d100f417119c3efe3397de2ad24905b85ced`
 - [P0 qualification assignment v0.2.1](../qualification/history/SF-CodeIntel-P0-Qualification-v0.2.1.md) `b35b92081956fffc7f50ef973afa9591da3e5aef291254af82f12f9db9c2a2ce`

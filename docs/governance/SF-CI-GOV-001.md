@@ -3,15 +3,15 @@
 | Document control | Value |
 |---|---|
 | Document ID | SF-CI-GOV-001 |
-| Revision | 0.1 |
-| Date | 25 November 2026 |
-| Status | Proposed coordination baseline; pending exact-revision independent review and authorized adoption |
+| Revision | 0.2 |
+| Date | 26 November 2026 |
+| Status | Proposed. Exact-revision independent review and authorized adoption are pending |
 | Intended repository | `sf-codeintel` |
 | Intended canonical path | `docs/governance/SF-CI-GOV-001.md` |
 | Authority domain | Project-level document coordination, authority registration, gate and assignment routing, approval records and conflict escalation |
-| Project owner / accountable acceptance authorities | To be explicitly designated and recorded |
+| Project owner / accountable acceptance authorities | Project owner verified in the standing directive. Check each delegated mandate in its trusted record |
 | Current delivery gate | P0-A admission preparation; NOT ADMITTED / NOT RUN |
-| Execution authorization | None granted by this document |
+| Phase execution authorization | P0-A, P0-B and P1 require separate permissions. See §6 |
 
 > **Index broadly. Retrieve selectively. Verify precisely. Execute securely.**
 
@@ -68,20 +68,18 @@ The wording “reviewed baseline” is not an assertion that the exact v0.2.1 am
 | SF-CI-ADR-001 v0.1 | `docs/adr/SF-CI-ADR-001.md` | Proposed governance; independent review and adoption required |
 | ADR-001 v0.1 | `docs/adr/ADR-001-backend-selection.md` | Proposed pre-qualification scaffold; no selected backend; evidence NOT RUN |
 | SF-CI-TDD-001 v0.1 | `docs/technical-design/SF-CI-TDD-001.md` | User concurrence expressed in conversation; independent exact-revision acceptance not established |
-| SF-CI-GOV-001 v0.1 | `docs/governance/SF-CI-GOV-001.md` | This proposed coordination document; no self-acceptance |
-
-The user's latest “Accepted, Continue” is recorded as concurrence with the preceding documentation direction, including proceeding with this coordinating register. It is not interpreted as an independent technical review, blanket supersession of all prior baselines, adoption of ADR-001, or execution admission. No accepted identity or review reference is invented. A designated owner can record explicit acceptance of the exact relevant revisions after the necessary independent checks.
+| SF-CI-GOV-001 v0.2 | `docs/governance/SF-CI-GOV-001.md` | Proposed. The owner directive has its own authority under §4.1 |
 
 ### 3.3 Coordinated adoption procedure
 
-1. Establish accountable owner, independent reviewer and authorized acceptance roles; record their identities and mandates in a trusted project record. A role name in a Markdown file does not establish its authorization.
-2. Review the exact PRD v0.1 and architecture v0.3 together against the reviewed combined v0.2.1 baseline, including normative IDs, security, scope and phase gates. Resolve any material mismatch before adopting the pair.
-3. Accept the pair as one coordinated change, with explicit supersession of the combined baseline and effective scope. If either is not accepted, retain the applicable existing baseline; no partially adopted split may create an authority gap.
-4. Separately review and accept the P0 v0.3 successor (if selected) and explicitly record which revision governs admission. The newer document's reference to the older source baseline is historical, not a conflicting execution grant.
-5. Review and adopt ADR, TDD and project governance standards with their own exact revision references. The backend ADR stays proposed until qualification evidence and independent decision acceptance exist. Approving its format or alternatives is not accepting its technical decision.
-6. Update the register only from the trusted recorded events. Retain historical revisions and links. Document acceptance never by itself admits execution, selects an unqualified dependency, or approves release.
+SFCI-2 owns the actual baseline adoption. SFCI-12 records the procedure. A designated accountable acceptance authority may adopt exact revisions within a verified, recorded mandate after independent review and prerequisite verification. The mandate covers routine decisions without a further owner vote. Route gaps and conflicts under §4.2.
 
-An authorized owner may accept a compatible set in a single reviewed record, provided each exact revision, scope, disposition and supersession is explicitly named. No new software is required for this process. The initial governance adoption is recorded by authorized people under the existing project approval process, not by a self-validating rule in this proposed document.
+1. Verify the accountable owner, independent reviewer, authorized decision maker and scope of the decision maker's mandate in a trusted project record.
+2. Review the exact PRD v0.1 and architecture v0.3 together against the reviewed combined v0.2.1 baseline, including normative IDs, security, scope and phase gates. Resolve material mismatches before adoption. Accept the pair together with explicit supersession and effective scope, or retain the applicable combined baseline.
+3. Record separately which exact P0 revision governs admission and the disposition of the P0 v0.3 successor. Review the exact successor before accepting it and preserve the admission restrictions.
+4. Record a separate exact-revision disposition for each governance, ADR and TDD standard. Keep the backend decision in ADR-001 proposed until actual qualification evidence, independent review and accountable decision acceptance support it.
+5. Record each exact revision and immutable reference, independent review, decision maker and mandate, disposition, effective scope and date, and conditions or supersession under §3.4. A coordinated record may carry multiple decisions if it identifies each one explicitly.
+6. Update the register from those trusted records and retain historical revisions and links. Apply separate decisions for document adoption, technical acceptance, phase execution, merge and release.
 
 ### 3.4 Minimum trusted record (human-readable)
 
@@ -96,22 +94,34 @@ A hash establishes content identity, not trust, authorship or approval. Preserve
 
 ## 4. Accountability and conflict handling
 
-The following role names are responsibilities, not assigned people, system accounts or new organizational positions. The same human may hold compatible roles if explicitly authorized, but independent review cannot be performed by the implementer/proposer reviewing its own work.
+Verify each role's mandate in the applicable trusted record. A person may hold compatible roles if explicitly authorized. Assign independent plan and candidate review to people or agents other than the respective authors.
 
 | Role | Responsibility |
 |---|---|
-| Project owner | Product direction, governance adoption, phase and budget decisions within mandate |
+| Project owner | Sets product direction and authorizes reserved decisions. Issues, supersedes or revokes the standing directive |
+| Lead Orchestrator | Coordinates the queue and assignments, designates accountable technical and design approval roles, verifies integration and merges within the standing mandate |
 | Product acceptance authority | PRD revisions and product outcome acceptance |
 | Architecture / decision owner | Architecture and scoped ADR decisions; resolve technical conflicts |
 | Design owner | TDD readiness, contract completeness and controlled amendments |
-| Execution operator / authorizer | Actual environment, permissions, admission, resource ceilings and safe cleanup |
+| Designated execution operator | Ratifies P0-A admission within verified permissions and enforces the approved environment, resource ceilings and cleanup |
 | Qualification / implementation agent | Perform only admitted work, preserve evidence, report blockers and propose decisions |
 | Independent reviewer | Verify exact revisions, applicable authority, raw evidence and relevant code; recommend or reject gates |
-| Merge / release authority | Decide separately after required review and verification; no implied deployment rights |
+| Accountable acceptance authority | Adopts exact revisions within a verified mandate under §3.3 |
+| Release authority | Decides on release and deployment under separate owner authorization |
 
-The accountable owner must identify who can approve each scope and who independently verifies it. Unassigned or unverifiable authorization is a blocker, not a default grant.
+### 4.1 Standing owner directive
 
-### Conflict and missing-authority protocol
+The verified issuer is the SF CodeIntel project owner acting in that role. The directive is dated 26 November 2026. Its source is the owner's message in [SF CodeIntel Governed Delivery Loop](t3-thread://v2/fdfd1f03-53cf-41e7-8d37-6f5313c72d55/2211b596-9b80-4ba4-b4fd-5343f5000a87), tracked in Plane SFCI-12. The owner designated the persistent Lead Orchestrator to coordinate delivery through P0-A and P1 as each phase becomes eligible. The directive applies from issuance within its recorded scope and conditions.
+
+The Lead Orchestrator may manage the SFCI Plane queue, verify eligibility, promote and claim work, create bounded tickets from accepted designs, delegate assignments and corrections, and manage PRs through subagents. The mandate covers routine merges that satisfy §8, checkout synchronization, evidence recording, closure and advancement. Verify the relevant permissions and prerequisites before dispatch. The orchestrator coordinates, performs read-only verification and integrates independently reviewed work. It delegates substantive authoring, fixtures, test development, qualification execution and corrective work.
+
+Designate accountable technical and design approval roles within the authorized scope. Record the actor and mandate before relying on a decision. Those roles may approve ordinary technical designs and scoped technical decisions after exact-revision independent review and verification of applicable requirements and acceptance evidence. The Lead Orchestrator must not approve a technical decision it authored. The orchestrator records each decision and its evidence. Route any decision that exceeds a recorded mandate to the accountable authority. Use §3.3 for adoption and §6 for admission and execution.
+
+The owner reserves material product or scope decisions, deployment, P2–P7 implementation, and increases in risk, permissions or resource budgets. Separate authorization is required for those decisions. The directive grants routine coordination and conditional merge authority. Phase execution depends on separate effective permissions under §6.
+
+Before dispatch and merge, verify the current directive, mandate, applicable scope and any revocation or supersession. If the owner revokes or supersedes the directive, record the trusted decision, effective time, affected scope and assignments, and replacement authority where applicable. Notify affected roles and stop affected reliance until effective authority and evidence are reconciled. Use the same checks for affected delegated mandates.
+
+### 4.2 Conflict and missing-authority protocol
 
 1. Identify the affected operation, contract or decision and stop that portion of work. If security or scope separation cannot be established, stop all affected execution.
 2. Record the exact competing document IDs, immutable revisions, clauses, scope and observed evidence. Mark uncertain applicability or missing mandatory authority explicitly; do not select an interpretation on relevance alone.
@@ -139,13 +149,16 @@ Maintain distinct status axes:
 | Axis | Current observation |
 |---|---|
 | Architecture direction | Approved in principle by supplied independent reviews |
-| Separated document adoption | Not established for exact complete set |
+| Separated document adoption | Pending under SFCI-2. Governance v0.2 remains Proposed |
+| Operating authorization | Standing owner directive applies within §4.1 |
+| Routine merge | Authorized for the Lead Orchestrator when §8 is satisfied |
 | P0-A execution | NOT ADMITTED / NOT RUN |
 | P0-A backend category verdicts | NOT RUN; no evidence yet |
 | ADR-001 technical selection | Proposed; undecided |
 | P0-B | Not authorized; may be deferred to P1 |
 | P1–P7 implementation | Not authorized |
-| Product acceptance and production/Factory deployment | Not established / not authorized |
+| Product acceptance | Not established |
+| Production/Factory deployment | Requires separate owner authorization |
 
 A completed qualification may recommend rejection or further qualification. A passing category, completed report, accepted ADR, accepted design, merged PR or successful CI is not an automatic state transition on another axis. Actual execution attempts and domain resources must use their governing lifecycle contracts; this manual register does not introduce new durable operational state machines.
 
@@ -155,9 +168,9 @@ A completed qualification may recommend rejection or further qualification. A pa
 
 | Phase | Purpose | Gate / current authorization |
 |---|---|---|
-| P0-A | Dexter/Dexterity qualification and structural ownership decision | Approved in principle; admission required before run |
+| P0-A | Dexter/Dexterity qualification and structural ownership decision | Independent admission verification, execution operator ratification and effective bounded permission required before dispatch |
 | P0-B | Optional early agent-value experiment | Separate authorization; otherwise explicitly defer to P1 |
-| P1 | Thin CLI and experimental read-only MCP/context MVP | Await P0-A review, viable backend decision, accepted P1 design and separate execution grant |
+| P1 | Thin CLI and experimental read-only MCP/context MVP | Await applicable P0 exit, accepted viable backend decision, independently reviewed and accepted P1 design, and a bounded P1 execution grant |
 | P2 | Ash action intelligence | Await P1 exit and applicable design/admission |
 | P3 | Phoenix/LiveView, authority and test associations | Await P2 exit and authority contract clarification |
 | P4 | Isolated compiled metadata enrichment | Await P3 exit and approved execution/compatibility contract |
@@ -165,11 +178,11 @@ A completed qualification may recommend rejection or further qualification. A pa
 | P6 | PR/refactoring and verification intelligence | Await P5 exit and revision-bound review contracts |
 | P7 | Optional advanced retrieval/optimization | Only if measured gap warrants an approved decision and design |
 
-This table routes work to architecture §16, PRD §11 upon adoption and the phase design standard. It is not another set of release gates. No automatic phase promotion. A narrow separately authorized experiment may precede a production phase only where the applicable contracts and assignment allow it.
+Use architecture §16, PRD §11 upon adoption and the phase design standard for phase prerequisites. P2–P7 also require separate owner authorization. A narrow separately authorized experiment may precede a production phase only where the applicable contracts and assignment allow it.
 
 ### 6.2 P0-A admission blockers and next steps
 
-The authoritative admission record belongs at `benchmarks/results/p0/admission.md` and MUST follow the selected accepted/applicable SF-CI-P0-001 §1A. The register is not a substitute for it.
+The authoritative admission record belongs at `benchmarks/results/p0/admission.md` and MUST follow the selected accepted/applicable SF-CI-P0-001 §1A. Keep P0-A `NOT ADMITTED / NOT RUN` until independent verification of that record and ratification by the designated execution operator. Before dispatch, verify a bounded grant covering the actual environment, authorized preflight and acquisition/build policy, execution scope and resource ceilings.
 
 | Required before dispatch | Present state |
 |---|---|
@@ -183,19 +196,19 @@ The authoritative admission record belongs at `benchmarks/results/p0/admission.m
 | Process-tree termination, cleanup, quarantine and evidence retention | Not verified |
 | Final admission decision | NOT ADMITTED / NOT RUN |
 
-Use the qualification specification's exact envelope and STOP rules. In particular, do not access private repositories, compile or execute target/fixture code, consume external model credits, repair upstream tools, or begin production implementation under the P0-A envelope. Synthetic source edits for fixture preparation and testing are distinct from executing target code. The aggregate clock begins at the first authorized acquisition/build/qualification command; preflight and acquisition permissions must be explicit. No silent budget reset or scope increase. Stop on containment failure, unauthorized access or execution, exceeded limits, or unresolved cleanup as specified.
+Use the qualification specification's exact envelope and STOP rules. In particular, do not access private repositories, compile or execute target/fixture code, consume external model credits, repair upstream tools, or begin production implementation under the P0-A envelope. Synthetic source edits for fixture preparation and testing are distinct from executing target code. The aggregate clock begins at the first authorized acquisition/build/qualification command; preflight and acquisition permissions must be explicit. Track cumulative budgets across agents and sessions. The execution operator enforces the ratified limits and cleanup. Stop on containment failure, unauthorized access or execution, exceeded limits, or unresolved cleanup as specified.
 
-Once admission is ratified, execute only the admitted P0-A assignment. Produce the qualification verdict, reproducible fixture/runner/evidence artifacts and an evidence-backed **proposed** ADR-001. The current ADR scaffold is not the final deliverable. Report PASS, PARTIAL, FAIL or NOT RUN per category with exact evidence, denominators and blockers according to the qualification specification. P0-B may be explicitly deferred without blocking P0-A completion (CI-F14). Do not claim token savings, productivity or backend correctness from unexecuted or incomplete trials.
+After admission is ratified and bounded execution permission is verified, execute only the admitted P0-A assignment. Produce the qualification verdict, reproducible fixture/runner/evidence artifacts and an evidence-backed **proposed** ADR-001. The current ADR scaffold is not the final deliverable. Report PASS, PARTIAL, FAIL or NOT RUN per category with exact evidence, denominators and blockers according to the qualification specification. P0-B may be explicitly deferred without blocking P0-A completion (CI-F14). Do not claim token savings, productivity or backend correctness from unexecuted or incomplete trials.
 
 ### 6.3 Next gate decision
 
 The independent reviewer examines the actual qualification evidence, pinned source, admission and frozen assertions, cleanup and safety observations, limitations, and exact proposed ADR. A viable backend choice requires the applicable mandatory evidence, not a favourable average score or upstream performance claim. Record one of the supported outcomes: reuse, bounded wrap/extension, rejection or narrowly scoped further qualification/deferment. Any alternative backend qualification requires its own bounded authorization.
 
-Only after the applicable P0 exit and accepted technical decision may the P1 TDD be finalized. Independently review it and authorize a bounded P1 assignment separately. Negative or inconclusive results do not justify starting P1 by default.
+Finalize the P1 TDD after the applicable P0 exit and an accepted viable backend decision. Dispatch P1 only after independent review and acceptance of the exact P1 design and verification of an effective bounded P1 execution grant covering the assignment. Obtain separate authorization for P0-B or record explicit deferral.
 
 ## 7. Agent entry point and assignment routing
 
-A short repository `AGENTS.md` and README should point to this register and the applicable source authorities. They are navigation, not duplicate normative specifications or blanket grants. No additional file is created by this document. Agents should read the relevant clauses, not load every full specification into every task.
+Start agent sessions with repository `AGENTS.md`. Use this register to find the applicable clauses and exact source authorities for the assignment.
 
 | Assignment | Minimum authority and evidence package |
 |---|---|
@@ -208,21 +221,32 @@ A short repository `AGENTS.md` and README should point to this register and the 
 | Security review | Applicable threat model, identity/grant and enforcement contracts, negative cases, exact revision and evidence |
 | Final PR review | Exact candidate diff, candidate-specific CI, all applicable authority references, relevant actual source and tests, unresolved findings |
 
-An assignment packet must identify the task and goal, permitted scope/paths/tools, forbidden actions, immutable input/authority references, expected outputs and verification, budgets and STOP conditions as applicable, and the authorized execution identity or approval record. Do not treat the roadmap, a future TDD template, an ADR hypothesis, or a task description alone as a grant. Review roles can investigate within their own authorized scope; they cannot widen implementation authority.
+Every assignment records the actor, ticket and goal, exact authorities and inputs, allowed paths and tools, permissions and prohibitions, deliverables and acceptance checks, retry and execution budgets, STOP conditions, and the applicable execution identity or approval record. Reviewers work within their own authorized scope.
 
-If scope, authority, evidence freshness or authorization is uncertain, report the gap and use the permitted direct verification path or ask the accountable owner. Do not invent missing requirements or capabilities. Keep task focus: stop at the requested deliverables and record unrelated issues separately.
+### 7.1 Delivery loop
+
+1. Keep one Lead Orchestrator and one active implementation ticket. Refresh Plane, the repository, open PRs, dependencies, blockers, authorities and checks before assigning work. Reconcile unfinished work first.
+2. Verify and record prerequisites before moving eligible Backlog or Blocked work to Ready. Claim the assignment and move it to In Progress when delegating it.
+3. Assign planning, independent plan review, implementation, independent candidate review, and testing or specialist verification where applicable. Require exact-plan approval before authoring on an issue-linked branch. Route adoption, design, technical decisions and execution authorization to their designated accountable authorities.
+4. Move work to In Review when the implementation and required evidence are available. Return confirmed findings to the responsible author within the assigned scope and retry budget. Move the ticket back to In Progress for correction, rerun affected checks and renew invalidated approvals and evidence.
+5. Open a narrow issue-linked PR through a subagent. Apply §8 before integration. Record the PR, merged SHA, reviews, check results, acceptance evidence, limitations and follow-ups in Plane. Verify the recorded evidence and resulting issue state before advancing. Mark the assignment Done after acceptance and integration. Done and Cancelled are terminal for that assignment.
+6. Refresh the queue and continue eligible work. Use Blocked for a genuine blocker and Awaiting Approval for a decision outside the standing mandate.
+
+Stop affected work for missing, revoked, conflicting or out-of-scope authority or permission, security or containment failure, unresolved cleanup, unavailable mandatory independent review or exact verification, exhausted retry or execution budgets, or a decision beyond the mandate. Record the evidence and resume only after verified resolution. Continue safely separable eligible work. End the loop when no eligible authorized work remains or the authorized MVP acceptance gate is reached.
 
 ## 8. Verification, independent review and merge boundary
 
 The PRD owns product acceptance; the architecture owns system technical gates; the P0 specification owns qualification scoring; phase TDDs own exact implementation assertions. The independent reviewer must distinguish source association, intended verification, observed execution and a passing test in a particular run. Neither a related test nor absence of an index edge proves an invariant.
 
-Before **every merge recommendation**, the independent reviewer MUST independently verify:
+Before recommending merge, the independent candidate reviewer must verify and record the exact final hosted PR base and head, complete actual diff with relevant source and tests, applicable authorities and their exact revisions, required checks and exact-head CI results, and unresolved findings. Reconcile any pre-PR review against the final hosted candidate. Record each finding with evidence, scope and severity. Bind the approval to that candidate and resolve material findings before recommending merge.
 
-- The exact PR diff, base and candidate/head identity, with relevant actual source rather than only an agent summary or structural map.
-- CI results for that exact candidate revision, required checks, relevant tests and any failed, missing or skipped evidence.
-- All applicable approved authority references, exact revisions and scope, including applicable PRD, architecture, accepted ADRs, TDDs, security/lifecycle contracts and assignment constraints; unresolved mandatory scope must not be silently omitted.
+The Lead Orchestrator performs a separate integration check before merging:
 
-Record findings with concrete evidence, scope and severity; resolve blocking defects before recommending merge. A changed candidate, changed applicable authority or invalidated CI evidence requires reassessment. CodeIntel is an investigation aid, not merge authority. Qualification completion, an accepted ADR or successful product benchmark does not replace independent review. Merge acceptance and deployment permission remain separate.
+- Verify the live Plane issue, current remote `main`, and final hosted PR base, head and complete diff. Reconcile any pre-PR review against the exact final PR.
+- Confirm the applicable authorities, exact approved plan, independent candidate approval, acceptance results, mandatory CI for the exact head, required GitHub approvals and branch protections, and absence of unresolved material findings.
+- Confirm the unrevoked standing directive applies to the candidate. Any failed, missing, skipped, cancelled or unexecuted mandatory check blocks merge. Changes to base, head, applicable authority or evidence require fresh verification and renewal of invalidated approvals.
+
+When these conditions hold, the Lead Orchestrator may merge under the standing directive without a further owner vote. For SFCI-12, §§2, 5 and 11 of the 26 November directive provide that authority while this revision remains Proposed. The one-time documentation exception applies only to PR #1. After integration, verify the resulting remote `main` SHA and merged content and record the evidence under §7.1. Release and deployment require separate authorization.
 
 No performance or economic threshold is ratified by this register. The system-level proposals and confirmatory methodology remain in the PRD and architecture; P0 only uses its ratified specific qualification criteria. Inconclusive evidence remains inconclusive.
 
@@ -273,7 +297,7 @@ Update this register when a trusted decision changes document applicability, a g
 
 ## 11. Source identity and revision history
 
-The hashes below identify the exact source Markdown files inspected in preparing this document. They establish content identity only, not acceptance or successful qualification. The preceding source documents are unchanged.
+The source hashes below are preserved from [SF-CI-GOV-001 v0.1](history/SF-CI-GOV-001-v0.1.md). See the [bootstrap verification record](bootstrap-verification.md) for the archived v0.1 digest and links to all nine verified source blobs. The hashes establish content identity. Adoption and qualification require their own evidence.
 
 | Source file | SHA-256 |
 |---|---|
@@ -286,14 +310,11 @@ The hashes below identify the exact source Markdown files inspected in preparing
 | ADR-001-backend-selection-v0.1.md | `708ff8f35bbe818476fd9153053413ae6fc86e592942f43c73e9e531f3d71417` |
 | SF-CI-TDD-001-v0.1.md | `ba2bdd1a242b92c2b9db9b1ab3599414ec6a41227ca005d96aa17147001bbd93` |
 
-Additional basis: the two independent evaluations and subsequent document-creation/acceptance discussion supplied in this conversation. The register records their stated direction and limitations; no independent backend audit, qualification run, exact candidate PR review or CI verification was performed in creating this document.
+The v0.1 archive preserves the original review and document-creation context. The standing directive and its scope are recorded in §4.1.
 
 | Revision | Change | Approval status |
 |---|---|---|
 | 0.1 | Initial scoped authority register, adoption procedure, accountability, gate routing, merge boundary and coordination of inherited findings | Proposed; exact-revision independent review and authorized acceptance outstanding |
+| 0.2 | Records the standing owner directive, delegated adoption and decision mandates, delivery loop, final hosted PR review and separate phase permissions under SFCI-12 | Proposed. Exact-revision independent review and adoption are pending |
 
-New organizational proposals: document ID/path, centralized status register, coordinated adoption and assignment routing procedure, project-level decision record fields and maintenance conventions. These are documentation-only proposals; no new product functionality, backend decision, scoring threshold, resource budget, runtime state machine or execution grant has been introduced. No repository has been modified.
-
-**Next action:** independently review and ratify the documentation baseline and prepare the P0-A admission record. Execute qualification only after explicit admission. Do not begin P1 or create further speculative foundational specifications.
-
-**End of SF-CI-GOV-001.**
+SFCI-2 owns coordinated adoption. P0-A remains `NOT ADMITTED / NOT RUN`.
