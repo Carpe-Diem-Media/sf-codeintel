@@ -12,9 +12,16 @@ The seven attachments were copied byte for byte. The SHA-256 digests below ident
 - [SF-CI-P0-001 v0.3](../qualification/SF-CI-P0-001.md) `b6021234fd7bb8d16d128a758c581a4abf288208e0f0a64f171a39f3ececec85`
 - [SF-CI-TDD-001 v0.1](../technical-design/SF-CI-TDD-001.md) `ba2bdd1a242b92c2b9db9b1ab3599414ec6a41227ca005d96aa17147001bbd93`
 
+## Archived predecessor revisions
+
+The v0.2.1 predecessors are byte-for-byte copies of the supplied originals. Both SHA-256 digests match §11 of the [governance register](SF-CI-GOV-001.md#11-source-identity-and-revision-history).
+
+- [Architecture specification v0.2.1](../architecture/history/SF-CodeIntel-Specification-v0.2.1.md) `eec236699730173e0612bd9bfbe6d100f417119c3efe3397de2ad24905b85ced`
+- [P0 qualification assignment v0.2.1](../qualification/history/SF-CodeIntel-P0-Qualification-v0.2.1.md) `b35b92081956fffc7f50ef973afa9591da3e5aef291254af82f12f9db9c2a2ce`
+
 ## Open evidence
 
-The original v0.2.1 architecture specification and qualification assignment referenced by the governance register were unavailable in the supplied files. Add the reviewed originals when available. Their source integrity and historical references remain unverified.
+Independent review of the exact v0.2.1 amendments and authorized adoption of the proposed successor revisions remain pending under [governance §3](SF-CI-GOV-001.md#3-authority-register-and-adoption-status).
 
 Canonical document paths follow the governance register. References to future qualification artifacts describe later deliverables. P0-A remains NOT ADMITTED / NOT RUN.
 
