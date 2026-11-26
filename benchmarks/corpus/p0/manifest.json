@@ -1,0 +1,2918 @@
+{
+  "authoring_base": "2fd41db862ea03d7e6b9d3996bc00a004c56159e",
+  "authorities": {
+    "applicability": "docs/governance/sfci-2-baseline-adoption.md",
+    "approved_plan_item": "turn-item:provider:codex:native-item:msg_05d51b758838f14a016b07dc1cf14087d09deede67fcc5ac66",
+    "architecture": "SF-CI-SPEC-001 v0.4 Q0 and §§05–07, 12",
+    "governance": "SF-CI-GOV-001 v0.3 §§4.1, 6–8",
+    "independent_plan_review_item": "turn-item:provider:codex:native-item:msg_00f2f63eb06b0ad1016b07ded228d087d0963f83b8fe86fef2",
+    "issue": "https://app.plane.so/symphony-development/projects/cf209680-d677-4875-9245-ed7b235654dd/issues/899d7e05-11ef-4b1b-aaa7-499a44dc370f",
+    "precedence_item": "turn-item:provider:codex:native-item:msg_058d883a79b89a15016b07ddd93c3487d0b5e731026af198e9",
+    "qualification": "SF-CI-P0-001 v0.3 §§0–1A, 2, 5A, 6",
+    "sequencing": "https://app.plane.so/symphony-development/projects/cf209680-d677-4875-9245-ed7b235654dd/issues/899d7e05-11ef-4b1b-aaa7-499a44dc370f#comment-aa66d745-fadf-404d-83f1-6689bcffc373"
+  },
+  "fixture_repository": "sfci-p0-synthetic",
+  "inputs": [
+    {
+      "mode": "100644",
+      "path": "fixture/apps/alpha/lib/p0/contract.ex",
+      "sha256": "4a05fe0bbecdbdf7cc171f685f2cc7eeed66c08fe07007257c0cae5db8108178",
+      "size_bytes": 65
+    },
+    {
+      "mode": "100644",
+      "path": "fixture/apps/alpha/lib/p0/dynamic.ex",
+      "sha256": "13d9793e7376afae60ba14a5d7c51fa7f6770becbfba256092bce85997dfe7de",
+      "size_bytes": 226
+    },
+    {
+      "mode": "100644",
+      "path": "fixture/apps/alpha/lib/p0/exact.ex",
+      "sha256": "4aa805d5bcc7ea6993ece9ce628a37c0d2690755ebcca8e3d7a2908154e4c2cd",
+      "size_bytes": 238
+    },
+    {
+      "mode": "100644",
+      "path": "fixture/apps/alpha/lib/p0/graph.ex",
+      "sha256": "d408df2825fe692c3a931c4d1693c523435eff428164fec62e29517563dfc2f9",
+      "size_bytes": 110
+    },
+    {
+      "mode": "100644",
+      "path": "fixture/apps/alpha/lib/p0/lifecycle.ex",
+      "sha256": "7e6a965d95ce88a2b2fab271d368defe94c00ff01ace3c4f17cd8d6113d2941d",
+      "size_bytes": 185
+    },
+    {
+      "mode": "100644",
+      "path": "fixture/apps/alpha/lib/p0/move_me.ex",
+      "sha256": "9c2dd3a3e21b6c1cb9a3ec0916334c3fe62cdf77a09a3b61274b2fc12303faa4",
+      "size_bytes": 53
+    },
+    {
+      "mode": "100644",
+      "path": "fixture/apps/alpha/lib/p0/noise.ex",
+      "sha256": "86ce77d4b2065d83a120cc216783daee2f5691e384a09c8c10a23560ae75fead",
+      "size_bytes": 56
+    },
+    {
+      "mode": "100644",
+      "path": "fixture/apps/alpha/lib/p0/panel.html.heex",
+      "sha256": "3e9bba0118fd4368362416944fef9d657b1b2f65938ef563d243fa88b4f766f1",
+      "size_bytes": 30
+    },
+    {
+      "mode": "100644",
+      "path": "fixture/apps/alpha/lib/p0/refs.ex",
+      "sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+      "size_bytes": 536
+    },
+    {
+      "mode": "100644",
+      "path": "fixture/apps/alpha/lib/p0/resource.ex",
+      "sha256": "9227fabb38d1d0184869f1f67cfd8ba15c368ac2c31626f5076663e93d085e47",
+      "size_bytes": 242
+    },
+    {
+      "mode": "100644",
+      "path": "fixture/apps/alpha/lib/p0/retired.ex",
+      "sha256": "49eabf4505a5b7c4bf4f3e3e6dce21e13dc6f175580103368874b23be7c3cdfa",
+      "size_bytes": 57
+    },
+    {
+      "mode": "100644",
+      "path": "fixture/apps/alpha/lib/p0/shared.ex",
+      "sha256": "fb2ebf33c136bbc4e572515659021899b7da0ae049f785bc6b3569e2d5b74625",
+      "size_bytes": 61
+    },
+    {
+      "mode": "100644",
+      "path": "fixture/apps/alpha/lib/p0/shared_caller.ex",
+      "sha256": "649f40d489fce60f2a2f07ffabc16787762bb670d95427e3c997d07d621ee5f8",
+      "size_bytes": 71
+    },
+    {
+      "mode": "100644",
+      "path": "fixture/apps/alpha/mix.exs",
+      "sha256": "d49a3f2a3761b8d1126f0e0c58589ef0a5f5be52e78465bad7ae98e384612165",
+      "size_bytes": 117
+    },
+    {
+      "mode": "100644",
+      "path": "fixture/apps/alpha/priv/sample.sql",
+      "sha256": "8beec54d7c7335e801bbf07c14488dfd7a1e826c2888c5bfa18ff319f7905bc2",
+      "size_bytes": 29
+    },
+    {
+      "mode": "100644",
+      "path": "fixture/apps/alpha/test/support/p0/shared.ex",
+      "sha256": "0f50c13b5421ff68dd3cd3b2833bcd33fa9171bb24ce0df4815969aa8151ac99",
+      "size_bytes": 66
+    },
+    {
+      "mode": "100644",
+      "path": "fixture/apps/beta/lib/p0/shared.ex",
+      "sha256": "89638e74d5274adfc998d769d84b34057a97a6a3e53be190dd624f7422f07f09",
+      "size_bytes": 60
+    },
+    {
+      "mode": "100644",
+      "path": "fixture/apps/beta/lib/p0/shared_caller.ex",
+      "sha256": "af3a8cef861ee8ce6a32e47274ddc0d27376da259f05687a142f3738dcedf280",
+      "size_bytes": 70
+    },
+    {
+      "mode": "100644",
+      "path": "fixture/apps/beta/mix.exs",
+      "sha256": "a9511c782b0bcd25656196c66df7810f970feca2ef8fc2fe9e4a1f83bba2abd6",
+      "size_bytes": 115
+    },
+    {
+      "mode": "100644",
+      "path": "fixture/config/config.exs",
+      "sha256": "b3587774392f48b4873b529d8a93dfa0bf81abc8f991439564bf94fa9dddeed2",
+      "size_bytes": 46
+    },
+    {
+      "mode": "100644",
+      "path": "fixture/mix.exs",
+      "sha256": "d7c6748356c02ba5491de4c1793085765c61e7b4aeeb1173866a0b334479df6f",
+      "size_bytes": 108
+    },
+    {
+      "mode": "100644",
+      "path": "variants/broken-lifecycle.txt",
+      "sha256": "98fc113421680a1c188e2d43ea51ad8209efe5d64e4640241288b53971158302",
+      "size_bytes": 45
+    },
+    {
+      "mode": "100644",
+      "path": "variants/canary.txt",
+      "sha256": "dcfee30d7980f554561ef825fb4c85b375efe9796363425590818f01bd2278f0",
+      "size_bytes": 20
+    },
+    {
+      "mode": "100644",
+      "path": "variants/concurrent-step.txt",
+      "sha256": "8b2c56a30f41b9ae99553c19504b82ac3093545dfb09ae5d0480594e107be984",
+      "size_bytes": 108
+    },
+    {
+      "mode": "100644",
+      "path": "variants/edit-lifecycle.txt",
+      "sha256": "4eb0b377c3b62f6946beb4691114fc6d92a14aae0fe6c10d7ae60e53602d8276",
+      "size_bytes": 182
+    },
+    {
+      "mode": "100644",
+      "path": "variants/untracked-note.txt",
+      "sha256": "ada6f003e7fbe979972ca1e05dbc0bd83d603d1a4410d1b21438cd7b884ad140",
+      "size_bytes": 61
+    },
+    {
+      "mode": "100644",
+      "path": "variants/worktree-b-exact.txt",
+      "sha256": "4f159abf8a9ac56fcca08a837edf853a825c8982a27c061b695d3894a02bd356",
+      "size_bytes": 273
+    }
+  ],
+  "materialized_path_universe": [
+    "apps/alpha/lib/p0/contract.ex",
+    "apps/alpha/lib/p0/dynamic.ex",
+    "apps/alpha/lib/p0/exact.ex",
+    "apps/alpha/lib/p0/graph.ex",
+    "apps/alpha/lib/p0/lifecycle.ex",
+    "apps/alpha/lib/p0/move_me.ex",
+    "apps/alpha/lib/p0/moved.ex",
+    "apps/alpha/lib/p0/noise.ex",
+    "apps/alpha/lib/p0/panel.html.heex",
+    "apps/alpha/lib/p0/refs.ex",
+    "apps/alpha/lib/p0/resource.ex",
+    "apps/alpha/lib/p0/retired.ex",
+    "apps/alpha/lib/p0/shared.ex",
+    "apps/alpha/lib/p0/shared_caller.ex",
+    "apps/alpha/lib/p0/untracked_note.ex",
+    "apps/alpha/mix.exs",
+    "apps/alpha/priv/sample.sql",
+    "apps/alpha/test/support/p0/shared.ex",
+    "apps/beta/lib/p0/shared.ex",
+    "apps/beta/lib/p0/shared_caller.ex",
+    "apps/beta/mix.exs",
+    "config/config.exs",
+    "mix.exs",
+    "mix.lock"
+  ],
+  "recipes": {
+    "break": {
+      "input_state": "G0",
+      "operations": [
+        {
+          "after": "98fc113421680a1c188e2d43ea51ad8209efe5d64e4640241288b53971158302",
+          "before": "7e6a965d95ce88a2b2fab271d368defe94c00ff01ace3c4f17cd8d6113d2941d",
+          "bytes_from": "variants/broken-lifecycle.txt",
+          "input_source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+          "operation": "replace",
+          "output_source_id": "2129448d3dcf61f9cc4ad9a8b05aa8ecc3367f795bc583bb2927bb57f9dc8825",
+          "output_state": "G-broken",
+          "path": "apps/alpha/lib/p0/lifecycle.ex"
+        }
+      ],
+      "output_state": "G-broken"
+    },
+    "delete": {
+      "input_state": "G0",
+      "operations": [
+        {
+          "after": "absent",
+          "before": "49eabf4505a5b7c4bf4f3e3e6dce21e13dc6f175580103368874b23be7c3cdfa",
+          "input_source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+          "operation": "delete",
+          "output_source_id": "feb3db86f0ef302577b1f58bc296d55e788d14ba444eed4f0f55d3e995c80116",
+          "output_state": "G-delete",
+          "path": "apps/alpha/lib/p0/retired.ex"
+        }
+      ],
+      "output_state": "G-delete"
+    },
+    "edit": {
+      "input_state": "G0",
+      "operations": [
+        {
+          "after": "4eb0b377c3b62f6946beb4691114fc6d92a14aae0fe6c10d7ae60e53602d8276",
+          "before": "7e6a965d95ce88a2b2fab271d368defe94c00ff01ace3c4f17cd8d6113d2941d",
+          "bytes_from": "variants/edit-lifecycle.txt",
+          "input_source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+          "operation": "replace",
+          "output_source_id": "b9e8d94bd79f2d5fe7010e62d7c1758366b310ab2be157ecbc3e16825c28da2f",
+          "output_state": "G-edit",
+          "path": "apps/alpha/lib/p0/lifecycle.ex"
+        }
+      ],
+      "output_state": "G-edit"
+    },
+    "include-untracked": {
+      "input_state": "G0",
+      "operations": [
+        {
+          "after": "ada6f003e7fbe979972ca1e05dbc0bd83d603d1a4410d1b21438cd7b884ad140",
+          "before": "absent",
+          "bytes_from": "variants/untracked-note.txt",
+          "input_source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+          "operation": "add",
+          "output_source_id": "93e8642fe488d8290e6f47fe0ce7fba4bc17a84bb33f614eda3f873f28888fd7",
+          "output_state": "G-untracked",
+          "path": "apps/alpha/lib/p0/untracked_note.ex"
+        }
+      ],
+      "output_state": "G-untracked"
+    },
+    "recover": {
+      "input_state": "G-broken",
+      "operations": [
+        {
+          "after": "7e6a965d95ce88a2b2fab271d368defe94c00ff01ace3c4f17cd8d6113d2941d",
+          "before": "98fc113421680a1c188e2d43ea51ad8209efe5d64e4640241288b53971158302",
+          "bytes_from": "fixture/apps/alpha/lib/p0/lifecycle.ex",
+          "input_source_id": "2129448d3dcf61f9cc4ad9a8b05aa8ecc3367f795bc583bb2927bb57f9dc8825",
+          "operation": "replace",
+          "output_source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+          "output_state": "G-recovered",
+          "path": "apps/alpha/lib/p0/lifecycle.ex"
+        }
+      ],
+      "output_state": "G-recovered"
+    },
+    "rename": {
+      "input_state": "G0",
+      "operations": [
+        {
+          "after": "absent",
+          "before": "9c2dd3a3e21b6c1cb9a3ec0916334c3fe62cdf77a09a3b61274b2fc12303faa4",
+          "destination": "apps/alpha/lib/p0/moved.ex",
+          "destination_after": "9c2dd3a3e21b6c1cb9a3ec0916334c3fe62cdf77a09a3b61274b2fc12303faa4",
+          "destination_before": "absent",
+          "input_source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+          "operation": "rename",
+          "output_source_id": "4a842e230d0f0447f85d0539ba141b80c568623240fbaef3b70b8b0a6d4e9844",
+          "output_state": "G-rename",
+          "path": "apps/alpha/lib/p0/move_me.ex"
+        }
+      ],
+      "output_state": "G-rename"
+    },
+    "replace-graph": {
+      "input_state": "G0",
+      "operations": [
+        {
+          "after": "8b2c56a30f41b9ae99553c19504b82ac3093545dfb09ae5d0480594e107be984",
+          "before": "d408df2825fe692c3a931c4d1693c523435eff428164fec62e29517563dfc2f9",
+          "bytes_from": "variants/concurrent-step.txt",
+          "input_source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+          "operation": "replace",
+          "output_source_id": "9820e8ec57ecd7148e8af5e31d194ee6cc5d82e5a995aa9c20072dc4ae43b7e2",
+          "output_state": "G-concurrent",
+          "path": "apps/alpha/lib/p0/graph.ex"
+        }
+      ],
+      "output_state": "G-concurrent"
+    },
+    "restore-graph": {
+      "input_state": "G-concurrent",
+      "operations": [
+        {
+          "after": "d408df2825fe692c3a931c4d1693c523435eff428164fec62e29517563dfc2f9",
+          "before": "8b2c56a30f41b9ae99553c19504b82ac3093545dfb09ae5d0480594e107be984",
+          "bytes_from": "fixture/apps/alpha/lib/p0/graph.ex",
+          "input_source_id": "9820e8ec57ecd7148e8af5e31d194ee6cc5d82e5a995aa9c20072dc4ae43b7e2",
+          "operation": "replace",
+          "output_source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+          "output_state": "G-restored",
+          "path": "apps/alpha/lib/p0/graph.ex"
+        }
+      ],
+      "output_state": "G-restored"
+    },
+    "worktree-b": {
+      "input_state": "G0",
+      "operations": [
+        {
+          "after": "4f159abf8a9ac56fcca08a837edf853a825c8982a27c061b695d3894a02bd356",
+          "before": "4aa805d5bcc7ea6993ece9ce628a37c0d2690755ebcca8e3d7a2908154e4c2cd",
+          "bytes_from": "variants/worktree-b-exact.txt",
+          "input_source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3",
+          "operation": "replace",
+          "output_source_id": "fac5af69584068444c18db51ae7cfd38ddfaece31fc44c539c1a23c68682a4f0",
+          "output_state": "G-worktree-b-step-1",
+          "path": "apps/alpha/lib/p0/exact.ex"
+        },
+        {
+          "after": "absent",
+          "before": "49eabf4505a5b7c4bf4f3e3e6dce21e13dc6f175580103368874b23be7c3cdfa",
+          "input_source_id": "fac5af69584068444c18db51ae7cfd38ddfaece31fc44c539c1a23c68682a4f0",
+          "operation": "delete",
+          "output_source_id": "c3ba65c720aa13486b8e7f878f9c08886e68fad6d36afb061eb741f8530a7486",
+          "output_state": "G-worktree-b",
+          "path": "apps/alpha/lib/p0/retired.ex"
+        }
+      ],
+      "output_state": "G-worktree-b"
+    }
+  },
+  "schema_version": 1,
+  "states": {
+    "G-broken": {
+      "resolved": {
+        "bindings": [
+          {
+            "app": "umbrella",
+            "context": "root",
+            "path_prefix": ""
+          },
+          {
+            "app": "alpha",
+            "context": "app",
+            "path_prefix": "apps/alpha/"
+          },
+          {
+            "app": "alpha",
+            "context": "production",
+            "path_prefix": "apps/alpha/lib/"
+          },
+          {
+            "app": "alpha",
+            "context": "production",
+            "path_prefix": "apps/alpha/priv/"
+          },
+          {
+            "app": "alpha",
+            "context": "test",
+            "path_prefix": "apps/alpha/test/support/"
+          },
+          {
+            "app": "beta",
+            "context": "app",
+            "path_prefix": "apps/beta/"
+          },
+          {
+            "app": "beta",
+            "context": "production",
+            "path_prefix": "apps/beta/lib/"
+          },
+          {
+            "app": "umbrella",
+            "context": "config",
+            "path_prefix": "config/"
+          }
+        ],
+        "paths": [
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/contract.ex",
+            "presence": "present",
+            "sha256": "4a05fe0bbecdbdf7cc171f685f2cc7eeed66c08fe07007257c0cae5db8108178",
+            "size_bytes": 65,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/dynamic.ex",
+            "presence": "present",
+            "sha256": "13d9793e7376afae60ba14a5d7c51fa7f6770becbfba256092bce85997dfe7de",
+            "size_bytes": 226,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/exact.ex",
+            "presence": "present",
+            "sha256": "4aa805d5bcc7ea6993ece9ce628a37c0d2690755ebcca8e3d7a2908154e4c2cd",
+            "size_bytes": 238,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/graph.ex",
+            "presence": "present",
+            "sha256": "d408df2825fe692c3a931c4d1693c523435eff428164fec62e29517563dfc2f9",
+            "size_bytes": 110,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/lifecycle.ex",
+            "presence": "present",
+            "sha256": "98fc113421680a1c188e2d43ea51ad8209efe5d64e4640241288b53971158302",
+            "size_bytes": 45,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/move_me.ex",
+            "presence": "present",
+            "sha256": "9c2dd3a3e21b6c1cb9a3ec0916334c3fe62cdf77a09a3b61274b2fc12303faa4",
+            "size_bytes": 53,
+            "tracking": "tracked"
+          },
+          {
+            "path": "apps/alpha/lib/p0/moved.ex",
+            "presence": "absent"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/noise.ex",
+            "presence": "present",
+            "sha256": "86ce77d4b2065d83a120cc216783daee2f5691e384a09c8c10a23560ae75fead",
+            "size_bytes": 56,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/panel.html.heex",
+            "presence": "present",
+            "sha256": "3e9bba0118fd4368362416944fef9d657b1b2f65938ef563d243fa88b4f766f1",
+            "size_bytes": 30,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/refs.ex",
+            "presence": "present",
+            "sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+            "size_bytes": 536,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/resource.ex",
+            "presence": "present",
+            "sha256": "9227fabb38d1d0184869f1f67cfd8ba15c368ac2c31626f5076663e93d085e47",
+            "size_bytes": 242,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/retired.ex",
+            "presence": "present",
+            "sha256": "49eabf4505a5b7c4bf4f3e3e6dce21e13dc6f175580103368874b23be7c3cdfa",
+            "size_bytes": 57,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/shared.ex",
+            "presence": "present",
+            "sha256": "fb2ebf33c136bbc4e572515659021899b7da0ae049f785bc6b3569e2d5b74625",
+            "size_bytes": 61,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/shared_caller.ex",
+            "presence": "present",
+            "sha256": "649f40d489fce60f2a2f07ffabc16787762bb670d95427e3c997d07d621ee5f8",
+            "size_bytes": 71,
+            "tracking": "tracked"
+          },
+          {
+            "path": "apps/alpha/lib/p0/untracked_note.ex",
+            "presence": "absent"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/mix.exs",
+            "presence": "present",
+            "sha256": "d49a3f2a3761b8d1126f0e0c58589ef0a5f5be52e78465bad7ae98e384612165",
+            "size_bytes": 117,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/priv/sample.sql",
+            "presence": "present",
+            "sha256": "8beec54d7c7335e801bbf07c14488dfd7a1e826c2888c5bfa18ff319f7905bc2",
+            "size_bytes": 29,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/test/support/p0/shared.ex",
+            "presence": "present",
+            "sha256": "0f50c13b5421ff68dd3cd3b2833bcd33fa9171bb24ce0df4815969aa8151ac99",
+            "size_bytes": 66,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/lib/p0/shared.ex",
+            "presence": "present",
+            "sha256": "89638e74d5274adfc998d769d84b34057a97a6a3e53be190dd624f7422f07f09",
+            "size_bytes": 60,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/lib/p0/shared_caller.ex",
+            "presence": "present",
+            "sha256": "af3a8cef861ee8ce6a32e47274ddc0d27376da259f05687a142f3738dcedf280",
+            "size_bytes": 70,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/mix.exs",
+            "presence": "present",
+            "sha256": "a9511c782b0bcd25656196c66df7810f970feca2ef8fc2fe9e4a1f83bba2abd6",
+            "size_bytes": 115,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "config/config.exs",
+            "presence": "present",
+            "sha256": "b3587774392f48b4873b529d8a93dfa0bf81abc8f991439564bf94fa9dddeed2",
+            "size_bytes": 46,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "mix.exs",
+            "presence": "present",
+            "sha256": "d7c6748356c02ba5491de4c1793085765c61e7b4aeeb1173866a0b334479df6f",
+            "size_bytes": 108,
+            "tracking": "tracked"
+          },
+          {
+            "path": "mix.lock",
+            "presence": "absent"
+          }
+        ],
+        "schema_version": 1,
+        "source_root": "."
+      },
+      "source_id": "2129448d3dcf61f9cc4ad9a8b05aa8ecc3367f795bc583bb2927bb57f9dc8825"
+    },
+    "G-concurrent": {
+      "resolved": {
+        "bindings": [
+          {
+            "app": "umbrella",
+            "context": "root",
+            "path_prefix": ""
+          },
+          {
+            "app": "alpha",
+            "context": "app",
+            "path_prefix": "apps/alpha/"
+          },
+          {
+            "app": "alpha",
+            "context": "production",
+            "path_prefix": "apps/alpha/lib/"
+          },
+          {
+            "app": "alpha",
+            "context": "production",
+            "path_prefix": "apps/alpha/priv/"
+          },
+          {
+            "app": "alpha",
+            "context": "test",
+            "path_prefix": "apps/alpha/test/support/"
+          },
+          {
+            "app": "beta",
+            "context": "app",
+            "path_prefix": "apps/beta/"
+          },
+          {
+            "app": "beta",
+            "context": "production",
+            "path_prefix": "apps/beta/lib/"
+          },
+          {
+            "app": "umbrella",
+            "context": "config",
+            "path_prefix": "config/"
+          }
+        ],
+        "paths": [
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/contract.ex",
+            "presence": "present",
+            "sha256": "4a05fe0bbecdbdf7cc171f685f2cc7eeed66c08fe07007257c0cae5db8108178",
+            "size_bytes": 65,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/dynamic.ex",
+            "presence": "present",
+            "sha256": "13d9793e7376afae60ba14a5d7c51fa7f6770becbfba256092bce85997dfe7de",
+            "size_bytes": 226,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/exact.ex",
+            "presence": "present",
+            "sha256": "4aa805d5bcc7ea6993ece9ce628a37c0d2690755ebcca8e3d7a2908154e4c2cd",
+            "size_bytes": 238,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/graph.ex",
+            "presence": "present",
+            "sha256": "8b2c56a30f41b9ae99553c19504b82ac3093545dfb09ae5d0480594e107be984",
+            "size_bytes": 108,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/lifecycle.ex",
+            "presence": "present",
+            "sha256": "7e6a965d95ce88a2b2fab271d368defe94c00ff01ace3c4f17cd8d6113d2941d",
+            "size_bytes": 185,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/move_me.ex",
+            "presence": "present",
+            "sha256": "9c2dd3a3e21b6c1cb9a3ec0916334c3fe62cdf77a09a3b61274b2fc12303faa4",
+            "size_bytes": 53,
+            "tracking": "tracked"
+          },
+          {
+            "path": "apps/alpha/lib/p0/moved.ex",
+            "presence": "absent"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/noise.ex",
+            "presence": "present",
+            "sha256": "86ce77d4b2065d83a120cc216783daee2f5691e384a09c8c10a23560ae75fead",
+            "size_bytes": 56,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/panel.html.heex",
+            "presence": "present",
+            "sha256": "3e9bba0118fd4368362416944fef9d657b1b2f65938ef563d243fa88b4f766f1",
+            "size_bytes": 30,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/refs.ex",
+            "presence": "present",
+            "sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+            "size_bytes": 536,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/resource.ex",
+            "presence": "present",
+            "sha256": "9227fabb38d1d0184869f1f67cfd8ba15c368ac2c31626f5076663e93d085e47",
+            "size_bytes": 242,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/retired.ex",
+            "presence": "present",
+            "sha256": "49eabf4505a5b7c4bf4f3e3e6dce21e13dc6f175580103368874b23be7c3cdfa",
+            "size_bytes": 57,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/shared.ex",
+            "presence": "present",
+            "sha256": "fb2ebf33c136bbc4e572515659021899b7da0ae049f785bc6b3569e2d5b74625",
+            "size_bytes": 61,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/shared_caller.ex",
+            "presence": "present",
+            "sha256": "649f40d489fce60f2a2f07ffabc16787762bb670d95427e3c997d07d621ee5f8",
+            "size_bytes": 71,
+            "tracking": "tracked"
+          },
+          {
+            "path": "apps/alpha/lib/p0/untracked_note.ex",
+            "presence": "absent"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/mix.exs",
+            "presence": "present",
+            "sha256": "d49a3f2a3761b8d1126f0e0c58589ef0a5f5be52e78465bad7ae98e384612165",
+            "size_bytes": 117,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/priv/sample.sql",
+            "presence": "present",
+            "sha256": "8beec54d7c7335e801bbf07c14488dfd7a1e826c2888c5bfa18ff319f7905bc2",
+            "size_bytes": 29,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/test/support/p0/shared.ex",
+            "presence": "present",
+            "sha256": "0f50c13b5421ff68dd3cd3b2833bcd33fa9171bb24ce0df4815969aa8151ac99",
+            "size_bytes": 66,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/lib/p0/shared.ex",
+            "presence": "present",
+            "sha256": "89638e74d5274adfc998d769d84b34057a97a6a3e53be190dd624f7422f07f09",
+            "size_bytes": 60,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/lib/p0/shared_caller.ex",
+            "presence": "present",
+            "sha256": "af3a8cef861ee8ce6a32e47274ddc0d27376da259f05687a142f3738dcedf280",
+            "size_bytes": 70,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/mix.exs",
+            "presence": "present",
+            "sha256": "a9511c782b0bcd25656196c66df7810f970feca2ef8fc2fe9e4a1f83bba2abd6",
+            "size_bytes": 115,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "config/config.exs",
+            "presence": "present",
+            "sha256": "b3587774392f48b4873b529d8a93dfa0bf81abc8f991439564bf94fa9dddeed2",
+            "size_bytes": 46,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "mix.exs",
+            "presence": "present",
+            "sha256": "d7c6748356c02ba5491de4c1793085765c61e7b4aeeb1173866a0b334479df6f",
+            "size_bytes": 108,
+            "tracking": "tracked"
+          },
+          {
+            "path": "mix.lock",
+            "presence": "absent"
+          }
+        ],
+        "schema_version": 1,
+        "source_root": "."
+      },
+      "source_id": "9820e8ec57ecd7148e8af5e31d194ee6cc5d82e5a995aa9c20072dc4ae43b7e2"
+    },
+    "G-delete": {
+      "resolved": {
+        "bindings": [
+          {
+            "app": "umbrella",
+            "context": "root",
+            "path_prefix": ""
+          },
+          {
+            "app": "alpha",
+            "context": "app",
+            "path_prefix": "apps/alpha/"
+          },
+          {
+            "app": "alpha",
+            "context": "production",
+            "path_prefix": "apps/alpha/lib/"
+          },
+          {
+            "app": "alpha",
+            "context": "production",
+            "path_prefix": "apps/alpha/priv/"
+          },
+          {
+            "app": "alpha",
+            "context": "test",
+            "path_prefix": "apps/alpha/test/support/"
+          },
+          {
+            "app": "beta",
+            "context": "app",
+            "path_prefix": "apps/beta/"
+          },
+          {
+            "app": "beta",
+            "context": "production",
+            "path_prefix": "apps/beta/lib/"
+          },
+          {
+            "app": "umbrella",
+            "context": "config",
+            "path_prefix": "config/"
+          }
+        ],
+        "paths": [
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/contract.ex",
+            "presence": "present",
+            "sha256": "4a05fe0bbecdbdf7cc171f685f2cc7eeed66c08fe07007257c0cae5db8108178",
+            "size_bytes": 65,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/dynamic.ex",
+            "presence": "present",
+            "sha256": "13d9793e7376afae60ba14a5d7c51fa7f6770becbfba256092bce85997dfe7de",
+            "size_bytes": 226,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/exact.ex",
+            "presence": "present",
+            "sha256": "4aa805d5bcc7ea6993ece9ce628a37c0d2690755ebcca8e3d7a2908154e4c2cd",
+            "size_bytes": 238,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/graph.ex",
+            "presence": "present",
+            "sha256": "d408df2825fe692c3a931c4d1693c523435eff428164fec62e29517563dfc2f9",
+            "size_bytes": 110,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/lifecycle.ex",
+            "presence": "present",
+            "sha256": "7e6a965d95ce88a2b2fab271d368defe94c00ff01ace3c4f17cd8d6113d2941d",
+            "size_bytes": 185,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/move_me.ex",
+            "presence": "present",
+            "sha256": "9c2dd3a3e21b6c1cb9a3ec0916334c3fe62cdf77a09a3b61274b2fc12303faa4",
+            "size_bytes": 53,
+            "tracking": "tracked"
+          },
+          {
+            "path": "apps/alpha/lib/p0/moved.ex",
+            "presence": "absent"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/noise.ex",
+            "presence": "present",
+            "sha256": "86ce77d4b2065d83a120cc216783daee2f5691e384a09c8c10a23560ae75fead",
+            "size_bytes": 56,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/panel.html.heex",
+            "presence": "present",
+            "sha256": "3e9bba0118fd4368362416944fef9d657b1b2f65938ef563d243fa88b4f766f1",
+            "size_bytes": 30,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/refs.ex",
+            "presence": "present",
+            "sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+            "size_bytes": 536,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/resource.ex",
+            "presence": "present",
+            "sha256": "9227fabb38d1d0184869f1f67cfd8ba15c368ac2c31626f5076663e93d085e47",
+            "size_bytes": 242,
+            "tracking": "tracked"
+          },
+          {
+            "path": "apps/alpha/lib/p0/retired.ex",
+            "presence": "absent"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/shared.ex",
+            "presence": "present",
+            "sha256": "fb2ebf33c136bbc4e572515659021899b7da0ae049f785bc6b3569e2d5b74625",
+            "size_bytes": 61,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/shared_caller.ex",
+            "presence": "present",
+            "sha256": "649f40d489fce60f2a2f07ffabc16787762bb670d95427e3c997d07d621ee5f8",
+            "size_bytes": 71,
+            "tracking": "tracked"
+          },
+          {
+            "path": "apps/alpha/lib/p0/untracked_note.ex",
+            "presence": "absent"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/mix.exs",
+            "presence": "present",
+            "sha256": "d49a3f2a3761b8d1126f0e0c58589ef0a5f5be52e78465bad7ae98e384612165",
+            "size_bytes": 117,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/priv/sample.sql",
+            "presence": "present",
+            "sha256": "8beec54d7c7335e801bbf07c14488dfd7a1e826c2888c5bfa18ff319f7905bc2",
+            "size_bytes": 29,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/test/support/p0/shared.ex",
+            "presence": "present",
+            "sha256": "0f50c13b5421ff68dd3cd3b2833bcd33fa9171bb24ce0df4815969aa8151ac99",
+            "size_bytes": 66,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/lib/p0/shared.ex",
+            "presence": "present",
+            "sha256": "89638e74d5274adfc998d769d84b34057a97a6a3e53be190dd624f7422f07f09",
+            "size_bytes": 60,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/lib/p0/shared_caller.ex",
+            "presence": "present",
+            "sha256": "af3a8cef861ee8ce6a32e47274ddc0d27376da259f05687a142f3738dcedf280",
+            "size_bytes": 70,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/mix.exs",
+            "presence": "present",
+            "sha256": "a9511c782b0bcd25656196c66df7810f970feca2ef8fc2fe9e4a1f83bba2abd6",
+            "size_bytes": 115,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "config/config.exs",
+            "presence": "present",
+            "sha256": "b3587774392f48b4873b529d8a93dfa0bf81abc8f991439564bf94fa9dddeed2",
+            "size_bytes": 46,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "mix.exs",
+            "presence": "present",
+            "sha256": "d7c6748356c02ba5491de4c1793085765c61e7b4aeeb1173866a0b334479df6f",
+            "size_bytes": 108,
+            "tracking": "tracked"
+          },
+          {
+            "path": "mix.lock",
+            "presence": "absent"
+          }
+        ],
+        "schema_version": 1,
+        "source_root": "."
+      },
+      "source_id": "feb3db86f0ef302577b1f58bc296d55e788d14ba444eed4f0f55d3e995c80116"
+    },
+    "G-edit": {
+      "resolved": {
+        "bindings": [
+          {
+            "app": "umbrella",
+            "context": "root",
+            "path_prefix": ""
+          },
+          {
+            "app": "alpha",
+            "context": "app",
+            "path_prefix": "apps/alpha/"
+          },
+          {
+            "app": "alpha",
+            "context": "production",
+            "path_prefix": "apps/alpha/lib/"
+          },
+          {
+            "app": "alpha",
+            "context": "production",
+            "path_prefix": "apps/alpha/priv/"
+          },
+          {
+            "app": "alpha",
+            "context": "test",
+            "path_prefix": "apps/alpha/test/support/"
+          },
+          {
+            "app": "beta",
+            "context": "app",
+            "path_prefix": "apps/beta/"
+          },
+          {
+            "app": "beta",
+            "context": "production",
+            "path_prefix": "apps/beta/lib/"
+          },
+          {
+            "app": "umbrella",
+            "context": "config",
+            "path_prefix": "config/"
+          }
+        ],
+        "paths": [
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/contract.ex",
+            "presence": "present",
+            "sha256": "4a05fe0bbecdbdf7cc171f685f2cc7eeed66c08fe07007257c0cae5db8108178",
+            "size_bytes": 65,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/dynamic.ex",
+            "presence": "present",
+            "sha256": "13d9793e7376afae60ba14a5d7c51fa7f6770becbfba256092bce85997dfe7de",
+            "size_bytes": 226,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/exact.ex",
+            "presence": "present",
+            "sha256": "4aa805d5bcc7ea6993ece9ce628a37c0d2690755ebcca8e3d7a2908154e4c2cd",
+            "size_bytes": 238,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/graph.ex",
+            "presence": "present",
+            "sha256": "d408df2825fe692c3a931c4d1693c523435eff428164fec62e29517563dfc2f9",
+            "size_bytes": 110,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/lifecycle.ex",
+            "presence": "present",
+            "sha256": "4eb0b377c3b62f6946beb4691114fc6d92a14aae0fe6c10d7ae60e53602d8276",
+            "size_bytes": 182,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/move_me.ex",
+            "presence": "present",
+            "sha256": "9c2dd3a3e21b6c1cb9a3ec0916334c3fe62cdf77a09a3b61274b2fc12303faa4",
+            "size_bytes": 53,
+            "tracking": "tracked"
+          },
+          {
+            "path": "apps/alpha/lib/p0/moved.ex",
+            "presence": "absent"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/noise.ex",
+            "presence": "present",
+            "sha256": "86ce77d4b2065d83a120cc216783daee2f5691e384a09c8c10a23560ae75fead",
+            "size_bytes": 56,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/panel.html.heex",
+            "presence": "present",
+            "sha256": "3e9bba0118fd4368362416944fef9d657b1b2f65938ef563d243fa88b4f766f1",
+            "size_bytes": 30,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/refs.ex",
+            "presence": "present",
+            "sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+            "size_bytes": 536,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/resource.ex",
+            "presence": "present",
+            "sha256": "9227fabb38d1d0184869f1f67cfd8ba15c368ac2c31626f5076663e93d085e47",
+            "size_bytes": 242,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/retired.ex",
+            "presence": "present",
+            "sha256": "49eabf4505a5b7c4bf4f3e3e6dce21e13dc6f175580103368874b23be7c3cdfa",
+            "size_bytes": 57,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/shared.ex",
+            "presence": "present",
+            "sha256": "fb2ebf33c136bbc4e572515659021899b7da0ae049f785bc6b3569e2d5b74625",
+            "size_bytes": 61,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/shared_caller.ex",
+            "presence": "present",
+            "sha256": "649f40d489fce60f2a2f07ffabc16787762bb670d95427e3c997d07d621ee5f8",
+            "size_bytes": 71,
+            "tracking": "tracked"
+          },
+          {
+            "path": "apps/alpha/lib/p0/untracked_note.ex",
+            "presence": "absent"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/mix.exs",
+            "presence": "present",
+            "sha256": "d49a3f2a3761b8d1126f0e0c58589ef0a5f5be52e78465bad7ae98e384612165",
+            "size_bytes": 117,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/priv/sample.sql",
+            "presence": "present",
+            "sha256": "8beec54d7c7335e801bbf07c14488dfd7a1e826c2888c5bfa18ff319f7905bc2",
+            "size_bytes": 29,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/test/support/p0/shared.ex",
+            "presence": "present",
+            "sha256": "0f50c13b5421ff68dd3cd3b2833bcd33fa9171bb24ce0df4815969aa8151ac99",
+            "size_bytes": 66,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/lib/p0/shared.ex",
+            "presence": "present",
+            "sha256": "89638e74d5274adfc998d769d84b34057a97a6a3e53be190dd624f7422f07f09",
+            "size_bytes": 60,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/lib/p0/shared_caller.ex",
+            "presence": "present",
+            "sha256": "af3a8cef861ee8ce6a32e47274ddc0d27376da259f05687a142f3738dcedf280",
+            "size_bytes": 70,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/mix.exs",
+            "presence": "present",
+            "sha256": "a9511c782b0bcd25656196c66df7810f970feca2ef8fc2fe9e4a1f83bba2abd6",
+            "size_bytes": 115,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "config/config.exs",
+            "presence": "present",
+            "sha256": "b3587774392f48b4873b529d8a93dfa0bf81abc8f991439564bf94fa9dddeed2",
+            "size_bytes": 46,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "mix.exs",
+            "presence": "present",
+            "sha256": "d7c6748356c02ba5491de4c1793085765c61e7b4aeeb1173866a0b334479df6f",
+            "size_bytes": 108,
+            "tracking": "tracked"
+          },
+          {
+            "path": "mix.lock",
+            "presence": "absent"
+          }
+        ],
+        "schema_version": 1,
+        "source_root": "."
+      },
+      "source_id": "b9e8d94bd79f2d5fe7010e62d7c1758366b310ab2be157ecbc3e16825c28da2f"
+    },
+    "G-recovered": {
+      "resolved": {
+        "bindings": [
+          {
+            "app": "umbrella",
+            "context": "root",
+            "path_prefix": ""
+          },
+          {
+            "app": "alpha",
+            "context": "app",
+            "path_prefix": "apps/alpha/"
+          },
+          {
+            "app": "alpha",
+            "context": "production",
+            "path_prefix": "apps/alpha/lib/"
+          },
+          {
+            "app": "alpha",
+            "context": "production",
+            "path_prefix": "apps/alpha/priv/"
+          },
+          {
+            "app": "alpha",
+            "context": "test",
+            "path_prefix": "apps/alpha/test/support/"
+          },
+          {
+            "app": "beta",
+            "context": "app",
+            "path_prefix": "apps/beta/"
+          },
+          {
+            "app": "beta",
+            "context": "production",
+            "path_prefix": "apps/beta/lib/"
+          },
+          {
+            "app": "umbrella",
+            "context": "config",
+            "path_prefix": "config/"
+          }
+        ],
+        "paths": [
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/contract.ex",
+            "presence": "present",
+            "sha256": "4a05fe0bbecdbdf7cc171f685f2cc7eeed66c08fe07007257c0cae5db8108178",
+            "size_bytes": 65,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/dynamic.ex",
+            "presence": "present",
+            "sha256": "13d9793e7376afae60ba14a5d7c51fa7f6770becbfba256092bce85997dfe7de",
+            "size_bytes": 226,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/exact.ex",
+            "presence": "present",
+            "sha256": "4aa805d5bcc7ea6993ece9ce628a37c0d2690755ebcca8e3d7a2908154e4c2cd",
+            "size_bytes": 238,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/graph.ex",
+            "presence": "present",
+            "sha256": "d408df2825fe692c3a931c4d1693c523435eff428164fec62e29517563dfc2f9",
+            "size_bytes": 110,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/lifecycle.ex",
+            "presence": "present",
+            "sha256": "7e6a965d95ce88a2b2fab271d368defe94c00ff01ace3c4f17cd8d6113d2941d",
+            "size_bytes": 185,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/move_me.ex",
+            "presence": "present",
+            "sha256": "9c2dd3a3e21b6c1cb9a3ec0916334c3fe62cdf77a09a3b61274b2fc12303faa4",
+            "size_bytes": 53,
+            "tracking": "tracked"
+          },
+          {
+            "path": "apps/alpha/lib/p0/moved.ex",
+            "presence": "absent"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/noise.ex",
+            "presence": "present",
+            "sha256": "86ce77d4b2065d83a120cc216783daee2f5691e384a09c8c10a23560ae75fead",
+            "size_bytes": 56,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/panel.html.heex",
+            "presence": "present",
+            "sha256": "3e9bba0118fd4368362416944fef9d657b1b2f65938ef563d243fa88b4f766f1",
+            "size_bytes": 30,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/refs.ex",
+            "presence": "present",
+            "sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+            "size_bytes": 536,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/resource.ex",
+            "presence": "present",
+            "sha256": "9227fabb38d1d0184869f1f67cfd8ba15c368ac2c31626f5076663e93d085e47",
+            "size_bytes": 242,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/retired.ex",
+            "presence": "present",
+            "sha256": "49eabf4505a5b7c4bf4f3e3e6dce21e13dc6f175580103368874b23be7c3cdfa",
+            "size_bytes": 57,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/shared.ex",
+            "presence": "present",
+            "sha256": "fb2ebf33c136bbc4e572515659021899b7da0ae049f785bc6b3569e2d5b74625",
+            "size_bytes": 61,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/shared_caller.ex",
+            "presence": "present",
+            "sha256": "649f40d489fce60f2a2f07ffabc16787762bb670d95427e3c997d07d621ee5f8",
+            "size_bytes": 71,
+            "tracking": "tracked"
+          },
+          {
+            "path": "apps/alpha/lib/p0/untracked_note.ex",
+            "presence": "absent"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/mix.exs",
+            "presence": "present",
+            "sha256": "d49a3f2a3761b8d1126f0e0c58589ef0a5f5be52e78465bad7ae98e384612165",
+            "size_bytes": 117,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/priv/sample.sql",
+            "presence": "present",
+            "sha256": "8beec54d7c7335e801bbf07c14488dfd7a1e826c2888c5bfa18ff319f7905bc2",
+            "size_bytes": 29,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/test/support/p0/shared.ex",
+            "presence": "present",
+            "sha256": "0f50c13b5421ff68dd3cd3b2833bcd33fa9171bb24ce0df4815969aa8151ac99",
+            "size_bytes": 66,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/lib/p0/shared.ex",
+            "presence": "present",
+            "sha256": "89638e74d5274adfc998d769d84b34057a97a6a3e53be190dd624f7422f07f09",
+            "size_bytes": 60,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/lib/p0/shared_caller.ex",
+            "presence": "present",
+            "sha256": "af3a8cef861ee8ce6a32e47274ddc0d27376da259f05687a142f3738dcedf280",
+            "size_bytes": 70,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/mix.exs",
+            "presence": "present",
+            "sha256": "a9511c782b0bcd25656196c66df7810f970feca2ef8fc2fe9e4a1f83bba2abd6",
+            "size_bytes": 115,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "config/config.exs",
+            "presence": "present",
+            "sha256": "b3587774392f48b4873b529d8a93dfa0bf81abc8f991439564bf94fa9dddeed2",
+            "size_bytes": 46,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "mix.exs",
+            "presence": "present",
+            "sha256": "d7c6748356c02ba5491de4c1793085765c61e7b4aeeb1173866a0b334479df6f",
+            "size_bytes": 108,
+            "tracking": "tracked"
+          },
+          {
+            "path": "mix.lock",
+            "presence": "absent"
+          }
+        ],
+        "schema_version": 1,
+        "source_root": "."
+      },
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3"
+    },
+    "G-rename": {
+      "resolved": {
+        "bindings": [
+          {
+            "app": "umbrella",
+            "context": "root",
+            "path_prefix": ""
+          },
+          {
+            "app": "alpha",
+            "context": "app",
+            "path_prefix": "apps/alpha/"
+          },
+          {
+            "app": "alpha",
+            "context": "production",
+            "path_prefix": "apps/alpha/lib/"
+          },
+          {
+            "app": "alpha",
+            "context": "production",
+            "path_prefix": "apps/alpha/priv/"
+          },
+          {
+            "app": "alpha",
+            "context": "test",
+            "path_prefix": "apps/alpha/test/support/"
+          },
+          {
+            "app": "beta",
+            "context": "app",
+            "path_prefix": "apps/beta/"
+          },
+          {
+            "app": "beta",
+            "context": "production",
+            "path_prefix": "apps/beta/lib/"
+          },
+          {
+            "app": "umbrella",
+            "context": "config",
+            "path_prefix": "config/"
+          }
+        ],
+        "paths": [
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/contract.ex",
+            "presence": "present",
+            "sha256": "4a05fe0bbecdbdf7cc171f685f2cc7eeed66c08fe07007257c0cae5db8108178",
+            "size_bytes": 65,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/dynamic.ex",
+            "presence": "present",
+            "sha256": "13d9793e7376afae60ba14a5d7c51fa7f6770becbfba256092bce85997dfe7de",
+            "size_bytes": 226,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/exact.ex",
+            "presence": "present",
+            "sha256": "4aa805d5bcc7ea6993ece9ce628a37c0d2690755ebcca8e3d7a2908154e4c2cd",
+            "size_bytes": 238,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/graph.ex",
+            "presence": "present",
+            "sha256": "d408df2825fe692c3a931c4d1693c523435eff428164fec62e29517563dfc2f9",
+            "size_bytes": 110,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/lifecycle.ex",
+            "presence": "present",
+            "sha256": "7e6a965d95ce88a2b2fab271d368defe94c00ff01ace3c4f17cd8d6113d2941d",
+            "size_bytes": 185,
+            "tracking": "tracked"
+          },
+          {
+            "path": "apps/alpha/lib/p0/move_me.ex",
+            "presence": "absent"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/moved.ex",
+            "presence": "present",
+            "sha256": "9c2dd3a3e21b6c1cb9a3ec0916334c3fe62cdf77a09a3b61274b2fc12303faa4",
+            "size_bytes": 53,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/noise.ex",
+            "presence": "present",
+            "sha256": "86ce77d4b2065d83a120cc216783daee2f5691e384a09c8c10a23560ae75fead",
+            "size_bytes": 56,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/panel.html.heex",
+            "presence": "present",
+            "sha256": "3e9bba0118fd4368362416944fef9d657b1b2f65938ef563d243fa88b4f766f1",
+            "size_bytes": 30,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/refs.ex",
+            "presence": "present",
+            "sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+            "size_bytes": 536,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/resource.ex",
+            "presence": "present",
+            "sha256": "9227fabb38d1d0184869f1f67cfd8ba15c368ac2c31626f5076663e93d085e47",
+            "size_bytes": 242,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/retired.ex",
+            "presence": "present",
+            "sha256": "49eabf4505a5b7c4bf4f3e3e6dce21e13dc6f175580103368874b23be7c3cdfa",
+            "size_bytes": 57,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/shared.ex",
+            "presence": "present",
+            "sha256": "fb2ebf33c136bbc4e572515659021899b7da0ae049f785bc6b3569e2d5b74625",
+            "size_bytes": 61,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/shared_caller.ex",
+            "presence": "present",
+            "sha256": "649f40d489fce60f2a2f07ffabc16787762bb670d95427e3c997d07d621ee5f8",
+            "size_bytes": 71,
+            "tracking": "tracked"
+          },
+          {
+            "path": "apps/alpha/lib/p0/untracked_note.ex",
+            "presence": "absent"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/mix.exs",
+            "presence": "present",
+            "sha256": "d49a3f2a3761b8d1126f0e0c58589ef0a5f5be52e78465bad7ae98e384612165",
+            "size_bytes": 117,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/priv/sample.sql",
+            "presence": "present",
+            "sha256": "8beec54d7c7335e801bbf07c14488dfd7a1e826c2888c5bfa18ff319f7905bc2",
+            "size_bytes": 29,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/test/support/p0/shared.ex",
+            "presence": "present",
+            "sha256": "0f50c13b5421ff68dd3cd3b2833bcd33fa9171bb24ce0df4815969aa8151ac99",
+            "size_bytes": 66,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/lib/p0/shared.ex",
+            "presence": "present",
+            "sha256": "89638e74d5274adfc998d769d84b34057a97a6a3e53be190dd624f7422f07f09",
+            "size_bytes": 60,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/lib/p0/shared_caller.ex",
+            "presence": "present",
+            "sha256": "af3a8cef861ee8ce6a32e47274ddc0d27376da259f05687a142f3738dcedf280",
+            "size_bytes": 70,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/mix.exs",
+            "presence": "present",
+            "sha256": "a9511c782b0bcd25656196c66df7810f970feca2ef8fc2fe9e4a1f83bba2abd6",
+            "size_bytes": 115,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "config/config.exs",
+            "presence": "present",
+            "sha256": "b3587774392f48b4873b529d8a93dfa0bf81abc8f991439564bf94fa9dddeed2",
+            "size_bytes": 46,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "mix.exs",
+            "presence": "present",
+            "sha256": "d7c6748356c02ba5491de4c1793085765c61e7b4aeeb1173866a0b334479df6f",
+            "size_bytes": 108,
+            "tracking": "tracked"
+          },
+          {
+            "path": "mix.lock",
+            "presence": "absent"
+          }
+        ],
+        "schema_version": 1,
+        "source_root": "."
+      },
+      "source_id": "4a842e230d0f0447f85d0539ba141b80c568623240fbaef3b70b8b0a6d4e9844"
+    },
+    "G-restored": {
+      "resolved": {
+        "bindings": [
+          {
+            "app": "umbrella",
+            "context": "root",
+            "path_prefix": ""
+          },
+          {
+            "app": "alpha",
+            "context": "app",
+            "path_prefix": "apps/alpha/"
+          },
+          {
+            "app": "alpha",
+            "context": "production",
+            "path_prefix": "apps/alpha/lib/"
+          },
+          {
+            "app": "alpha",
+            "context": "production",
+            "path_prefix": "apps/alpha/priv/"
+          },
+          {
+            "app": "alpha",
+            "context": "test",
+            "path_prefix": "apps/alpha/test/support/"
+          },
+          {
+            "app": "beta",
+            "context": "app",
+            "path_prefix": "apps/beta/"
+          },
+          {
+            "app": "beta",
+            "context": "production",
+            "path_prefix": "apps/beta/lib/"
+          },
+          {
+            "app": "umbrella",
+            "context": "config",
+            "path_prefix": "config/"
+          }
+        ],
+        "paths": [
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/contract.ex",
+            "presence": "present",
+            "sha256": "4a05fe0bbecdbdf7cc171f685f2cc7eeed66c08fe07007257c0cae5db8108178",
+            "size_bytes": 65,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/dynamic.ex",
+            "presence": "present",
+            "sha256": "13d9793e7376afae60ba14a5d7c51fa7f6770becbfba256092bce85997dfe7de",
+            "size_bytes": 226,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/exact.ex",
+            "presence": "present",
+            "sha256": "4aa805d5bcc7ea6993ece9ce628a37c0d2690755ebcca8e3d7a2908154e4c2cd",
+            "size_bytes": 238,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/graph.ex",
+            "presence": "present",
+            "sha256": "d408df2825fe692c3a931c4d1693c523435eff428164fec62e29517563dfc2f9",
+            "size_bytes": 110,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/lifecycle.ex",
+            "presence": "present",
+            "sha256": "7e6a965d95ce88a2b2fab271d368defe94c00ff01ace3c4f17cd8d6113d2941d",
+            "size_bytes": 185,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/move_me.ex",
+            "presence": "present",
+            "sha256": "9c2dd3a3e21b6c1cb9a3ec0916334c3fe62cdf77a09a3b61274b2fc12303faa4",
+            "size_bytes": 53,
+            "tracking": "tracked"
+          },
+          {
+            "path": "apps/alpha/lib/p0/moved.ex",
+            "presence": "absent"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/noise.ex",
+            "presence": "present",
+            "sha256": "86ce77d4b2065d83a120cc216783daee2f5691e384a09c8c10a23560ae75fead",
+            "size_bytes": 56,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/panel.html.heex",
+            "presence": "present",
+            "sha256": "3e9bba0118fd4368362416944fef9d657b1b2f65938ef563d243fa88b4f766f1",
+            "size_bytes": 30,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/refs.ex",
+            "presence": "present",
+            "sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+            "size_bytes": 536,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/resource.ex",
+            "presence": "present",
+            "sha256": "9227fabb38d1d0184869f1f67cfd8ba15c368ac2c31626f5076663e93d085e47",
+            "size_bytes": 242,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/retired.ex",
+            "presence": "present",
+            "sha256": "49eabf4505a5b7c4bf4f3e3e6dce21e13dc6f175580103368874b23be7c3cdfa",
+            "size_bytes": 57,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/shared.ex",
+            "presence": "present",
+            "sha256": "fb2ebf33c136bbc4e572515659021899b7da0ae049f785bc6b3569e2d5b74625",
+            "size_bytes": 61,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/shared_caller.ex",
+            "presence": "present",
+            "sha256": "649f40d489fce60f2a2f07ffabc16787762bb670d95427e3c997d07d621ee5f8",
+            "size_bytes": 71,
+            "tracking": "tracked"
+          },
+          {
+            "path": "apps/alpha/lib/p0/untracked_note.ex",
+            "presence": "absent"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/mix.exs",
+            "presence": "present",
+            "sha256": "d49a3f2a3761b8d1126f0e0c58589ef0a5f5be52e78465bad7ae98e384612165",
+            "size_bytes": 117,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/priv/sample.sql",
+            "presence": "present",
+            "sha256": "8beec54d7c7335e801bbf07c14488dfd7a1e826c2888c5bfa18ff319f7905bc2",
+            "size_bytes": 29,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/test/support/p0/shared.ex",
+            "presence": "present",
+            "sha256": "0f50c13b5421ff68dd3cd3b2833bcd33fa9171bb24ce0df4815969aa8151ac99",
+            "size_bytes": 66,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/lib/p0/shared.ex",
+            "presence": "present",
+            "sha256": "89638e74d5274adfc998d769d84b34057a97a6a3e53be190dd624f7422f07f09",
+            "size_bytes": 60,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/lib/p0/shared_caller.ex",
+            "presence": "present",
+            "sha256": "af3a8cef861ee8ce6a32e47274ddc0d27376da259f05687a142f3738dcedf280",
+            "size_bytes": 70,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/mix.exs",
+            "presence": "present",
+            "sha256": "a9511c782b0bcd25656196c66df7810f970feca2ef8fc2fe9e4a1f83bba2abd6",
+            "size_bytes": 115,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "config/config.exs",
+            "presence": "present",
+            "sha256": "b3587774392f48b4873b529d8a93dfa0bf81abc8f991439564bf94fa9dddeed2",
+            "size_bytes": 46,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "mix.exs",
+            "presence": "present",
+            "sha256": "d7c6748356c02ba5491de4c1793085765c61e7b4aeeb1173866a0b334479df6f",
+            "size_bytes": 108,
+            "tracking": "tracked"
+          },
+          {
+            "path": "mix.lock",
+            "presence": "absent"
+          }
+        ],
+        "schema_version": 1,
+        "source_root": "."
+      },
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3"
+    },
+    "G-untracked": {
+      "resolved": {
+        "bindings": [
+          {
+            "app": "umbrella",
+            "context": "root",
+            "path_prefix": ""
+          },
+          {
+            "app": "alpha",
+            "context": "app",
+            "path_prefix": "apps/alpha/"
+          },
+          {
+            "app": "alpha",
+            "context": "production",
+            "path_prefix": "apps/alpha/lib/"
+          },
+          {
+            "app": "alpha",
+            "context": "production",
+            "path_prefix": "apps/alpha/priv/"
+          },
+          {
+            "app": "alpha",
+            "context": "test",
+            "path_prefix": "apps/alpha/test/support/"
+          },
+          {
+            "app": "beta",
+            "context": "app",
+            "path_prefix": "apps/beta/"
+          },
+          {
+            "app": "beta",
+            "context": "production",
+            "path_prefix": "apps/beta/lib/"
+          },
+          {
+            "app": "umbrella",
+            "context": "config",
+            "path_prefix": "config/"
+          }
+        ],
+        "paths": [
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/contract.ex",
+            "presence": "present",
+            "sha256": "4a05fe0bbecdbdf7cc171f685f2cc7eeed66c08fe07007257c0cae5db8108178",
+            "size_bytes": 65,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/dynamic.ex",
+            "presence": "present",
+            "sha256": "13d9793e7376afae60ba14a5d7c51fa7f6770becbfba256092bce85997dfe7de",
+            "size_bytes": 226,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/exact.ex",
+            "presence": "present",
+            "sha256": "4aa805d5bcc7ea6993ece9ce628a37c0d2690755ebcca8e3d7a2908154e4c2cd",
+            "size_bytes": 238,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/graph.ex",
+            "presence": "present",
+            "sha256": "d408df2825fe692c3a931c4d1693c523435eff428164fec62e29517563dfc2f9",
+            "size_bytes": 110,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/lifecycle.ex",
+            "presence": "present",
+            "sha256": "7e6a965d95ce88a2b2fab271d368defe94c00ff01ace3c4f17cd8d6113d2941d",
+            "size_bytes": 185,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/move_me.ex",
+            "presence": "present",
+            "sha256": "9c2dd3a3e21b6c1cb9a3ec0916334c3fe62cdf77a09a3b61274b2fc12303faa4",
+            "size_bytes": 53,
+            "tracking": "tracked"
+          },
+          {
+            "path": "apps/alpha/lib/p0/moved.ex",
+            "presence": "absent"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/noise.ex",
+            "presence": "present",
+            "sha256": "86ce77d4b2065d83a120cc216783daee2f5691e384a09c8c10a23560ae75fead",
+            "size_bytes": 56,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/panel.html.heex",
+            "presence": "present",
+            "sha256": "3e9bba0118fd4368362416944fef9d657b1b2f65938ef563d243fa88b4f766f1",
+            "size_bytes": 30,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/refs.ex",
+            "presence": "present",
+            "sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+            "size_bytes": 536,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/resource.ex",
+            "presence": "present",
+            "sha256": "9227fabb38d1d0184869f1f67cfd8ba15c368ac2c31626f5076663e93d085e47",
+            "size_bytes": 242,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/retired.ex",
+            "presence": "present",
+            "sha256": "49eabf4505a5b7c4bf4f3e3e6dce21e13dc6f175580103368874b23be7c3cdfa",
+            "size_bytes": 57,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/shared.ex",
+            "presence": "present",
+            "sha256": "fb2ebf33c136bbc4e572515659021899b7da0ae049f785bc6b3569e2d5b74625",
+            "size_bytes": 61,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/shared_caller.ex",
+            "presence": "present",
+            "sha256": "649f40d489fce60f2a2f07ffabc16787762bb670d95427e3c997d07d621ee5f8",
+            "size_bytes": 71,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/untracked_note.ex",
+            "presence": "present",
+            "sha256": "ada6f003e7fbe979972ca1e05dbc0bd83d603d1a4410d1b21438cd7b884ad140",
+            "size_bytes": 61,
+            "tracking": "untracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/mix.exs",
+            "presence": "present",
+            "sha256": "d49a3f2a3761b8d1126f0e0c58589ef0a5f5be52e78465bad7ae98e384612165",
+            "size_bytes": 117,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/priv/sample.sql",
+            "presence": "present",
+            "sha256": "8beec54d7c7335e801bbf07c14488dfd7a1e826c2888c5bfa18ff319f7905bc2",
+            "size_bytes": 29,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/test/support/p0/shared.ex",
+            "presence": "present",
+            "sha256": "0f50c13b5421ff68dd3cd3b2833bcd33fa9171bb24ce0df4815969aa8151ac99",
+            "size_bytes": 66,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/lib/p0/shared.ex",
+            "presence": "present",
+            "sha256": "89638e74d5274adfc998d769d84b34057a97a6a3e53be190dd624f7422f07f09",
+            "size_bytes": 60,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/lib/p0/shared_caller.ex",
+            "presence": "present",
+            "sha256": "af3a8cef861ee8ce6a32e47274ddc0d27376da259f05687a142f3738dcedf280",
+            "size_bytes": 70,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/mix.exs",
+            "presence": "present",
+            "sha256": "a9511c782b0bcd25656196c66df7810f970feca2ef8fc2fe9e4a1f83bba2abd6",
+            "size_bytes": 115,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "config/config.exs",
+            "presence": "present",
+            "sha256": "b3587774392f48b4873b529d8a93dfa0bf81abc8f991439564bf94fa9dddeed2",
+            "size_bytes": 46,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "mix.exs",
+            "presence": "present",
+            "sha256": "d7c6748356c02ba5491de4c1793085765c61e7b4aeeb1173866a0b334479df6f",
+            "size_bytes": 108,
+            "tracking": "tracked"
+          },
+          {
+            "path": "mix.lock",
+            "presence": "absent"
+          }
+        ],
+        "schema_version": 1,
+        "source_root": "."
+      },
+      "source_id": "93e8642fe488d8290e6f47fe0ce7fba4bc17a84bb33f614eda3f873f28888fd7"
+    },
+    "G-worktree-b": {
+      "resolved": {
+        "bindings": [
+          {
+            "app": "umbrella",
+            "context": "root",
+            "path_prefix": ""
+          },
+          {
+            "app": "alpha",
+            "context": "app",
+            "path_prefix": "apps/alpha/"
+          },
+          {
+            "app": "alpha",
+            "context": "production",
+            "path_prefix": "apps/alpha/lib/"
+          },
+          {
+            "app": "alpha",
+            "context": "production",
+            "path_prefix": "apps/alpha/priv/"
+          },
+          {
+            "app": "alpha",
+            "context": "test",
+            "path_prefix": "apps/alpha/test/support/"
+          },
+          {
+            "app": "beta",
+            "context": "app",
+            "path_prefix": "apps/beta/"
+          },
+          {
+            "app": "beta",
+            "context": "production",
+            "path_prefix": "apps/beta/lib/"
+          },
+          {
+            "app": "umbrella",
+            "context": "config",
+            "path_prefix": "config/"
+          }
+        ],
+        "paths": [
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/contract.ex",
+            "presence": "present",
+            "sha256": "4a05fe0bbecdbdf7cc171f685f2cc7eeed66c08fe07007257c0cae5db8108178",
+            "size_bytes": 65,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/dynamic.ex",
+            "presence": "present",
+            "sha256": "13d9793e7376afae60ba14a5d7c51fa7f6770becbfba256092bce85997dfe7de",
+            "size_bytes": 226,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/exact.ex",
+            "presence": "present",
+            "sha256": "4f159abf8a9ac56fcca08a837edf853a825c8982a27c061b695d3894a02bd356",
+            "size_bytes": 273,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/graph.ex",
+            "presence": "present",
+            "sha256": "d408df2825fe692c3a931c4d1693c523435eff428164fec62e29517563dfc2f9",
+            "size_bytes": 110,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/lifecycle.ex",
+            "presence": "present",
+            "sha256": "7e6a965d95ce88a2b2fab271d368defe94c00ff01ace3c4f17cd8d6113d2941d",
+            "size_bytes": 185,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/move_me.ex",
+            "presence": "present",
+            "sha256": "9c2dd3a3e21b6c1cb9a3ec0916334c3fe62cdf77a09a3b61274b2fc12303faa4",
+            "size_bytes": 53,
+            "tracking": "tracked"
+          },
+          {
+            "path": "apps/alpha/lib/p0/moved.ex",
+            "presence": "absent"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/noise.ex",
+            "presence": "present",
+            "sha256": "86ce77d4b2065d83a120cc216783daee2f5691e384a09c8c10a23560ae75fead",
+            "size_bytes": 56,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/panel.html.heex",
+            "presence": "present",
+            "sha256": "3e9bba0118fd4368362416944fef9d657b1b2f65938ef563d243fa88b4f766f1",
+            "size_bytes": 30,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/refs.ex",
+            "presence": "present",
+            "sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+            "size_bytes": 536,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/resource.ex",
+            "presence": "present",
+            "sha256": "9227fabb38d1d0184869f1f67cfd8ba15c368ac2c31626f5076663e93d085e47",
+            "size_bytes": 242,
+            "tracking": "tracked"
+          },
+          {
+            "path": "apps/alpha/lib/p0/retired.ex",
+            "presence": "absent"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/shared.ex",
+            "presence": "present",
+            "sha256": "fb2ebf33c136bbc4e572515659021899b7da0ae049f785bc6b3569e2d5b74625",
+            "size_bytes": 61,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/shared_caller.ex",
+            "presence": "present",
+            "sha256": "649f40d489fce60f2a2f07ffabc16787762bb670d95427e3c997d07d621ee5f8",
+            "size_bytes": 71,
+            "tracking": "tracked"
+          },
+          {
+            "path": "apps/alpha/lib/p0/untracked_note.ex",
+            "presence": "absent"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/mix.exs",
+            "presence": "present",
+            "sha256": "d49a3f2a3761b8d1126f0e0c58589ef0a5f5be52e78465bad7ae98e384612165",
+            "size_bytes": 117,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/priv/sample.sql",
+            "presence": "present",
+            "sha256": "8beec54d7c7335e801bbf07c14488dfd7a1e826c2888c5bfa18ff319f7905bc2",
+            "size_bytes": 29,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/test/support/p0/shared.ex",
+            "presence": "present",
+            "sha256": "0f50c13b5421ff68dd3cd3b2833bcd33fa9171bb24ce0df4815969aa8151ac99",
+            "size_bytes": 66,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/lib/p0/shared.ex",
+            "presence": "present",
+            "sha256": "89638e74d5274adfc998d769d84b34057a97a6a3e53be190dd624f7422f07f09",
+            "size_bytes": 60,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/lib/p0/shared_caller.ex",
+            "presence": "present",
+            "sha256": "af3a8cef861ee8ce6a32e47274ddc0d27376da259f05687a142f3738dcedf280",
+            "size_bytes": 70,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/mix.exs",
+            "presence": "present",
+            "sha256": "a9511c782b0bcd25656196c66df7810f970feca2ef8fc2fe9e4a1f83bba2abd6",
+            "size_bytes": 115,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "config/config.exs",
+            "presence": "present",
+            "sha256": "b3587774392f48b4873b529d8a93dfa0bf81abc8f991439564bf94fa9dddeed2",
+            "size_bytes": 46,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "mix.exs",
+            "presence": "present",
+            "sha256": "d7c6748356c02ba5491de4c1793085765c61e7b4aeeb1173866a0b334479df6f",
+            "size_bytes": 108,
+            "tracking": "tracked"
+          },
+          {
+            "path": "mix.lock",
+            "presence": "absent"
+          }
+        ],
+        "schema_version": 1,
+        "source_root": "."
+      },
+      "source_id": "c3ba65c720aa13486b8e7f878f9c08886e68fad6d36afb061eb741f8530a7486"
+    },
+    "G-worktree-b-step-1": {
+      "resolved": {
+        "bindings": [
+          {
+            "app": "umbrella",
+            "context": "root",
+            "path_prefix": ""
+          },
+          {
+            "app": "alpha",
+            "context": "app",
+            "path_prefix": "apps/alpha/"
+          },
+          {
+            "app": "alpha",
+            "context": "production",
+            "path_prefix": "apps/alpha/lib/"
+          },
+          {
+            "app": "alpha",
+            "context": "production",
+            "path_prefix": "apps/alpha/priv/"
+          },
+          {
+            "app": "alpha",
+            "context": "test",
+            "path_prefix": "apps/alpha/test/support/"
+          },
+          {
+            "app": "beta",
+            "context": "app",
+            "path_prefix": "apps/beta/"
+          },
+          {
+            "app": "beta",
+            "context": "production",
+            "path_prefix": "apps/beta/lib/"
+          },
+          {
+            "app": "umbrella",
+            "context": "config",
+            "path_prefix": "config/"
+          }
+        ],
+        "paths": [
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/contract.ex",
+            "presence": "present",
+            "sha256": "4a05fe0bbecdbdf7cc171f685f2cc7eeed66c08fe07007257c0cae5db8108178",
+            "size_bytes": 65,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/dynamic.ex",
+            "presence": "present",
+            "sha256": "13d9793e7376afae60ba14a5d7c51fa7f6770becbfba256092bce85997dfe7de",
+            "size_bytes": 226,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/exact.ex",
+            "presence": "present",
+            "sha256": "4f159abf8a9ac56fcca08a837edf853a825c8982a27c061b695d3894a02bd356",
+            "size_bytes": 273,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/graph.ex",
+            "presence": "present",
+            "sha256": "d408df2825fe692c3a931c4d1693c523435eff428164fec62e29517563dfc2f9",
+            "size_bytes": 110,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/lifecycle.ex",
+            "presence": "present",
+            "sha256": "7e6a965d95ce88a2b2fab271d368defe94c00ff01ace3c4f17cd8d6113d2941d",
+            "size_bytes": 185,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/move_me.ex",
+            "presence": "present",
+            "sha256": "9c2dd3a3e21b6c1cb9a3ec0916334c3fe62cdf77a09a3b61274b2fc12303faa4",
+            "size_bytes": 53,
+            "tracking": "tracked"
+          },
+          {
+            "path": "apps/alpha/lib/p0/moved.ex",
+            "presence": "absent"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/noise.ex",
+            "presence": "present",
+            "sha256": "86ce77d4b2065d83a120cc216783daee2f5691e384a09c8c10a23560ae75fead",
+            "size_bytes": 56,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/panel.html.heex",
+            "presence": "present",
+            "sha256": "3e9bba0118fd4368362416944fef9d657b1b2f65938ef563d243fa88b4f766f1",
+            "size_bytes": 30,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/refs.ex",
+            "presence": "present",
+            "sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+            "size_bytes": 536,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/resource.ex",
+            "presence": "present",
+            "sha256": "9227fabb38d1d0184869f1f67cfd8ba15c368ac2c31626f5076663e93d085e47",
+            "size_bytes": 242,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/retired.ex",
+            "presence": "present",
+            "sha256": "49eabf4505a5b7c4bf4f3e3e6dce21e13dc6f175580103368874b23be7c3cdfa",
+            "size_bytes": 57,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/shared.ex",
+            "presence": "present",
+            "sha256": "fb2ebf33c136bbc4e572515659021899b7da0ae049f785bc6b3569e2d5b74625",
+            "size_bytes": 61,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/shared_caller.ex",
+            "presence": "present",
+            "sha256": "649f40d489fce60f2a2f07ffabc16787762bb670d95427e3c997d07d621ee5f8",
+            "size_bytes": 71,
+            "tracking": "tracked"
+          },
+          {
+            "path": "apps/alpha/lib/p0/untracked_note.ex",
+            "presence": "absent"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/mix.exs",
+            "presence": "present",
+            "sha256": "d49a3f2a3761b8d1126f0e0c58589ef0a5f5be52e78465bad7ae98e384612165",
+            "size_bytes": 117,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/priv/sample.sql",
+            "presence": "present",
+            "sha256": "8beec54d7c7335e801bbf07c14488dfd7a1e826c2888c5bfa18ff319f7905bc2",
+            "size_bytes": 29,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/test/support/p0/shared.ex",
+            "presence": "present",
+            "sha256": "0f50c13b5421ff68dd3cd3b2833bcd33fa9171bb24ce0df4815969aa8151ac99",
+            "size_bytes": 66,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/lib/p0/shared.ex",
+            "presence": "present",
+            "sha256": "89638e74d5274adfc998d769d84b34057a97a6a3e53be190dd624f7422f07f09",
+            "size_bytes": 60,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/lib/p0/shared_caller.ex",
+            "presence": "present",
+            "sha256": "af3a8cef861ee8ce6a32e47274ddc0d27376da259f05687a142f3738dcedf280",
+            "size_bytes": 70,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/mix.exs",
+            "presence": "present",
+            "sha256": "a9511c782b0bcd25656196c66df7810f970feca2ef8fc2fe9e4a1f83bba2abd6",
+            "size_bytes": 115,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "config/config.exs",
+            "presence": "present",
+            "sha256": "b3587774392f48b4873b529d8a93dfa0bf81abc8f991439564bf94fa9dddeed2",
+            "size_bytes": 46,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "mix.exs",
+            "presence": "present",
+            "sha256": "d7c6748356c02ba5491de4c1793085765c61e7b4aeeb1173866a0b334479df6f",
+            "size_bytes": 108,
+            "tracking": "tracked"
+          },
+          {
+            "path": "mix.lock",
+            "presence": "absent"
+          }
+        ],
+        "schema_version": 1,
+        "source_root": "."
+      },
+      "source_id": "fac5af69584068444c18db51ae7cfd38ddfaece31fc44c539c1a23c68682a4f0"
+    },
+    "G0": {
+      "resolved": {
+        "bindings": [
+          {
+            "app": "umbrella",
+            "context": "root",
+            "path_prefix": ""
+          },
+          {
+            "app": "alpha",
+            "context": "app",
+            "path_prefix": "apps/alpha/"
+          },
+          {
+            "app": "alpha",
+            "context": "production",
+            "path_prefix": "apps/alpha/lib/"
+          },
+          {
+            "app": "alpha",
+            "context": "production",
+            "path_prefix": "apps/alpha/priv/"
+          },
+          {
+            "app": "alpha",
+            "context": "test",
+            "path_prefix": "apps/alpha/test/support/"
+          },
+          {
+            "app": "beta",
+            "context": "app",
+            "path_prefix": "apps/beta/"
+          },
+          {
+            "app": "beta",
+            "context": "production",
+            "path_prefix": "apps/beta/lib/"
+          },
+          {
+            "app": "umbrella",
+            "context": "config",
+            "path_prefix": "config/"
+          }
+        ],
+        "paths": [
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/contract.ex",
+            "presence": "present",
+            "sha256": "4a05fe0bbecdbdf7cc171f685f2cc7eeed66c08fe07007257c0cae5db8108178",
+            "size_bytes": 65,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/dynamic.ex",
+            "presence": "present",
+            "sha256": "13d9793e7376afae60ba14a5d7c51fa7f6770becbfba256092bce85997dfe7de",
+            "size_bytes": 226,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/exact.ex",
+            "presence": "present",
+            "sha256": "4aa805d5bcc7ea6993ece9ce628a37c0d2690755ebcca8e3d7a2908154e4c2cd",
+            "size_bytes": 238,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/graph.ex",
+            "presence": "present",
+            "sha256": "d408df2825fe692c3a931c4d1693c523435eff428164fec62e29517563dfc2f9",
+            "size_bytes": 110,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/lifecycle.ex",
+            "presence": "present",
+            "sha256": "7e6a965d95ce88a2b2fab271d368defe94c00ff01ace3c4f17cd8d6113d2941d",
+            "size_bytes": 185,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/move_me.ex",
+            "presence": "present",
+            "sha256": "9c2dd3a3e21b6c1cb9a3ec0916334c3fe62cdf77a09a3b61274b2fc12303faa4",
+            "size_bytes": 53,
+            "tracking": "tracked"
+          },
+          {
+            "path": "apps/alpha/lib/p0/moved.ex",
+            "presence": "absent"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/noise.ex",
+            "presence": "present",
+            "sha256": "86ce77d4b2065d83a120cc216783daee2f5691e384a09c8c10a23560ae75fead",
+            "size_bytes": 56,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/panel.html.heex",
+            "presence": "present",
+            "sha256": "3e9bba0118fd4368362416944fef9d657b1b2f65938ef563d243fa88b4f766f1",
+            "size_bytes": 30,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/refs.ex",
+            "presence": "present",
+            "sha256": "a90233bbdfd41869d9bc6d8e5f8d29988d4d57e1d1fc0c5017cb363d51f4bf6e",
+            "size_bytes": 536,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/resource.ex",
+            "presence": "present",
+            "sha256": "9227fabb38d1d0184869f1f67cfd8ba15c368ac2c31626f5076663e93d085e47",
+            "size_bytes": 242,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/retired.ex",
+            "presence": "present",
+            "sha256": "49eabf4505a5b7c4bf4f3e3e6dce21e13dc6f175580103368874b23be7c3cdfa",
+            "size_bytes": 57,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/shared.ex",
+            "presence": "present",
+            "sha256": "fb2ebf33c136bbc4e572515659021899b7da0ae049f785bc6b3569e2d5b74625",
+            "size_bytes": 61,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/lib/p0/shared_caller.ex",
+            "presence": "present",
+            "sha256": "649f40d489fce60f2a2f07ffabc16787762bb670d95427e3c997d07d621ee5f8",
+            "size_bytes": 71,
+            "tracking": "tracked"
+          },
+          {
+            "path": "apps/alpha/lib/p0/untracked_note.ex",
+            "presence": "absent"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/mix.exs",
+            "presence": "present",
+            "sha256": "d49a3f2a3761b8d1126f0e0c58589ef0a5f5be52e78465bad7ae98e384612165",
+            "size_bytes": 117,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/priv/sample.sql",
+            "presence": "present",
+            "sha256": "8beec54d7c7335e801bbf07c14488dfd7a1e826c2888c5bfa18ff319f7905bc2",
+            "size_bytes": 29,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/alpha/test/support/p0/shared.ex",
+            "presence": "present",
+            "sha256": "0f50c13b5421ff68dd3cd3b2833bcd33fa9171bb24ce0df4815969aa8151ac99",
+            "size_bytes": 66,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/lib/p0/shared.ex",
+            "presence": "present",
+            "sha256": "89638e74d5274adfc998d769d84b34057a97a6a3e53be190dd624f7422f07f09",
+            "size_bytes": 60,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/lib/p0/shared_caller.ex",
+            "presence": "present",
+            "sha256": "af3a8cef861ee8ce6a32e47274ddc0d27376da259f05687a142f3738dcedf280",
+            "size_bytes": 70,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "apps/beta/mix.exs",
+            "presence": "present",
+            "sha256": "a9511c782b0bcd25656196c66df7810f970feca2ef8fc2fe9e4a1f83bba2abd6",
+            "size_bytes": 115,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "config/config.exs",
+            "presence": "present",
+            "sha256": "b3587774392f48b4873b529d8a93dfa0bf81abc8f991439564bf94fa9dddeed2",
+            "size_bytes": 46,
+            "tracking": "tracked"
+          },
+          {
+            "mode": "100644",
+            "path": "mix.exs",
+            "presence": "present",
+            "sha256": "d7c6748356c02ba5491de4c1793085765c61e7b4aeeb1173866a0b334479df6f",
+            "size_bytes": 108,
+            "tracking": "tracked"
+          },
+          {
+            "path": "mix.lock",
+            "presence": "absent"
+          }
+        ],
+        "schema_version": 1,
+        "source_root": "."
+      },
+      "source_id": "ecf21b90fdab0f7a5b2dbe4123630b75ed2326bb85381432473b249a0a7127e3"
+    }
+  },
+  "worktrees": {
+    "W0": [
+      "G0",
+      "G-edit",
+      "G-delete",
+      "G-rename",
+      "G-broken",
+      "G-recovered",
+      "G-untracked",
+      "G-concurrent",
+      "G-restored"
+    ],
+    "W1": [
+      "G-worktree-b",
+      "G-worktree-b-step-1"
+    ]
+  }
+}

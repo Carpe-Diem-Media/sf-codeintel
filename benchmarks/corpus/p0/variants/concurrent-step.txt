@@ -1,0 +1,5 @@
+defmodule P0.Graph do
+  def entry(), do: mid()
+  def mid(), do: bud()
+  def bud(), do: "p0orchidmarker"
+end
