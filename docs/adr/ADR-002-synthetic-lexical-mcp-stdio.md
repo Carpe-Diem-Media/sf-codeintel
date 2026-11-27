@@ -40,7 +40,7 @@ The design records report Elixir 1.19.3 and installed OTP 28.1.1 locally. The in
 
 Use one dependency-free Elixir escript, OTP standard I/O and OTP `:json` for MCP `2025-06-18`. Use the companion TDD's bounded bytewise input framing, serial request lifecycle, negotiated version and static tool list. Limit compatibility to an authorized local subprocess client that can use the returned pinned revision. The client that cannot use it disconnects. The diagnostic CLI shares the same read-only source adapter.
 
-The trusted launcher binds the approved absolute root and owns the child and pipes. Client arguments address only approved relative slots. The launch boundary depends on independently verified custody and launcher ownership, monotonic expiry bounded by grant expiry and immediate revocation with child reaping. Network endpoints, client-controlled root selection, persistence and structural backend selection are outside the decision.
+The trusted launcher binds the approved absolute root and owns the child and pipes. Client arguments address only approved relative slots. The launch boundary depends on independently verified custody and launcher ownership, a launcher-supplied session deadline bounded by grant expiry, and immediate revocation with child reaping. The service validates the trusted binding and checks expiry at request admission and immediately before the response write under TDD §5. Missing or expired authority closes access and suppresses source delivery. The launcher independently terminates and reaps a stalled child. Network endpoints, client-controlled root selection, persistence and structural backend selection are outside the decision.
 
 ## 5. Consequences and verification
 
