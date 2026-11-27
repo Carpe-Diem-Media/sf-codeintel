@@ -128,7 +128,7 @@ defmodule SFCodeIntel.Query do
        do: {:cont, acc}
 
   defp scan_slot(slot, path, pattern, offset, {items, count} = acc, expired?, on_scan) do
-    with false <- expired?(),
+    with false <- expired?.(),
          scope = {offset, byte_size(slot.bytes) - offset},
          match = :binary.match(slot.bytes, pattern, scope: scope),
          _ <- on_scan.({:match, path}),
