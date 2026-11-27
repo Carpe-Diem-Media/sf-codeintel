@@ -4,13 +4,13 @@
 | Document control | Value |
 |---|---|
 | Document ID / Task ID | SF-CI-P0-001 |
-| Revision | 0.3 — Standalone qualification and execution authority (proposed document separation) |
-| Date | 25 November 2026 |
+| Revision | 0.4 (proposed synthetic P0-A storage-accounting amendment) |
+| Date | 27 November 2026 |
 | Intended repository path | `docs/qualification/SF-CI-P0-001.md` |
 | Governing scope | P0 qualification, execution admission, limits, required evidence, scoring, deliverables and STOP conditions |
-| Status | Proposed revision; P0-A approved in principle by supplied independent review, but execution NOT ADMITTED. P0-B and P1+ not authorized. |
-| Reviewed baseline | SF-CI-P0-001 v0.2.1 and SF-CI-SPEC-001 v0.2.1 |
-| Proposed companion authorities | SF-CI-PRD-001 v0.1 and SF-CI-SPEC-001 v0.3 |
+| Status | Proposed successor to v0.3. Verify the disposition and activation conditions through SFCI-2 D2 and its SFCI-14 successor routing. P0-A remains NOT ADMITTED / NOT RUN. |
+| Reviewed baseline | SF-CI-P0-001 v0.3, adopted under SFCI-2 D2 |
+| Applicable companion authorities | SF-CI-PRD-001 v0.1 and SF-CI-SPEC-001 v0.4, adopted under SFCI-2 D1 |
 | Backend adoption / implementation / release authorization | None granted by this document |
 
 > **Index broadly. Retrieve selectively. Verify precisely. Execute securely.**
@@ -35,7 +35,7 @@ Authority is scoped, not an unconditional document hierarchy. All applicable sec
 
 ### 0.2 Adoption and revision control
 
-The existing SF-CI-P0-001 v0.2.1 remains the qualification baseline until this proposed revision is explicitly accepted. The proposed PRD v0.1 and architecture v0.3 must be accepted together before their separated product and technical authorities replace the combined architecture v0.2.1. Record the exact adopted revisions and the qualification revision in the admission record; do not assume acceptance from a file name or a download. References in the proposed PRD and architecture to SF-CI-P0-001 v0.2.1 identify their source baseline; explicitly record adoption of this successor if approved. If any separation is not accepted, the existing applicable reviewed baseline remains in force and no execution restriction is lifted.
+[SFCI-2 D2](../governance/sfci-2-baseline-adoption.md#d2-separate-qualification-adoption) identifies the exact adopted v0.3 and routes the proposed v0.4 successor through SFCI-14. Use v0.3 until the accountable exact-revision decision and its hosted integration and remote content verification conditions take effect. Upon activation, v0.4 supersedes v0.3 prospectively for qualification authority. Its revised storage treatment applies only to the bounded synthetic-only P0-A experiment and its separately authorized preparation. Use the revision effective at the time to interpret previous attempts, findings, STOP decisions and resource charges. Record the exact applicable qualification and companion revisions in the admission record. Adopted document authority and execution permission require separate evidence.
 
 The document revision lifecycle follows SF-CI-PRD-001 §1.3 upon its acceptance. Proposed amendments do not change accepted authority; accepted replacements explicitly supersede previous revisions; rejected, withdrawn, superseded and revoked revisions remain historical records. This is documentation governance, not authorization to build a workflow engine.
 
@@ -44,12 +44,12 @@ The document revision lifecycle follows SF-CI-PRD-001 §1.3 upon its acceptance.
 - P0-A is approved in principle only. Actual execution requires the completed, ratified admission record in §1A. Host access and acquisition/preflight require their own approved scope as described there.
 - P0-B is a separately authorized exploratory agent experiment, conditional on safe access and sufficient basic correctness. If not authorized, record NOT RUN and explicit deferral to P1; absence of P0-B is not a P0-A failure (CI-F14).
 - The §1A execution envelope governs P0-A. In particular, target and synthetic fixture code execution/compilation are prohibited under the current envelope. An amended authorization is required to change that restriction; approval to build the upstream tools is not target execution approval. Synthetic source edits, renames, deletions and conflicting worktree contents are permitted only as admitted fixture preparation or test stimuli under §§1A–2; this does not authorize changes to private or production applications.
-- The ceilings and thresholds in §§1A and 5A are inherited proposals requiring ratification before execution. No changes to these budgets or pass criteria are introduced by this revision. General product targets and architecture G1–G14 are not automatically P0 pass criteria.
+- The ceilings and thresholds in §§1A and 5A are inherited proposals requiring ratification before execution. This revision changes only the storage-accounting boundary in §1A. Existing ceilings and pass criteria are retained. General product targets and architecture G1–G14 are not automatically P0 pass criteria.
 - Approval to run qualification, completion of qualification, a positive backend recommendation, ADR acceptance, P1 implementation authorization and release approval are distinct decisions. No automatic promotion is permitted.
 
 ### 0.4 Traceability to the separated authorities
 
-This mapping is a navigation aid, not new P0 scoring criteria. References to the proposed PRD and architecture become applicable upon coordinated adoption. The exact assertions and thresholds remain those ratified under §§1A and 5A.
+This mapping is a navigation aid, not new P0 scoring criteria. Use the companion authorities adopted under SFCI-2 D1. The exact assertions and thresholds remain those ratified under §§1A and 5A.
 
 | Qualification concern | This document | Product / architecture reference |
 |---|---|---|
@@ -66,7 +66,7 @@ Full Ash semantics, authority completeness, compiled bridge, production lifecycl
 
 ---
 
-The following §§1–7 preserve the reviewed qualification assignment from v0.2.1 verbatim. Read them with the authority and admission clarifications above.
+Sections 1–7 carry forward the reviewed qualification assignment. Revision 0.4 amends only §1A within those sections.
 
 ## 1. Objective and boundaries
 
@@ -87,7 +87,7 @@ The following are **proposed hard ceilings**, not a claim about the actual host 
 | Recovery | At most two targeted attempts per blocker, six across the entire run; a fallback attempted to recover from a failure counts toward this limit |
 | Host | Dedicated disposable Linux VM or equivalently verified isolated Linux environment; record exact OS/kernel, architecture, toolchain and sandbox mechanism; no production or shared developer credentials |
 | CPU / RAM | Reference host proposed: 4 vCPU, 8 GiB RAM; aggregate qualification worker limit 4 logical CPUs and 6 GiB memory (including descendants); swap disabled or explicitly bounded; record actual enforced values |
-| Disk | At most 15 GiB total writable qualification storage, including clones, dependency/build caches, indexes, WAL, traces and staging; no writes to target application or host paths outside approved scratch; at most 256 MiB retained evidence |
+| Disk | Hard ceilings of 15 GiB qualification-controlled writable storage and, under the separate preparation grant, 30 GiB allocated preparation-controlled storage. The qualification ceiling includes retained qualification evidence, which has a hard sublimit of 256 MiB. No writes to the target application or host paths outside approved scratch. Apply the accounting and verification rules below. |
 | Processes | At most 256 tasks/threads in the qualification process group or cgroup; at most two concurrent backend worker trees; no detached persistent services |
 | Per-command deadlines | 30 s for ordinary lookups/inspection; 120 s for indexing/export/refresh; 600 s for separately approved upstream acquisition/build commands. All deadlines subject to remaining aggregate budget; cleanup on timeout is mandatory |
 | Input/output limits | Maximum 1 MiB per synthetic source file, 20 MiB fixture source total, 16 MiB per raw command/export artifact; bound AST nesting/work where applicable; oversized results are rejected or recorded as unsupported, never silently truncated and scored as complete |
@@ -95,6 +95,26 @@ The following are **proposed hard ceilings**, not a claim about the actual host 
 | Target execution | Prohibited: no fixture or target Mix evaluation, compilation, application start, macro execution, arbitrary project eval, or runtime bridge without separately authorized amended scope. Upstream tool build/test in a separate approved environment is not authorization to execute target code |
 | External model expenditure | Zero P0-A; no model API experiment or source transmission |
 | Production implementation | Prohibited: no production gateway, control plane, application changes, Redis, PubSub, custom graph engine, new caching, embeddings, or upstream repair |
+
+### Storage accounting for the bounded synthetic P0-A experiment
+
+**Qualification-controlled storage.** Enforce the aggregate 15 GiB hard limit and the 256 MiB retained qualification evidence sublimit. Include all guest writable disks, workspaces and clones, backend indexes and WAL, dependency and build caches, temporary qualification files, worker-controlled logs, staging artifacts, execution traces and retained qualification evidence, including copies outside the guest. Verify actual enforceable limits for all worker-controlled write paths and descendants. Monitoring alone is insufficient.
+
+**Preparation-controlled storage.** Enforce the separate 30 GiB hard limit on allocated preparation-controlled storage under the applicable grant. Include the base image, VM disk allocations, provisioning artifacts and other directly controlled allocations. Fixed supervisor-owned lifecycle records may sit outside the qualification ceiling only if exact-environment evidence shows supervisor-only writes, no arbitrary worker payload and enforced finite record size and count. Charge their actual incremental allocations and any directly controlled relay or rotation peaks to preparation. Record each allocation once per applicable ceiling. Where guest capacity and host allocation overlap, identify the mapping and apply each applicable ceiling without summing the same allocation twice. Count distinct concurrent copies and peak allocations. Preserve prior charges, attempts, failures and STOP records. No reclassification refunds a prior charge or renews an exhausted allowance.
+
+**Incidental host infrastructure.** Ordinary incidental host kernel, system journal, audit, crash-management and virtualization infrastructure records may be accounted for separately from the two hard per-run ceilings only when independent review confirms all of the following for the exact synthetic-only environment:
+
+Host infrastructure generates these records. The accounting exclusion grants no worker, guest or qualification process any write access to host paths outside approved scratch.
+
+- The guest and qualification workers lack direct access to host logging services and cannot write directly to them. No guest-controlled filesystem shares or arbitrary host write paths exist, and guest isolation and protection of sensitive host resources are enforced.
+- Guest console forwarding and other optional unbounded output channels are disabled or subject to verified enforceable bounds. Account for any worker-controlled output under the qualification ceiling.
+- Existing host-wide logging retention and storage safeguards are verified, and adequate host storage headroom is maintained.
+- A conservative abnormal host storage growth threshold, monitoring and a termination procedure are in place. Abnormal growth triggers termination and investigation.
+- The accounting record identifies the excluded sinks, observed safeguards, limitations and accepted residual risk.
+
+The exclusion is limited to ordinary incidental records. It permits neither arbitrary host writes nor uncontrolled resource consumption. Record this activity as monitored residual risk. Do not claim individual per-run byte or inode quota enforcement for these writes or an absolute bound on all physical host writes attributable to the run. The earlier all-attributable logging interpretation is superseded only for these records after adoption and exact-environment verification. This treatment supplies no basis for private-repository access, production Software Factory execution or production-grade isolation or backend security claims.
+
+**Pre-launch verification.** Before authorizing launch, independently verify the exact environment and record actual available RAM, CPU and storage, minimum host memory and storage reserves, effective guest memory and CPU limits, fixed guest disk capacities, enforced controlled-storage limits and the allocation ledger. Verify existing host logging retention and storage safeguards, the abnormal-growth STOP threshold, reliable termination of QEMU and all applicable descendants, suspend-aware deadlines, persistent recovery checkpoints and bounded, controlled evidence extraction. Require verifiable evidence of each mandatory pre-launch safeguard before releasing the candidate launch. Separately authorized, bounded preparation may test those safeguards without authorizing the candidate launch or backend work. After launch under its own bounded preparation release, independently verify the observed exact-environment controls, including for each excluded host sink its identity, effective safeguards and abnormal-growth STOP response. Keep the exclusion unavailable for qualification if required evidence is missing. Complete the admission record and obtain independent review of the completed record, execution operator ratification and an effective bounded grant before backend acquisition or execution. Use the existing QEMU/KVM mechanism within the separate preparation release. Do not change shared system logging, host-wide networking or unrelated infrastructure, or introduce privileged services or custom containment infrastructure. If the required controls or acceptable residual-risk boundary cannot be established, withhold launch, retain the blocker and record the specific deficiency. During authorized operation, loss of a required safeguard, a reserve or ceiling breach, or abnormal host storage growth requires STOP, termination, investigation and the applicable cleanup and evidence procedure under §6.
 
 ### Admission record (must be completed and approved before dispatch)
 
@@ -104,7 +124,7 @@ Record the following in `benchmarks/results/p0/admission.md`, with immutable man
 |---|---|
 | Operator approval and independent reviewer | Named accountable approvals, date, task revision, allowed operations and budget |
 | Host / OS / hardware | Host identifier, isolation type, kernel/architecture, logical CPUs, RAM, disk and toolchain versions |
-| Effective limits | Actual enforced CPU, memory, swap, storage, process/thread, timeout and output ceilings; verify limits cover descendants |
+| Effective limits | Actual enforced CPU, memory, swap, storage, process/thread, timeout and output ceilings, including descendant coverage. Attach the applicable allocation ledger, exact-environment storage-boundary review and pre-launch verification evidence above. |
 | Filesystem and execution boundary | Approved sandbox identity, mount/read/write allowlists, symlink policy, target no-execution controls, process credentials and IPC/cache paths |
 | Network | Denied analysis network; if acquisition is authorized, exact allowed sources/hosts, pinned input identities and separate staging policy |
 | Source and expectations | Fixture revision/content hashes, independently reviewed expected results, support classification, negative-case expectations and frozen scoring criteria |
@@ -213,7 +233,8 @@ The independent reviewer verifies the exact candidate implementation diff (if an
 
 | Document | Exact revision | Role |
 |---|---|---|
-| SF-CI-P0-001 | 0.2.1 | Original qualification assignment; §§1–7 retained verbatim |
+| SF-CI-P0-001 | 0.2.1 | Original qualification assignment; §§1–7 were retained verbatim in v0.3. |
+| SF-CI-P0-001 | [0.3](history/SF-CI-P0-001-v0.3.md) | Exact D2 predecessor; see the SFCI-2 applicability record for the immutable Git and SHA-256 identities |
 | SF-CI-SPEC-001 | 0.2.1 | Existing reviewed combined architecture and product baseline |
 | SF-CI-PRD-001 | 0.1 (proposed) | Standalone product authority candidate |
 | SF-CI-SPEC-001 | 0.3 (proposed) | Standalone technical architecture authority candidate |
@@ -232,12 +253,13 @@ f5374a4de6e6c021334e4965c25bb0dfe4ddf5d7671bbd007412e5a497c56a30  SF-CI-PRD-001-
 | Revision | Change | Status |
 |---|---|---|
 | 0.2 | Bounded P0-A qualification and separately authorized P0-B assignment | Historical |
-| 0.2.1 | Admission record, execution envelope, fixture allocation and predeclared scoring (CI-F14/F15) | Existing qualification baseline; admission outstanding |
-| 0.3 | Standalone authority and adoption rules, interpretation and cross-document traceability; qualification body unchanged | Proposed; independent acceptance pending |
+| 0.2.1 | Admission record, execution envelope, fixture allocation and predeclared scoring (CI-F14/F15) | Historical working baseline; see SFCI-2 D2 and D6 |
+| 0.3 | Standalone authority and adoption rules, interpretation and cross-document traceability; qualification body unchanged | Adopted under SFCI-2 D2; governs until v0.4 activation and remains the historical reference for earlier work |
+| 0.4 | Prospective storage-accounting amendment for the bounded synthetic P0-A experiment | Proposed; verify accountable adoption and activation through SFCI-14 |
 
 ### 8.3 Outstanding decisions and next gate
 
-- Independently review and accept this exact revision and its relationship to the applicable product and architecture revisions. No independent acceptance of the authority split is evidenced here.
+- Verify independent review, accountable adoption and activation of this exact revision through SFCI-14 before relying on the revised storage boundary. SFCI-2 D1 and D2 record the prior coordinated dispositions.
 - Complete §1A admission with actual approved host, enforced resource limits, containment and cleanup evidence, approved tool/input acquisition, pinned backend revisions, frozen fixture expectations and scoring rules. Proposed ceilings are not a claim about the actual environment.
 - Only after admission, execute P0-A under its bounded assignment. Report PASS, PARTIAL, FAIL or NOT RUN per category; retain exact evidence and a proposed ADR-001, even if the recommendation is rejection or follow-up qualification.
 - CI-F16–CI-F19 and CI-F21 remain assigned to the future gates specified in architecture §18. CI-F20 contributes measurements in P0/P1 only; no optimization implementation is authorized here.
