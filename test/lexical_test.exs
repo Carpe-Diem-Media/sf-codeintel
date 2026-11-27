@@ -25,8 +25,8 @@ defmodule SFCodeIntel.LexicalTest do
           "def run(), do: Demo.Other.go(Demo.Other.go())",
           "def run(), do: 01",
           "def run(), do: 1 # comment",
-          ~S(def run(), do: "#{x}"),
-          ~S(def run(), do: "a\nb")
+          ~S|def run(), do: "#{x}"|,
+          ~S|def run(), do: "a\nb"|
         ] do
       assert :unsupported =
                Lexical.extract("defmodule Demo do\n  def keep(), do: 0\n  #{declaration}\nend")
