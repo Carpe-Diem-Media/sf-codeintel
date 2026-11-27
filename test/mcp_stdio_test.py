@@ -33,7 +33,7 @@ AS_LIMIT = 512 * 1024 * 1024
 TIMEOUT = 8
 MAX_FRAME = 16_384
 MAX_RESPONSE = 32_768
-TOOLS = {"discover", "definition", "references", "read_source", "check_source"}
+TOOLS = {"discover", "definition", "references", "read_source", "check_source", "search_text"}
 KEY = {"module": "Demo.Sample", "function": "echo", "arity": 1}
 MISSING_KEY = {**KEY, "function": "absent"}
 ABSENT = object()
@@ -404,10 +404,50 @@ class ProtocolTest(unittest.TestCase):
             tools = client.request("tools/list")["result"]["tools"]
             self.assertEqual({tool["name"] for tool in tools}, TOOLS)
             self.assertEqual(len(tools), len(TOOLS))
-            self.assertTrue(all(tool["inputSchema"]["additionalProperties"] is False for tool in tools))
+            self.assert_legacy_tool_descriptors(tools)
             self.assert_error(client.request("tools/call", {"name": "other"}), -32602)
             self.assert_error(client.request("missing"), -32601)
             self.assert_clean_eof(client)
+
+    def assert_legacy_tool_descriptors(self, tools):
+        lexical_fields = {
+            "module": {
+                "type": "string",
+                "pattern": r"^(?!Elixir(?:\.|$))[A-Z][A-Za-z0-9_]{0,31}(\.[A-Z][A-Za-z0-9_]{0,31}){0,3}$",
+            },
+            "function": {"type": "string", "pattern": "^[a-z][a-z0-9_]{0,31}$"},
+            "arity": {"type": "integer", "minimum": 0, "maximum": 8},
+        }
+        guarded_fields = {
+            "path": {"type": "string", "enum": SLOTS},
+            "expected_sha256": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"},
+        }
+        byte_range = {"type": "integer", "minimum": 0, "maximum": 16_384}
+        read_fields = {**guarded_fields, "start_byte": byte_range, "end_byte": byte_range}
+        legacy = [
+            ("discover", "List module and function declarations.", {}, []),
+            ("definition", "Find declarations with an exact key.", lexical_fields,
+             ["module", "function", "arity"]),
+            ("references", "Find qualified lexical call candidates.", lexical_fields,
+             ["module", "function", "arity"]),
+            ("read_source", "Read a bounded source byte range.", read_fields,
+             ["path", "start_byte", "end_byte"]),
+            ("check_source", "Compare the full-file SHA-256 at an approved slot.", guarded_fields,
+             ["path", "expected_sha256"]),
+        ]
+        self.assertEqual([tool for tool in tools if tool["name"] != "search_text"], [
+            {
+                "name": name,
+                "description": description,
+                "inputSchema": {
+                    "type": "object",
+                    "properties": properties,
+                    "required": required,
+                    "additionalProperties": False,
+                },
+            }
+            for name, description, properties, required in legacy
+        ])
 
     def test_pre_initialize_ping_and_fallback_version(self):
         with self.client() as client:

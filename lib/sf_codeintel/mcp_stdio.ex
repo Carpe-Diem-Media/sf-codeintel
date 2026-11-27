@@ -76,10 +76,16 @@ defmodule SFCodeIntel.MCPStdio do
     clock = Keyword.get(opts, :clock, &CLI.clock/0)
     capture = Keyword.get(opts, :capture, &LocalSource.capture/1)
     write = Keyword.get(opts, :write, &:file.write(:standard_io, &1))
+    search = Keyword.get(opts, :search_result, &Query.run(&1, "search_text", &2, capture))
+
+    run_tool = fn
+      "search_text", args -> search.(binding, args)
+      name, args -> Query.run(binding, name, args, capture)
+    end
 
     if CLI.authorized?(binding, clock) do
       case decode(frame) do
-        {:ok, decoded} -> dispatch(decoded, state, binding, clock, capture, write)
+        {:ok, decoded} -> dispatch(decoded, state, binding, clock, run_tool, write)
         :error -> send_reply(error(:null, -32_700, "Parse error"), state, binding, clock, write)
       end
     else
@@ -134,13 +140,13 @@ defmodule SFCodeIntel.MCPStdio do
     end
   end
 
-  defp dispatch(message, state, binding, clock, capture, write) do
+  defp dispatch(message, state, binding, clock, run_tool, write) do
     case envelope(message) do
       {:notification, method, params} ->
         {:ok, notify(method, params, state)}
 
       {:request, id, method, params} ->
-        {reply, next} = request(method, params, state, id, binding, capture)
+        {reply, next} = request(method, params, state, id, run_tool)
         send_reply(reply, next, binding, clock, write)
 
       :invalid ->
@@ -177,11 +183,11 @@ defmodule SFCodeIntel.MCPStdio do
 
   defp notify(_method, _params, state), do: state
 
-  defp request("ping", params, state, id, _binding, _capture) do
+  defp request("ping", params, state, id, _run_tool) do
     if params_match?(params, []), do: {success(id, %{}), state}, else: {bad_params(id), state}
   end
 
-  defp request("initialize", params, :awaiting_initialize, id, _binding, _capture) do
+  defp request("initialize", params, :awaiting_initialize, id, _run_tool) do
     if initialize_params?(params) do
       response = %{
         protocolVersion: @protocol,
@@ -195,14 +201,14 @@ defmodule SFCodeIntel.MCPStdio do
     end
   end
 
-  defp request(method, _params, state, id, _binding, _capture)
+  defp request(method, _params, state, id, _run_tool)
        when method == "initialize" or
               (method in ["tools/list", "tools/call"] and state != :ready) or
               method == "notifications/initialized" do
     {error(id, -32_600, "Invalid lifecycle state"), state}
   end
 
-  defp request("tools/list", params, :ready, id, _binding, _capture) do
+  defp request("tools/list", params, :ready, id, _run_tool) do
     if params_match?(params, ["cursor"]) and not Map.has_key?(params, "cursor") do
       {success(id, %{tools: tools()}), :ready}
     else
@@ -210,22 +216,22 @@ defmodule SFCodeIntel.MCPStdio do
     end
   end
 
-  defp request("tools/call", %{"name" => name} = params, :ready, id, binding, capture) do
+  defp request("tools/call", %{"name" => name} = params, :ready, id, run_tool) do
     args = Map.get(params, "arguments", %{})
 
     if params_match?(params, ["name", "arguments"]) and name in Query.tools() and is_map(args) do
-      result = Query.run(binding, name, args, capture)
+      result = run_tool.(name, args)
       {{:tool, id, result}, :ready}
     else
       {bad_params(id), :ready}
     end
   end
 
-  defp request("tools/call", _params, :ready, id, _binding, _capture) do
+  defp request("tools/call", _params, :ready, id, _run_tool) do
     {bad_params(id), :ready}
   end
 
-  defp request(_method, _params, state, id, _binding, _capture) do
+  defp request(_method, _params, state, id, _run_tool) do
     {error(id, -32_601, "Method not found"), state}
   end
 
@@ -346,6 +352,13 @@ defmodule SFCodeIntel.MCPStdio do
           :path,
           :expected_sha256
         ]
+      ),
+      tool(
+        "search_text",
+        "Find literal case-sensitive byte matches in the five approved synthetic slots. " <>
+          "Returns up to 32 ordered matches with byte ranges and full-slot SHA-256 digests.",
+        %{query: %{type: "string"}},
+        [:query]
       )
     ]
   end

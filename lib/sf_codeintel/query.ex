@@ -4,8 +4,9 @@ defmodule SFCodeIntel.Query do
   alias SFCodeIntel.{Lexical, LocalSource, SourceAdapter}
 
   @profile "synthetic_lexical_v1"
+  @search_profile "synthetic_text_search_v1"
   @backend "local_source_v1"
-  @tools ~w(discover definition references read_source check_source)
+  @tools ~w(discover definition references read_source check_source search_text)
   @key_fields ~w(arity function module)
   @read_fields ~w(end_byte path start_byte)
   @digest ~r/\A[[:xdigit:]]{64}\z/
@@ -16,11 +17,127 @@ defmodule SFCodeIntel.Query do
   def tools, do: @tools
   def profile, do: @profile
 
-  def run(binding, tool, args, capture \\ &LocalSource.capture/1) do
+  def run(binding, tool, args, capture \\ &LocalSource.capture/1)
+
+  def run(binding, "search_text", args, capture), do: run_search(binding, args, capture, [])
+
+  def run(binding, tool, args, capture) do
     case validate(tool, args) do
       :ok -> observe(binding, tool, args, capture)
       status -> result(status, :unavailable, [], [%{code: Atom.to_string(status)}])
     end
+  end
+
+  @doc false
+  def run_search(binding, %{"query" => needle} = args, capture, opts)
+      when map_size(args) == 1 and is_binary(needle) and byte_size(needle) in 1..128 do
+    if String.valid?(needle) and :binary.match(needle, [<<0>>, "\r", "\n"]) == :nomatch do
+      clock = Keyword.get(opts, :clock, &System.monotonic_time(:millisecond))
+      on_scan = Keyword.get(opts, :on_scan, fn _ -> :ok end)
+      observe_search(binding, needle, capture, clock, on_scan)
+    else
+      invalid_search()
+    end
+  end
+
+  def run_search(_binding, _args, _capture, _opts), do: invalid_search()
+
+  defp invalid_search do
+    result(:invalid_input, :unavailable, [], [%{code: "invalid_input"}])
+  end
+
+  defp observe_search(binding, needle, capture, clock, on_scan) do
+    deadline = clock.() + @request_limit_ms
+
+    case timed_capture(binding, capture, deadline, clock) do
+      {:ok, first} ->
+        prepared = prepare_search(first, needle, on_scan)
+        second = timed_capture(binding, capture, deadline, clock)
+        revalidate_search(binding, first, second, prepared)
+
+      {:error, status, checked, diagnostic} ->
+        search_failure(binding, status, checked, diagnostic, nil)
+    end
+  end
+
+  defp prepare_search(first, needle, on_scan) do
+    pattern = :binary.compile_pattern(needle)
+
+    {items, count} =
+      Enum.reduce_while(SourceAdapter.slots(), {[], 0}, fn path, acc ->
+        on_scan.({:slot, path})
+
+        case first.slots[path] do
+          :missing ->
+            {:cont, acc}
+
+          slot ->
+            scan_slot(slot, path, pattern, 0, acc, on_scan)
+        end
+      end)
+
+    status = if count == 0, do: :unresolved, else: :ok
+    prepared = result(status, :complete_for_profile, Enum.reverse(items), [])
+    %{prepared | truncated: count > @item_limit}
+  end
+
+  defp scan_slot(%{bytes: bytes}, _path, _pattern, offset, acc, _on_scan)
+       when offset == byte_size(bytes),
+       do: {:cont, acc}
+
+  defp scan_slot(slot, path, pattern, offset, {items, count} = acc, on_scan) do
+    scope = {offset, byte_size(slot.bytes) - offset}
+    match = :binary.match(slot.bytes, pattern, scope: scope)
+    on_scan.({:match, path})
+
+    case match do
+      :nomatch ->
+        {:cont, acc}
+
+      {_start, _length} when count == @item_limit ->
+        {:halt, {items, count + 1}}
+
+      {start, length} ->
+        stop = start + length
+
+        item = %{
+          kind: "text_match",
+          path: path,
+          sha256: slot.sha256,
+          start_byte: start,
+          end_byte: stop
+        }
+
+        scan_slot(slot, path, pattern, stop, {[item | items], count + 1}, on_scan)
+    end
+  end
+
+  defp revalidate_search(binding, first, {:ok, second}, prepared) do
+    {response, state} =
+      if first.manifest_sha256 == second.manifest_sha256 do
+        {prepared, :matched_at_check}
+      else
+        changed = result(:changed_since_check, :unavailable, [], [%{code: "capture_changed"}])
+        {changed, :changed_since_check}
+      end
+
+    search_evidence(response, binding, state, second.checked_slots, first, second)
+  end
+
+  defp revalidate_search(binding, first, {:error, status, checked, diagnostic}, _prepared) do
+    search_failure(binding, status, checked, diagnostic, first)
+  end
+
+  defp search_failure(binding, status, checked, diagnostic, first) do
+    status
+    |> result(:unavailable, [], [diagnostic])
+    |> search_evidence(binding, :unknown, checked, first, nil)
+  end
+
+  defp search_evidence(response, binding, state, checked, first, second) do
+    response
+    |> evidence(binding, state, checked, first, second, nil)
+    |> Map.replace!(:profile_version, @search_profile)
   end
 
   defp validate("discover", args) when args == %{}, do: :ok
@@ -86,8 +203,8 @@ defmodule SFCodeIntel.Query do
     end
   end
 
-  defp timed_capture(binding, capture, deadline) do
-    remaining = deadline - System.monotonic_time(:millisecond)
+  defp timed_capture(binding, capture, deadline, clock \\ &System.monotonic_time(:millisecond)) do
+    remaining = deadline - clock.()
 
     if remaining > 0 do
       task = Task.async(fn -> capture.(binding) end)

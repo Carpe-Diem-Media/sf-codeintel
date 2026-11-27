@@ -125,7 +125,15 @@ defmodule SFCodeIntel.QueryTest do
     assert_stable_search(slots, "hit", :ok, expected)
 
     more = Map.merge(slots, %{"duplicate.ex" => "hit", "unsupported.ex" => "hit"})
-    assert_stable_search(more, "hit", :ok, expected, true)
+    on_scan = fn
+      {:slot, path} -> send(self(), {:scanned_slot, path})
+      {:match, _path} -> :ok
+    end
+
+    assert_stable_search(more, "hit", :ok, expected, true, on_scan: on_scan)
+    assert_received {:scanned_slot, "caller.ex"}
+    assert_received {:scanned_slot, "duplicate.ex"}
+    refute_received {:scanned_slot, _}
   end
 
   test "search_text_rejects_invalid_arguments_without_capture" do
@@ -199,31 +207,175 @@ defmodule SFCodeIntel.QueryTest do
     end
   end
 
-  defp assert_stable_search(slots, needle, status, items, truncated \\ false) do
+  for scenario <- [:before_scan, :during_scan, :after_revalidation, :after_manifest_change] do
+    test "search_text_deadline_never_releases_prepared_items (#{scenario})" do
+      assert_search_deadline(unquote(scenario))
+    end
+  end
+
+  test "search text response fallback preserves a boundary string ID" do
+    assert_search_fallback(:binary.copy(<<0>>, 64))
+  end
+
+  test "search text response fallback preserves a boundary integer ID" do
+    assert_search_fallback(-9_999_999_999_999_999)
+  end
+
+  defp assert_search_deadline(scenario) do
+    slots = %{"caller.ex" => "hit hit"}
+    first = capture(slots)
+
+    second =
+      if scenario == :after_manifest_change,
+        do: capture(Map.put(slots, "unsupported.ex", "changed")),
+        else: first
+
+    ticks = :counters.new(1, [])
+    calls = :counters.new(1, [])
+    expire = fn -> :counters.put(ticks, 1, 2_000) end
+
+    capture = fn _ ->
+      :counters.add(calls, 1, 1)
+
+      case :counters.get(calls, 1) do
+        1 ->
+          if scenario == :before_scan, do: expire.()
+          first
+
+        2 ->
+          if scenario in [:after_revalidation, :after_manifest_change], do: expire.()
+          second
+      end
+    end
+
+    on_scan = fn event ->
+      send(self(), {:search_scan, event})
+      if scenario == :during_scan and event == {:match, "caller.ex"}, do: expire.()
+    end
+
+    result =
+      Query.run_search(valid_binding(), %{"query" => "hit"}, capture,
+        clock: fn -> :counters.get(ticks, 1) end,
+        on_scan: on_scan
+      )
+
+    completed_second =
+      case scenario do
+        :before_scan ->
+          refute_received {:search_scan, _}
+          assert :counters.get(calls, 1) == 1
+          nil
+
+        :during_scan ->
+          assert_received {:search_scan, {:slot, "caller.ex"}}
+          assert_received {:search_scan, {:match, "caller.ex"}}
+          refute_received {:search_scan, _}
+          assert :counters.get(calls, 1) == 1
+          nil
+
+        _after_second_capture ->
+          assert :counters.get(calls, 1) == 2
+          second
+      end
+
+    expected = search_result(:limit_exceeded, :unavailable, [], [%{code: "tool_deadline"}])
+    assert_search(result, expected, :unknown, SourceAdapter.slots(), first, completed_second)
+  end
+
+  defp assert_search_fallback(id) do
+    args = %{"query" => "hit"}
+    pass = capture(%{"sample.ex" => "hit"})
+    prepared = Query.run(valid_binding(), "search_text", args, fn _ -> pass end)
+    assert %{status: :ok, items: [item]} = prepared
+    oversized = %{prepared | items: List.duplicate(item, 400)}
+    assert IO.iodata_length(:json.encode(oversized)) > 32_768
+
+    request = %{
+      @request
+      | "id" => id,
+        "params" => %{"name" => "search_text", "arguments" => args}
+    }
+
+    input = request |> :json.encode() |> IO.iodata_to_binary()
+    assert byte_size(input) < 16_384
+
+    assert {:ok, :ready} =
+             MCPStdio.exchange(input, :ready, valid_binding(),
+               clock: fn -> 199 end,
+               capture: fn _ -> flunk("fallback test should use the prepared result") end,
+               search_result: fn _, ^args -> oversized end,
+               write: fn frame ->
+                 send(self(), {:frame, IO.iodata_to_binary(frame)})
+                 :ok
+               end
+             )
+
+    assert_received {:frame, frame}
+    assert byte_size(frame) <= 32_768
+    assert :binary.matches(frame, "\n") == [{byte_size(frame) - 1, 1}]
+
+    expected =
+      prepared
+      |> Map.merge(%{
+        status: :limit_exceeded,
+        coverage: :unavailable,
+        truncated: true,
+        items: [],
+        diagnostics: [%{code: "response_byte_limit"}]
+      })
+      |> :json.encode()
+      |> IO.iodata_to_binary()
+      |> :json.decode()
+
+    decoded = :json.decode(frame)
+    assert decoded["id"] === id
+    assert %{"result" => %{"content" => [%{"text" => text}]}} = decoded
+
+    assert decoded == %{
+             "jsonrpc" => "2.0",
+             "id" => id,
+             "result" => %{
+               "structuredContent" => expected,
+               "content" => [%{"type" => "text", "text" => text}],
+               "isError" => true
+             }
+           }
+
+    assert :json.decode(text) == expected
+  end
+
+  defp assert_stable_search(slots, needle, status, items, truncated \\ false, opts \\ []) do
     pass = capture(slots)
     expected = %{search_result(status, :complete_for_profile, items, []) | truncated: truncated}
-    result = search(needle, [pass, pass], status)
+    result = search(needle, [pass, pass], status, opts)
     assert_search(result, expected, :matched_at_check, SourceAdapter.slots(), pass, pass)
   end
 
-  defp search(needle, captures, status) do
+  defp search(needle, captures, status, opts \\ []) do
     count = :counters.new(1, [])
     owner = self()
 
+    capture = fn _ ->
+      index = :counters.get(count, 1)
+      :counters.add(count, 1, 1)
+
+      case Enum.fetch!(captures, index) do
+        :exit ->
+          Process.unlink(owner)
+          exit(:scripted_capture_failure)
+
+        outcome ->
+          outcome
+      end
+    end
+
+    args = %{"query" => needle}
+
     result =
-      Query.run(valid_binding(), "search_text", %{"query" => needle}, fn _ ->
-        index = :counters.get(count, 1)
-        :counters.add(count, 1, 1)
-
-        case Enum.fetch!(captures, index) do
-          :exit ->
-            Process.unlink(owner)
-            exit(:scripted_capture_failure)
-
-          outcome ->
-            outcome
-        end
-      end)
+      case opts do
+        [] -> Query.run(valid_binding(), "search_text", args, capture)
+        [_ | _] -> Query.run_search(valid_binding(), args, capture, opts)
+      end
 
     assert %{status: ^status} = result
     assert :counters.get(count, 1) == length(captures)
