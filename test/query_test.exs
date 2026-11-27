@@ -24,7 +24,7 @@ defmodule SFCodeIntel.QueryTest do
   end
 
   test "no authority or equality at admission prevents source access and response" do
-    for binding <- [nil, %{binding() | grant_id: ""}, binding()] do
+    for binding <- [nil, %{valid_binding() | grant_id: ""}, valid_binding()] do
       assert :closed =
                exchange(binding, fn -> 200 end, fn _ -> flunk("capture on denial") end)
     end
@@ -41,13 +41,13 @@ defmodule SFCodeIntel.QueryTest do
       capture(%{"sample.ex" => @sample})
     end
 
-    assert :closed = exchange(binding(), fn -> :counters.get(ticks, 1) end, capture)
+    assert :closed = exchange(valid_binding(), fn -> :counters.get(ticks, 1) end, capture)
     refute_received {:frame, _}
   end
 
   test "delivery writes source evidence before the deadline" do
     capture = fn _ -> capture(%{"sample.ex" => @sample}) end
-    assert {:ok, :ready} = exchange(binding(), fn -> 199 end, capture)
+    assert {:ok, :ready} = exchange(valid_binding(), fn -> 199 end, capture)
 
     assert %{"status" => "ok", "items" => [%{"function" => "run"}]} = response()
   end
@@ -56,7 +56,7 @@ defmodule SFCodeIntel.QueryTest do
     first = capture(%{"sample.ex" => @sample})
     second = capture(%{"renamed.ex" => @sample})
 
-    assert {:ok, :ready} = exchange(binding(), fn -> 199 end, sequence(first, second))
+    assert {:ok, :ready} = exchange(valid_binding(), fn -> 199 end, sequence(first, second))
     result = response()
     assert result["status"] == "changed_since_check"
     assert result["items"] == []
@@ -70,7 +70,7 @@ defmodule SFCodeIntel.QueryTest do
     first = capture(%{"sample.ex" => @sample})
     second = {:error, :unavailable, ["caller.ex"], %{code: "read_failed", path: "duplicate.ex"}}
 
-    assert {:ok, :ready} = exchange(binding(), fn -> 199 end, sequence(first, second))
+    assert {:ok, :ready} = exchange(valid_binding(), fn -> 199 end, sequence(first, second))
     result = response()
     assert result["status"] == "unavailable"
     assert result["coverage"] == "unavailable"
@@ -88,13 +88,13 @@ defmodule SFCodeIntel.QueryTest do
     }
 
     assert %{status: :denied, items: []} =
-             Query.run(binding(), "check_source", args, fn _ ->
+             Query.run(valid_binding(), "check_source", args, fn _ ->
                flunk("outside slot caused capture")
              end)
   end
 
   defp query(slots) do
-    Query.run(binding(), "definition", @key, fn _ -> capture(slots) end)
+    Query.run(valid_binding(), "definition", @key, fn _ -> capture(slots) end)
   end
 
   defp capture(slots) do
@@ -130,6 +130,7 @@ defmodule SFCodeIntel.QueryTest do
     assert_received {:frame, frame}
     decoded = :json.decode(frame)
     assert decoded["id"] == 7
+
     assert %{
              "content" => [%{"type" => "text", "text" => text}],
              "structuredContent" => data
@@ -139,7 +140,7 @@ defmodule SFCodeIntel.QueryTest do
     data
   end
 
-  defp binding do
+  defp valid_binding do
     %CLI.Binding{
       root: "/synthetic",
       device: 1,

@@ -158,8 +158,8 @@ defmodule SFCodeIntel.LocalSource do
       {:ok, info} ->
         cond do
           file_info(info, :type) != :regular or
-              file_info(info, :links) != 1 or
-              file_info(info, :major_device) != stat.major_device or
+            file_info(info, :links) != 1 or
+            file_info(info, :major_device) != stat.major_device or
               file_info(info, :inode) != stat.inode ->
             {:error, :denied, "descriptor_identity_mismatch"}
 

@@ -35,7 +35,10 @@ defmodule SFCodeIntel.Query do
     end
   end
 
-  defp validate("read_source", %{"path" => path, "start_byte" => start, "end_byte" => stop} = args)
+  defp validate(
+         "read_source",
+         %{"path" => path, "start_byte" => start, "end_byte" => stop} = args
+       )
        when is_binary(path) and is_integer(start) and is_integer(stop) do
     fields =
       if Map.has_key?(args, "expected_sha256"),
@@ -258,6 +261,7 @@ defmodule SFCodeIntel.Query do
 
             true ->
               excerpt = bytes |> binary_part(start, stop - start) |> Base.encode64()
+
               item = %{
                 path: path,
                 sha256: digest,

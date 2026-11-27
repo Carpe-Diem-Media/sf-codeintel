@@ -338,10 +338,15 @@ defmodule SFCodeIntel.MCPStdio do
         :start_byte,
         :end_byte
       ]),
-      tool("check_source", "Compare the full-file SHA-256 at an approved slot.", check_properties, [
-        :path,
-        :expected_sha256
-      ])
+      tool(
+        "check_source",
+        "Compare the full-file SHA-256 at an approved slot.",
+        check_properties,
+        [
+          :path,
+          :expected_sha256
+        ]
+      )
     ]
   end
 
