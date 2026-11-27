@@ -245,8 +245,9 @@ defmodule SFCodeIntel.QueryTest do
           first
 
         2 ->
-          if scenario == :after_revalidation, do: expire.()
-          if scenario == :after_manifest_change, do: :counters.put(expire_on_next_check, 1, 1)
+          if scenario in [:after_revalidation, :after_manifest_change],
+            do: :counters.put(expire_on_next_check, 1, 1)
+
           second
       end
     end
@@ -258,7 +259,7 @@ defmodule SFCodeIntel.QueryTest do
 
     clock = fn ->
       now = :counters.get(ticks, 1)
-      # Let the post-capture check pass so expiry overrides the prepared change at delivery.
+      # Let revalidation finish before expiry overrides the prepared result.
       if :counters.get(expire_on_next_check, 1) == 1, do: expire.()
       now
     end
