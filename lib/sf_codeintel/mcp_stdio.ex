@@ -221,7 +221,7 @@ defmodule SFCodeIntel.MCPStdio do
 
     if params_match?(params, ["name", "arguments"]) and name in Query.tools() and is_map(args) do
       result = run_tool.(name, args)
-      {{:tool, id, result}, :ready}
+      {{:tool, id, name, result}, :ready}
     else
       {bad_params(id), :ready}
     end
@@ -288,7 +288,7 @@ defmodule SFCodeIntel.MCPStdio do
     end
   end
 
-  defp encode_reply({:tool, id, result}) do
+  defp encode_reply({:tool, id, name, result}) do
     frame = tool_frame(id, result)
 
     if IO.iodata_length(frame) <= @response_limit do
@@ -303,6 +303,9 @@ defmodule SFCodeIntel.MCPStdio do
           truncated: true,
           diagnostics: [%{code: "response_byte_limit"}]
         })
+
+      limited =
+        if name == "search_text", do: %{limited | coverage: :unavailable}, else: limited
 
       tool_frame(id, limited)
     end

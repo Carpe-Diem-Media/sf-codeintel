@@ -125,6 +125,7 @@ defmodule SFCodeIntel.QueryTest do
     assert_stable_search(slots, "hit", :ok, expected)
 
     more = Map.merge(slots, %{"duplicate.ex" => "hit", "unsupported.ex" => "hit"})
+
     on_scan = fn
       {:slot, path} -> send(self(), {:scanned_slot, path})
       {:match, _path} -> :ok
@@ -232,6 +233,7 @@ defmodule SFCodeIntel.QueryTest do
 
     ticks = :counters.new(1, [])
     calls = :counters.new(1, [])
+    expire_on_next_check = :counters.new(1, [])
     expire = fn -> :counters.put(ticks, 1, 2_000) end
 
     capture = fn _ ->
@@ -243,7 +245,8 @@ defmodule SFCodeIntel.QueryTest do
           first
 
         2 ->
-          if scenario in [:after_revalidation, :after_manifest_change], do: expire.()
+          if scenario == :after_revalidation, do: expire.()
+          if scenario == :after_manifest_change, do: :counters.put(expire_on_next_check, 1, 1)
           second
       end
     end
@@ -253,9 +256,16 @@ defmodule SFCodeIntel.QueryTest do
       if scenario == :during_scan and event == {:match, "caller.ex"}, do: expire.()
     end
 
+    clock = fn ->
+      now = :counters.get(ticks, 1)
+      # Let the post-capture check pass so expiry overrides the prepared change at delivery.
+      if :counters.get(expire_on_next_check, 1) == 1, do: expire.()
+      now
+    end
+
     result =
       Query.run_search(valid_binding(), %{"query" => "hit"}, capture,
-        clock: fn -> :counters.get(ticks, 1) end,
+        clock: clock,
         on_scan: on_scan
       )
 
@@ -353,19 +363,14 @@ defmodule SFCodeIntel.QueryTest do
 
   defp search(needle, captures, status, opts \\ []) do
     count = :counters.new(1, [])
-    owner = self()
 
     capture = fn _ ->
       index = :counters.get(count, 1)
       :counters.add(count, 1, 1)
 
       case Enum.fetch!(captures, index) do
-        :exit ->
-          Process.unlink(owner)
-          exit(:scripted_capture_failure)
-
-        outcome ->
-          outcome
+        :exit -> exit(:scripted_capture_failure)
+        outcome -> outcome
       end
     end
 

@@ -48,6 +48,8 @@ literal qualified calls. See the design for the grammar and exclusions.
   returns up to 4,096 bytes in base64. An optional expected SHA-256 guards
   the read.
 - `check_source` compares the SHA-256 of a slot against an expected digest.
+- `search_text` finds literal, case-sensitive byte matches in the five
+  synthetic slots. Pass a `query` of 1–128 UTF-8 bytes without NUL, CR or LF.
 
 The flat slots are `caller.ex`, `duplicate.ex`, `renamed.ex`,
 `sample.ex` and `unsupported.ex`. Each result uses captured bytes and
@@ -55,6 +57,23 @@ rechecks the manifest across all five slots before delivery. The comparison
 reports the observations at check time. Unsupported readable files make
 lexical coverage partial and can still be read as bytes. The lexer never
 evaluates, compiles or loads fixture source.
+
+### Search and guarded reads
+
+SFCI-19 adds MCP-only literal search under the
+[search design](docs/technical-design/P1/SF-CI-TDD-P1-LEX-002.md) and
+[ADR-002 supplement](docs/adr/ADR-002-SFCI-19-synthetic-text-search.md).
+Search matches raw bytes, including comments and unsupported source. It
+returns non-overlapping matches in path and byte-offset order. A stable
+miss returns `unresolved` with no items. A 33rd match sets `truncated` and
+the response keeps the first 32 matches.
+
+Each match includes its path, zero-based half-open byte range and the
+SHA-256 of the complete slot. To retrieve the matched bytes, pass the
+match's `path`, `start_byte` and `end_byte` to `read_source` with its digest
+as `expected_sha256`. Search and read each check their own captures and
+report their own `checked_at`. A stale digest returns `changed_since_check`
+with no bytes. Search again to get the current range and digest.
 
 ### Launcher and checks
 
@@ -94,11 +113,10 @@ as the authorized launcher, and verifies timeout and reaping behavior.
 Set `SFCI_FIXTURE_ROOT` to the approved empty root,
 `SFCI_FIXTURE_DEV_INO` to its preverified device and inode as `DEV:INO`,
 and `SFCI_TEST_SCRATCH` to a separate empty private directory. The driver
-uses the current SFCI-17 execution grant and its recorded expiry. A later run
+uses the SFCI-19 execution grant and its recorded expiry. A later run
 requires effective authority and approved launcher settings.
 
 The hosted job checks the explicit same-repository PR head on the standard
 Ubuntu 24.04 x64 runner. The Lead verifies the workflow and authorizes the
-first run under the bounded grant. The grant allows one rerun for a diagnosed
-transient failure or scoped correction. The job records the image, tools,
-fixture identity and tested SHA in its log.
+single run under the bounded grant. The job records the image, tools,
+fixture identity, tested SHA and sampled allocated bytes in its log.

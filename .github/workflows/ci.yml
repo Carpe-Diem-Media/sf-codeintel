@@ -14,13 +14,13 @@ jobs:
       github.repository == 'Carpe-Diem-Media/sf-codeintel' &&
       github.event.repository.private == false &&
       github.event.pull_request.head.repo.full_name == github.repository &&
-      github.event.pull_request.head.ref == 'sfci-17/lexical-cli-mcp' &&
-      github.run_attempt <= 2
+      github.event.pull_request.head.ref == 'sfci-19/synthetic-search-text' &&
+      github.run_attempt <= 1
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     env:
       EXPECTED_HEAD: ${{ github.event.pull_request.head.sha }}
-      GRANT_EXPIRES_UTC: "1795800978"
+      GRANT_EXPIRES_UTC: "1795820400"
       ERL_FLAGS: "+S 2:2 +SDcpu 1:1 +SDio 1 +A 1 +MIscs 64"
       ERL_CRASH_DUMP_SECONDS: "0"
       PYTHONDONTWRITEBYTECODE: "1"
@@ -36,7 +36,7 @@ jobs:
           test "$ID:$VERSION_ID" = ubuntu:24.04
           [[ "$EXPECTED_HEAD" =~ ^[0-9a-f]{40}$ ]]
           printf 'Runner image %s, version %s\n' "${ImageOS:?}" "${ImageVersion:?}"
-          printf 'Grant df47f245-2819-4cbf-b17e-6ead6cea3e51. Candidate %s\n' "$EXPECTED_HEAD"
+          printf 'Grant 0d2db704-dc15-4c01-a7ee-03d1bea6f399. Candidate %s\n' "$EXPECTED_HEAD"
 
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
@@ -54,9 +54,8 @@ jobs:
           test ! -e _build
 
           umask 077
-          work=$(mktemp -d "$HOME/.sfci-17-ci.XXXXXXXX")
+          work=$(mktemp -d "$HOME/.sfci-19-ci.XXXXXXXX")
           trap 'rm -rf -- "$work"' EXIT
-          mkdir "$work/otp" "$work/elixir" "$work/fixtures" "$work/scratch"
 
           within_grant() {
             local seconds
@@ -66,32 +65,67 @@ jobs:
           }
 
           check_disk() {
-            local used
-            used=$(du -sm -- "$work" ${1:+"_build"} | awk '{sum += $1} END {print sum}')
-            test "$used" -le 512
-            printf 'Generated state in MiB %s\n' "$used"
+            local phase=$1 measurements used
+            local roots=("$work")
+            if [[ -e _build || -L _build ]]; then
+              roots+=("_build")
+            fi
+
+            if ! measurements=$(du -s -B1 -- "${roots[@]}"); then
+              printf 'STOP %s: allocated-byte measurement unavailable\n' "$phase" >&2
+              return 1
+            fi
+
+            if ! used=$(printf '%s\n' "$measurements" | awk -F '\t' \
+              -v expected="${#roots[@]}" -v work_root="$work" '
+              NF != 2 || $1 !~ /^[0-9]+$/ { invalid = 1; next }
+              (NR == 1 && $2 != work_root) || (NR == 2 && $2 != "_build") { invalid = 1; next }
+              { total += $1 }
+              END {
+                if (invalid || NR != expected) exit 1
+                printf "%.0f\n", total
+              }
+            '); then
+              printf 'STOP %s: invalid allocated-byte measurements\n' "$phase" >&2
+              return 1
+            fi
+
+            printf '%s allocated bytes: %s\n' "$phase" "$used"
+            if [[ ! "$used" =~ ^[0-9]+$ ]]; then
+              printf 'STOP %s: invalid allocated-byte total\n' "$phase" >&2
+              return 1
+            fi
+            if (( ${#used} > 9 || used > 536870912 )); then
+              printf 'STOP %s: allocated-byte limit 536870912 exceeded\n' "$phase" >&2
+              return 1
+            fi
           }
+
+          check_disk work-created
+          mkdir "$work/otp" "$work/elixir" "$work/fixtures" "$work/scratch"
 
           acquire() {
             local url=$1 digest=$2 archive=$3
             test "$(within_grant curl --disable --fail --silent --show-error --proto '=https' \
               --max-filesize 536870912 --output "$archive" --write-out '%{http_code}' "$url")" = 200
+            check_disk "${archive##*/}-downloaded"
             printf '%s  %s\n' "$digest" "$archive" | sha256sum --check --strict
-            check_disk
+            check_disk "${archive##*/}-verified"
           }
 
           acquire https://builds.hex.pm/builds/otp/amd64/ubuntu-24.04/OTP-28.1.1.tar.gz \
             a5731148e8031c35621ab8fd07bceb9e33b86ced6338739556b00a4f3b9be28d "$work/otp.tar.gz"
           within_grant tar -xzf "$work/otp.tar.gz" --strip-components=1 -C "$work/otp"
+          check_disk otp-extracted
           rm -- "$work/otp.tar.gz"
           within_grant "$work/otp/Install" -minimal "$work/otp"
-          check_disk
+          check_disk otp-installed
 
           acquire https://builds.hex.pm/builds/elixir/v1.19.3-otp-28.zip \
             537e976fd0f78644f6369efa87b64c9204a5ff0e7aa3185a4d3aec4e2805cae8 "$work/elixir.zip"
           within_grant unzip -q "$work/elixir.zip" -d "$work/elixir"
+          check_disk elixir-extracted
           rm -- "$work/elixir.zip"
-          check_disk
 
           export PATH="$work/elixir/bin:$work/otp/bin:$PATH"
           otp_version=$(cat "$work/otp/releases/28/OTP_VERSION")
@@ -115,14 +149,15 @@ jobs:
           printf 'Private fixture root device/inode %s\n' "$SFCI_FIXTURE_DEV_INO"
 
           within_grant mix format --check-formatted mix.exs 'lib/**/*.ex' 'test/**/*.exs'
+          check_disk format-checked
           within_grant mix compile --warnings-as-errors
-          check_disk _build
+          check_disk compiled
           within_grant mix test
-          check_disk _build
+          check_disk exunit-tested
           within_grant mix escript.build
-          check_disk _build
+          check_disk escript-built
           within_grant python3 test/mcp_stdio_test.py
-          check_disk _build
+          check_disk python-verified
           test "$(git rev-parse HEAD)" = "$EXPECTED_HEAD"
           git diff --exit-code
           printf 'Completed product checks on %s\n' "$EXPECTED_HEAD"
