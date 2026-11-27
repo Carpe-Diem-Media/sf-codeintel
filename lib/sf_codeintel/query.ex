@@ -32,7 +32,7 @@ defmodule SFCodeIntel.Query do
   def run_search(binding, %{"query" => needle} = args, capture, opts)
       when map_size(args) == 1 and is_binary(needle) and byte_size(needle) in 1..128 do
     if String.valid?(needle) and :binary.match(needle, [<<0>>, "\r", "\n"]) == :nomatch do
-      clock = Keyword.get(opts, :clock, &System.monotonic_time(:millisecond))
+      clock = Keyword.get(opts, :clock, &clock_ms/0)
       on_scan = Keyword.get(opts, :on_scan, fn _ -> :ok end)
       observe_search(binding, needle, capture, clock, on_scan)
     else
@@ -203,7 +203,9 @@ defmodule SFCodeIntel.Query do
     end
   end
 
-  defp timed_capture(binding, capture, deadline, clock \\ &System.monotonic_time(:millisecond)) do
+  defp clock_ms, do: System.monotonic_time(:millisecond)
+
+  defp timed_capture(binding, capture, deadline, clock \\ &clock_ms/0) do
     remaining = deadline - clock.()
 
     if remaining > 0 do
