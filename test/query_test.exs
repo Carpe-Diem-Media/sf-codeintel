@@ -93,6 +93,197 @@ defmodule SFCodeIntel.QueryTest do
              end)
   end
 
+  test "search_text_matches_literal_bytes_in_path_and_offset_order" do
+    slots = %{
+      "caller.ex" => "é" <> <<255>> <> "a.* A.* a.*",
+      "unsupported.ex" => "not Elixir! a.* aaa"
+    }
+
+    expected = [
+      text_match(slots, "caller.ex", 3, 6),
+      text_match(slots, "caller.ex", 11, 14),
+      text_match(slots, "unsupported.ex", 12, 15)
+    ]
+
+    for _ <- 1..2 do
+      assert_stable_search(slots, "a.*", :ok, expected)
+    end
+
+    assert_stable_search(slots, "aa", :ok, [text_match(slots, "unsupported.ex", 16, 18)])
+  end
+
+  test "search_text_reports_a_stable_miss_for_missing_and_present_slots" do
+    for slots <- [%{}, %{"sample.ex" => @sample}] do
+      assert_stable_search(slots, "missing", :unresolved, [])
+    end
+  end
+
+  test "search_text_reports_an_ordered_prefix_only_after_hit_33" do
+    slots = %{"caller.ex" => String.duplicate("hit ", 32)}
+    expected = for offset <- 0..124//4, do: text_match(slots, "caller.ex", offset, offset + 3)
+
+    assert_stable_search(slots, "hit", :ok, expected)
+
+    more = Map.merge(slots, %{"duplicate.ex" => "hit", "unsupported.ex" => "hit"})
+    assert_stable_search(more, "hit", :ok, expected, true)
+  end
+
+  test "search_text_rejects_invalid_arguments_without_capture" do
+    assert "search_text" in Query.tools()
+
+    for args <- [
+          %{},
+          %{"other" => "hit"},
+          %{"query" => "hit", "extra" => true},
+          %{"query" => 42},
+          %{"query" => ""},
+          %{"query" => String.duplicate("é", 64) <> "x"},
+          %{"query" => "x\0y"},
+          %{"query" => "x\ry"},
+          %{"query" => "x\ny"}
+        ] do
+      result =
+        Query.run(valid_binding(), "search_text", args, fn _ ->
+          flunk("invalid search caused capture")
+        end)
+
+      assert result == search_result(:invalid_input, :unavailable, [], [%{code: "invalid_input"}])
+    end
+
+    needle = String.duplicate("é", 64)
+    slots = %{"sample.ex" => needle}
+    assert_stable_search(slots, needle, :ok, [text_match(slots, "sample.ex", 0, 128)])
+  end
+
+  test "search_text_suppresses_results_when_captures_cannot_be_verified" do
+    first = capture(%{"caller.ex" => "hit"})
+    changed = capture(%{"caller.ex" => "hit", "unsupported.ex" => "unrelated"})
+    prefix = ["caller.ex", "duplicate.ex"]
+    path = "renamed.ex"
+    denied = {:error, :denied, prefix, %{code: "slot_type_or_identity", path: path}}
+    unavailable = {:error, :unavailable, prefix, %{code: "slot_open_failed", path: path}}
+    limit = {:error, :limit_exceeded, prefix, %{code: "capture_byte_limit", path: path}}
+    failed = %{code: "capture_failed"}
+
+    for {captures, first_pass} <- [
+          {[denied], nil},
+          {[unavailable], nil},
+          {[limit], nil},
+          {[first, unavailable], first}
+        ] do
+      {:error, status, checked, diagnostic} = List.last(captures)
+      result = search("hit", captures, status)
+      expected = search_result(status, :unavailable, [], [diagnostic])
+      assert_search(result, expected, :unknown, checked, first_pass, nil)
+    end
+
+    cases = [
+      {[:exit], :unavailable, failed, [], nil, nil},
+      {[first, :exit], :unavailable, failed, [], first, nil},
+      {[first, changed], :changed_since_check, %{code: "capture_changed"}, SourceAdapter.slots(),
+       first, changed}
+    ]
+
+    for {captures, status, diagnostic, checked, first_pass, second_pass} <- cases do
+      result = search("hit", captures, status)
+      state = if status == :changed_since_check, do: :changed_since_check, else: :unknown
+
+      assert_search(
+        result,
+        search_result(status, :unavailable, [], [diagnostic]),
+        state,
+        checked,
+        first_pass,
+        second_pass
+      )
+    end
+  end
+
+  defp assert_stable_search(slots, needle, status, items, truncated \\ false) do
+    pass = capture(slots)
+    expected = %{search_result(status, :complete_for_profile, items, []) | truncated: truncated}
+    result = search(needle, [pass, pass], status)
+    assert_search(result, expected, :matched_at_check, SourceAdapter.slots(), pass, pass)
+  end
+
+  defp search(needle, captures, status) do
+    count = :counters.new(1, [])
+    owner = self()
+
+    result =
+      Query.run(valid_binding(), "search_text", %{"query" => needle}, fn _ ->
+        index = :counters.get(count, 1)
+        :counters.add(count, 1, 1)
+
+        case Enum.fetch!(captures, index) do
+          :exit ->
+            Process.unlink(owner)
+            exit(:scripted_capture_failure)
+
+          outcome ->
+            outcome
+        end
+      end)
+
+    assert %{status: ^status} = result
+    assert :counters.get(count, 1) == length(captures)
+    result
+  end
+
+  defp assert_search(result, expected, state, checked, first, second) do
+    assert %{checked_at: checked_at} = result
+    assert {:ok, _, 0} = DateTime.from_iso8601(checked_at)
+    assert String.ends_with?(checked_at, "Z")
+
+    freshness =
+      %{
+        state: state,
+        checked_at: checked_at,
+        method: "double_capture_slot_sha256",
+        comparison_slots: SourceAdapter.slots(),
+        checked_slots: checked
+      }
+      |> with_manifest(:first_manifest_sha256, first)
+      |> with_manifest(:second_manifest_sha256, second)
+
+    expected =
+      expected
+      |> Map.merge(%{
+        binding_id: valid_binding().id,
+        backend_version: "local_source_v1",
+        profile_version: "synthetic_text_search_v1",
+        checked_at: checked_at,
+        freshness: freshness
+      })
+      |> with_manifest(:manifest_sha256, first)
+
+    assert result == expected
+  end
+
+  defp with_manifest(map, _key, nil), do: map
+  defp with_manifest(map, key, {:ok, capture}), do: Map.put(map, key, capture.manifest_sha256)
+
+  defp search_result(status, coverage, items, diagnostics) do
+    %{
+      schema_version: 1,
+      status: status,
+      coverage: coverage,
+      truncated: false,
+      items: items,
+      diagnostics: diagnostics
+    }
+  end
+
+  defp text_match(slots, path, start, stop) do
+    %{
+      kind: "text_match",
+      path: path,
+      sha256: SourceAdapter.sha256(Map.fetch!(slots, path)),
+      start_byte: start,
+      end_byte: stop
+    }
+  end
+
   defp query(slots) do
     Query.run(valid_binding(), "definition", @key, fn _ -> capture(slots) end)
   end

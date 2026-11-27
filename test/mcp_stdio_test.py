@@ -3,6 +3,7 @@
 
 import base64
 import contextlib
+from datetime import datetime, timedelta
 import errno
 import hashlib
 import json
@@ -13,6 +14,7 @@ import select
 import signal
 import stat
 import subprocess
+import sys
 import threading
 import time
 import unittest
@@ -23,10 +25,10 @@ PROJECT = Path(__file__).resolve().parents[1]
 FIXTURES = PROJECT / "test" / "fixtures" / "lexical"
 ESCRIPT = PROJECT / "_build" / "sf-codeintel"
 SLOTS = ["caller.ex", "duplicate.ex", "renamed.ex", "sample.ex", "unsupported.ex"]
-GRANT = "df47f245-2819-4cbf-b17e-6ead6cea3e51"
-GRANT_EXPIRY_NS = 1_795_800_978_000_000_000
-LOCAL_ROOT = Path("/home/jcschoeman96/.sfci-17-fixtures")
-LOCAL_IDENTITY = (66306, 104606440)
+GRANT = "0d2db704-dc15-4c01-a7ee-03d1bea6f399"
+GRANT_EXPIRY_NS = 1_795_820_400_000_000_000
+LOCAL_ROOT = Path("/home/jcschoeman96/.sfci-19/fixtures")
+LOCAL_IDENTITY = (66306, 104642611)
 AS_LIMIT = 512 * 1024 * 1024
 TIMEOUT = 8
 MAX_FRAME = 16_384
@@ -116,7 +118,7 @@ class FixtureRoot:
             run_dir = self.root.parent
             if (
                 run_dir.parent != Path.home()
-                or not run_dir.name.startswith(".sfci-17-ci.")
+                or not run_dir.name.startswith(".sfci-19-ci.")
                 or self.root.name != "fixtures"
                 or self.scratch != run_dir / "scratch"
             ):
@@ -607,6 +609,145 @@ class ProtocolTest(unittest.TestCase):
             self.assert_fresh(deleted, "changed_since_check", "changed_since_check", "renamed.ex")
             self.assertEqual(deleted["items"], [])
             self.assertNotEqual(new_slot["manifest_sha256"], deleted["manifest_sha256"])
+            self.assert_clean_eof(client)
+
+    def test_search_text_and_guarded_read(self):
+        needle = "café"
+        needle_bytes = needle.encode()
+        search_args = {"name": "search_text", "arguments": {"query": needle}}
+
+        def tool_result(response, *, is_error=False):
+            self.assertEqual(set(response), {"jsonrpc", "id", "result"}, response)
+            result = response["result"]
+            data = result["structuredContent"]
+            self.assertEqual(set(result), {"structuredContent", "content", "isError"})
+            self.assertIs(result["isError"], is_error)
+            (block,) = result["content"]
+            self.assertEqual(set(block), {"type", "text"})
+            self.assertEqual(block["type"], "text")
+            self.assertEqual(json.loads(block["text"]), data)
+            return data
+
+        def common(status, coverage="complete_for_profile", items=(), diagnostics=()):
+            return {
+                "schema_version": 1, "status": status, "coverage": coverage,
+                "truncated": False, "items": list(items), "diagnostics": list(diagnostics),
+            }
+
+        def assert_observation(data, expected, sample, *, guarded=False, changed=False):
+            manifest = bytearray(b"sf-codeintel-manifest-v1\0")
+            captured = {"caller.ex": self.caller, "sample.ex": sample}
+            for slot in SLOTS:
+                path = slot.encode()
+                manifest.extend(len(path).to_bytes(2, "big") + path)
+                if slot in captured:
+                    raw = captured[slot]
+                    manifest.extend(b"\x01" + len(raw).to_bytes(4, "big") + sha256(raw).encode())
+                else:
+                    manifest.extend(b"\x00")
+            digest = sha256(manifest)
+            checked_at = data["checked_at"]
+            self.assertTrue(checked_at.endswith("Z"))
+            self.assertEqual(datetime.fromisoformat(checked_at.replace("Z", "+00:00")).utcoffset(),
+                             timedelta(0))
+            self.assertRegex(data["binding_id"], r"^[0-9a-f]{32}$")
+            self.assertEqual(data, {
+                **expected,
+                "binding_id": data["binding_id"],
+                "backend_version": "local_source_v1",
+                "profile_version": "synthetic_lexical_v1" if guarded else "synthetic_text_search_v1",
+                "checked_at": checked_at,
+                "manifest_sha256": digest,
+                "freshness": {
+                    "state": "changed_since_check" if changed else "matched_at_check",
+                    "checked_at": checked_at,
+                    "method": ("double_capture_slot_sha256_and_expected_digest" if guarded
+                               else "double_capture_slot_sha256"),
+                    "comparison_slots": ["sample.ex"] if guarded else SLOTS,
+                    "checked_slots": SLOTS,
+                    "first_manifest_sha256": digest,
+                    "second_manifest_sha256": digest,
+                },
+            })
+
+        def assert_search(response, sample, start):
+            data = tool_result(response)
+            item = {
+                "kind": "text_match", "path": "sample.ex", "sha256": sha256(sample),
+                "start_byte": start, "end_byte": start + len(needle_bytes),
+            }
+            assert_observation(data, common("ok", items=[item]), sample)
+            return data["items"][0]
+
+        with self.client(ready=True) as client:
+            pid = client.process.pid
+            limits = resource.prlimit(pid, resource.RLIMIT_AS)
+            names = [
+                comm.read_text().strip()
+                for comm in Path(f"/proc/{pid}/task").glob("*/comm")
+            ]
+            schedulers = sorted(name for name in names if name.endswith("_scheduler")
+                                and name.removesuffix("_scheduler").isdecimal())
+            self.assertEqual(limits, (AS_LIMIT, AS_LIMIT))
+            self.assertEqual(schedulers, ["1_scheduler", "2_scheduler"], names)
+            print(f"child pid={pid} RLIMIT_AS={limits} normal schedulers={schedulers}",
+                  file=sys.stderr, flush=True)
+
+            item = assert_search(client.request("tools/call", search_args), self.sample,
+                                 self.sample.index(needle_bytes))
+
+            tools = client.request("tools/list")["result"]["tools"]
+            self.assertEqual([tool for tool in tools if tool["name"] == "search_text"], [{
+                "name": "search_text",
+                "description": "Find literal case-sensitive byte matches in the five approved "
+                               "synthetic slots. Returns up to 32 ordered matches with byte "
+                               "ranges and full-slot SHA-256 digests.",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {"query": {"type": "string"}},
+                    "required": ["query"],
+                    "additionalProperties": False,
+                },
+            }])
+
+            for params in [
+                {"name": "search_text", "arguments": []},
+                {"name": "search_text", "arguments": {"query": needle}, "extra": True},
+                {"arguments": {"query": needle}},
+                {"name": "other"},
+            ]:
+                error = client.request("tools/call", params)
+                self.assertEqual(set(error), {"jsonrpc", "id", "error"})
+                self.assertEqual(error["error"], {"code": -32602, "message": "Invalid params"})
+
+            for params in [{"name": "search_text"}, {"name": "search_text", "arguments": {}}]:
+                data = tool_result(client.request("tools/call", params), is_error=True)
+                self.assertEqual(data, common("invalid_input", "unavailable",
+                                              diagnostics=[{"code": "invalid_input"}]))
+
+            read_args = {key: item[key] for key in ("path", "start_byte", "end_byte")}
+            read_args["expected_sha256"] = item["sha256"]
+            start = self.sample.index(needle_bytes)
+            self.assertEqual(read_args, {
+                "path": "sample.ex", "start_byte": start, "end_byte": start + len(needle_bytes),
+                "expected_sha256": sha256(self.sample),
+            })
+            read_params = {"name": "read_source", "arguments": read_args}
+            read = tool_result(client.request("tools/call", read_params))
+            excerpt = {
+                "path": "sample.ex", "sha256": sha256(self.sample),
+                "start_byte": start, "end_byte": start + len(needle_bytes),
+                "base64": base64.b64encode(needle_bytes).decode("ascii"),
+            }
+            assert_observation(read, common("ok", items=[excerpt]), self.sample, guarded=True)
+
+            prefix = b"# Updated\n"
+            edited = prefix + self.sample
+            self.fixtures.write("sample.ex", edited)
+            stale = tool_result(client.request("tools/call", read_params))
+            assert_observation(stale, common("changed_since_check"), edited,
+                               guarded=True, changed=True)
+            assert_search(client.request("tools/call", search_args), edited, start + len(prefix))
             self.assert_clean_eof(client)
 
     def test_scope_and_budget_failures(self):
