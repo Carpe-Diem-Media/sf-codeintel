@@ -612,7 +612,7 @@ class ProtocolTest(unittest.TestCase):
             self.assert_clean_eof(client)
 
     def test_search_text_and_guarded_read(self):
-        needle = "café"
+        needle = '"café"'
         needle_bytes = needle.encode()
         search_args = {"name": "search_text", "arguments": {"query": needle}}
 
@@ -686,10 +686,10 @@ class ProtocolTest(unittest.TestCase):
                 comm.read_text().strip()
                 for comm in Path(f"/proc/{pid}/task").glob("*/comm")
             ]
-            schedulers = sorted(name for name in names if name.endswith("_scheduler")
-                                and name.removesuffix("_scheduler").isdecimal())
+            schedulers = sorted(name for name in names if name.startswith("erts_sched_")
+                                and name.removeprefix("erts_sched_").isdecimal())
             self.assertEqual(limits, (AS_LIMIT, AS_LIMIT))
-            self.assertEqual(schedulers, ["1_scheduler", "2_scheduler"], names)
+            self.assertEqual(schedulers, ["erts_sched_1", "erts_sched_2"], names)
             print(f"child pid={pid} RLIMIT_AS={limits} normal schedulers={schedulers}",
                   file=sys.stderr, flush=True)
 
