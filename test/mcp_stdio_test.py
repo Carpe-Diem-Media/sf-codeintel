@@ -49,18 +49,23 @@ def bounded_address_space():
     resource.setrlimit(resource.RLIMIT_AS, (AS_LIMIT, AS_LIMIT))
 
 
-def verify_no_acl(path):
-    for attribute in ("system.posix_acl_access", "system.posix_acl_default"):
+def acl_kinds(path):
+    for kind in ("access", "default"):
         try:
-            os.getxattr(path, attribute, follow_symlinks=False)
+            os.getxattr(path, f"system.posix_acl_{kind}", follow_symlinks=False)
         except OSError as error:
             if error.errno != errno.ENODATA:
                 raise
         else:
-            raise RuntimeError("fixture custody requires an ACL-free path")
+            yield kind
 
 
-def verify_root(root, expected):
+def verify_no_acl(path):
+    if next(acl_kinds(path), None) is not None:
+        raise RuntimeError("fixture custody requires an ACL-free path")
+
+
+def verify_root(root, expected, *, hosted):
     if not root.is_absolute() or root.resolve() != root:
         raise RuntimeError("fixture root must be absolute and canonical")
     info = root.lstat()
@@ -80,7 +85,17 @@ def verify_root(root, expected):
             or info.st_mode & 0o022
         ):
             raise RuntimeError("unsafe fixture ancestor")
-        verify_no_acl(parent)
+        if hosted:
+            # The group mode bits include the access ACL mask. Default ACLs
+            # affect new children, which must pass their own strict ACL check.
+            kinds = ", ".join(acl_kinds(parent))
+            if kinds:
+                print(
+                    f"Hosted ancestor {parent} has {kinds} ACL. "
+                    f"Verified uid={info.st_uid}, mode={stat.S_IMODE(info.st_mode):04o}."
+                )
+        else:
+            verify_no_acl(parent)
 
 
 class FixtureRoot:
@@ -96,7 +111,8 @@ class FixtureRoot:
             or self.root in self.scratch.parents
         ):
             raise RuntimeError("scratch must be separate from the fixture root")
-        if os.environ.get("GITHUB_ACTIONS") == "true":
+        self.hosted = os.environ.get("GITHUB_ACTIONS") == "true"
+        if self.hosted:
             run_dir = self.root.parent
             if (
                 run_dir.parent != Path.home()
@@ -110,13 +126,13 @@ class FixtureRoot:
         scratch_info = self.scratch.lstat()
         self.scratch_identity = (scratch_info.st_dev, scratch_info.st_ino)
         self.approved()
-        verify_root(self.scratch, self.scratch_identity)
+        verify_root(self.scratch, self.scratch_identity, hosted=self.hosted)
         if list(self.root.iterdir()) or list(self.scratch.iterdir()):
             raise RuntimeError("fixture root and scratch must start empty")
         self.owned = set()
 
     def approved(self):
-        verify_root(self.root, self.identity)
+        verify_root(self.root, self.identity, hosted=self.hosted)
         if time.time_ns() >= GRANT_EXPIRY_NS:
             raise RuntimeError("execution grant expired")
 
@@ -167,8 +183,8 @@ class FixtureRoot:
         self.owned.remove(path)
 
     def close(self):
-        verify_root(self.root, self.identity)
-        verify_root(self.scratch, self.scratch_identity)
+        verify_root(self.root, self.identity, hosted=self.hosted)
+        verify_root(self.scratch, self.scratch_identity, hosted=self.hosted)
         for path in sorted(self.owned):
             self.unlink(path)
         if list(self.root.iterdir()) or list(self.scratch.iterdir()):
