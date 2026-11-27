@@ -4,8 +4,9 @@ defmodule SFCodeIntel.Query do
   alias SFCodeIntel.{Lexical, LocalSource, SourceAdapter}
 
   @profile "synthetic_lexical_v1"
+  @search_profile "synthetic_text_search_v1"
   @backend "local_source_v1"
-  @tools ~w(discover definition references read_source check_source)
+  @tools ~w(discover definition references read_source check_source search_text)
   @key_fields ~w(arity function module)
   @read_fields ~w(end_byte path start_byte)
   @digest ~r/\A[[:xdigit:]]{64}\z/
@@ -16,11 +17,191 @@ defmodule SFCodeIntel.Query do
   def tools, do: @tools
   def profile, do: @profile
 
-  def run(binding, tool, args, capture \\ &LocalSource.capture/1) do
+  def run(binding, tool, args, capture \\ &LocalSource.capture/1)
+
+  def run(binding, "search_text", args, capture), do: run_search(binding, args, capture, [])
+
+  def run(binding, tool, args, capture) do
     case validate(tool, args) do
       :ok -> observe(binding, tool, args, capture)
       status -> result(status, :unavailable, [], [%{code: Atom.to_string(status)}])
     end
+  end
+
+  @doc false
+  def run_search(binding, %{"query" => needle} = args, capture, opts)
+      when map_size(args) == 1 and is_binary(needle) and byte_size(needle) in 1..128 do
+    if String.valid?(needle) and :binary.match(needle, [<<0>>, "\r", "\n"]) == :nomatch do
+      clock = Keyword.get(opts, :clock, &clock_ms/0)
+      on_scan = Keyword.get(opts, :on_scan, fn _ -> :ok end)
+      observe_search(binding, needle, capture, clock, on_scan)
+    else
+      invalid_search()
+    end
+  end
+
+  def run_search(_binding, _args, _capture, _opts), do: invalid_search()
+
+  defp invalid_search do
+    result(:invalid_input, :unavailable, [], [%{code: "invalid_input"}])
+  end
+
+  defp observe_search(binding, needle, capture, clock, on_scan) do
+    deadline = clock.() + @request_limit_ms
+    expired? = fn -> clock.() >= deadline end
+    {:ok, supervisor} = Task.Supervisor.start_link()
+
+    response =
+      try do
+        capture_pass = fn -> search_capture(supervisor, binding, capture, deadline - clock.()) end
+
+        case capture_pass.() do
+          {:ok, first} ->
+            complete_search(binding, first, needle, capture_pass, expired?, on_scan)
+
+          {:error, status, checked, diagnostic} ->
+            search_failure(binding, status, checked, diagnostic, nil)
+
+          :expired ->
+            search_deadline(binding, nil, nil)
+        end
+      after
+        Supervisor.stop(supervisor)
+      end
+
+    if expired?.(), do: deadline_result(response), else: response
+  end
+
+  defp search_capture(_supervisor, _binding, _capture, remaining) when remaining <= 0,
+    do: :expired
+
+  defp search_capture(supervisor, binding, capture, remaining) do
+    task = Task.Supervisor.async_nolink(supervisor, fn -> capture.(binding) end)
+    await_capture(task, remaining)
+  end
+
+  defp complete_search(binding, first, needle, capture_pass, expired?, on_scan) do
+    with false <- expired?.(),
+         {:ok, prepared} <- prepare_search(first, needle, expired?, on_scan) do
+      case capture_pass.() do
+        :expired ->
+          search_deadline(binding, first, nil)
+
+        {:ok, second} ->
+          revalidate_search(binding, first, second, prepared, expired?)
+
+        {:error, status, checked, diagnostic} ->
+          search_failure(binding, status, checked, diagnostic, first)
+      end
+    else
+      _ -> search_deadline(binding, first, nil)
+    end
+  end
+
+  defp prepare_search(first, needle, expired?, on_scan) do
+    pattern = :binary.compile_pattern(needle)
+
+    case Enum.reduce_while(SourceAdapter.slots(), {[], 0}, fn path, acc ->
+           if expired?.() do
+             {:halt, :expired}
+           else
+             on_scan.({:slot, path})
+
+             case first.slots[path] do
+               :missing -> {:cont, acc}
+               slot -> scan_slot(slot, path, pattern, 0, acc, expired?, on_scan)
+             end
+           end
+         end) do
+      :expired ->
+        :expired
+
+      {items, count} ->
+        status = if count == 0, do: :unresolved, else: :ok
+        prepared = result(status, :complete_for_profile, Enum.reverse(items), [])
+        {:ok, %{prepared | truncated: count > @item_limit}}
+    end
+  end
+
+  defp scan_slot(%{bytes: bytes}, _path, _pattern, offset, acc, _expired?, _on_scan)
+       when offset == byte_size(bytes),
+       do: {:cont, acc}
+
+  defp scan_slot(slot, path, pattern, offset, {items, count} = acc, expired?, on_scan) do
+    with false <- expired?.(),
+         scope = {offset, byte_size(slot.bytes) - offset},
+         match = :binary.match(slot.bytes, pattern, scope: scope),
+         _ <- on_scan.({:match, path}),
+         false <- expired?.() do
+      case match do
+        :nomatch ->
+          {:cont, acc}
+
+        {_start, _length} when count == @item_limit ->
+          {:halt, {items, count + 1}}
+
+        {start, length} ->
+          stop = start + length
+
+          item = %{
+            kind: "text_match",
+            path: path,
+            sha256: slot.sha256,
+            start_byte: start,
+            end_byte: stop
+          }
+
+          scan_slot(slot, path, pattern, stop, {[item | items], count + 1}, expired?, on_scan)
+      end
+    else
+      true -> {:halt, :expired}
+    end
+  end
+
+  defp revalidate_search(binding, first, second, prepared, expired?) do
+    cond do
+      expired?.() ->
+        search_deadline(binding, first, second)
+
+      first.manifest_sha256 == second.manifest_sha256 ->
+        search_evidence(prepared, binding, :matched_at_check, second.checked_slots, first, second)
+
+      true ->
+        changed = result(:changed_since_check, :unavailable, [], [%{code: "capture_changed"}])
+
+        search_evidence(
+          changed,
+          binding,
+          :changed_since_check,
+          second.checked_slots,
+          first,
+          second
+        )
+    end
+  end
+
+  defp search_deadline(binding, first, second) do
+    latest = second || first
+    checked = if latest, do: latest.checked_slots, else: []
+    expired = result(:limit_exceeded, :unavailable, [], [%{code: "tool_deadline"}])
+    search_evidence(expired, binding, :unknown, checked, first, second)
+  end
+
+  defp deadline_result(response) do
+    base = result(:limit_exceeded, :unavailable, [], [%{code: "tool_deadline"}])
+    response |> Map.merge(base) |> put_in([:freshness, :state], :unknown)
+  end
+
+  defp search_failure(binding, status, checked, diagnostic, first) do
+    status
+    |> result(:unavailable, [], [diagnostic])
+    |> search_evidence(binding, :unknown, checked, first, nil)
+  end
+
+  defp search_evidence(response, binding, state, checked, first, second) do
+    response
+    |> evidence(binding, state, checked, first, second, nil)
+    |> Map.replace!(:profile_version, @search_profile)
   end
 
   defp validate("discover", args) when args == %{}, do: :ok
@@ -86,19 +267,24 @@ defmodule SFCodeIntel.Query do
     end
   end
 
+  defp clock_ms, do: System.monotonic_time(:millisecond)
+
   defp timed_capture(binding, capture, deadline) do
-    remaining = deadline - System.monotonic_time(:millisecond)
+    remaining = deadline - clock_ms()
 
     if remaining > 0 do
       task = Task.async(fn -> capture.(binding) end)
-
-      case Task.yield(task, remaining) || Task.shutdown(task, :brutal_kill) do
-        {:ok, result} -> result
-        {:exit, _} -> {:error, :unavailable, [], %{code: "capture_failed"}}
-        nil -> {:error, :limit_exceeded, [], %{code: "tool_deadline"}}
-      end
+      await_capture(task, remaining)
     else
       {:error, :limit_exceeded, [], %{code: "tool_deadline"}}
+    end
+  end
+
+  defp await_capture(task, remaining) do
+    case Task.yield(task, remaining) || Task.shutdown(task, :brutal_kill) do
+      {:ok, result} -> result
+      {:exit, _} -> {:error, :unavailable, [], %{code: "capture_failed"}}
+      nil -> {:error, :limit_exceeded, [], %{code: "tool_deadline"}}
     end
   end
 
