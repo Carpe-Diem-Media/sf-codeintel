@@ -1,0 +1,128 @@
+name: product
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize]
+
+permissions:
+  contents: read
+
+jobs:
+  lexical-cli-mcp:
+    if: >-
+      github.repository == 'Carpe-Diem-Media/sf-codeintel' &&
+      github.event.repository.private == false &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.event.pull_request.head.ref == 'sfci-17/lexical-cli-mcp' &&
+      github.run_attempt <= 2
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      EXPECTED_HEAD: ${{ github.event.pull_request.head.sha }}
+      GRANT_EXPIRES_UTC: "1795800978"
+      ERL_FLAGS: "+S 2:2 +SDcpu 1:1 +SDio 1 +A 1 +MIscs 64"
+      ERL_CRASH_DUMP_SECONDS: "0"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - name: Check runner and grant
+        shell: bash
+        run: |
+          test "$(date -u +%s)" -lt "$GRANT_EXPIRES_UTC"
+          test "$RUNNER_OS" = Linux
+          test "$RUNNER_ARCH" = X64
+          test "$(uname -m)" = x86_64
+          . /etc/os-release
+          test "$ID:$VERSION_ID" = ubuntu:24.04
+          [[ "$EXPECTED_HEAD" =~ ^[0-9a-f]{40}$ ]]
+          printf 'Runner image %s, version %s\n' "${ImageOS:?}" "${ImageVersion:?}"
+          printf 'Grant df47f245-2819-4cbf-b17e-6ead6cea3e51. Candidate %s\n' "$EXPECTED_HEAD"
+
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+          fetch-depth: 1
+          clean: false
+
+      - name: Verify exact head and run product checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$EXPECTED_HEAD"
+          test -z "$(git status --porcelain)"
+          test ! -e _build
+
+          umask 077
+          work=$(mktemp -d "$HOME/.sfci-17-ci.XXXXXXXX")
+          trap 'rm -rf -- "$work"' EXIT
+          mkdir "$work/otp" "$work/elixir" "$work/fixtures" "$work/scratch"
+
+          within_grant() {
+            local seconds
+            seconds=$((GRANT_EXPIRES_UTC - $(date -u +%s) - 2))
+            test "$seconds" -gt 0
+            timeout --kill-after=1s "${seconds}s" "$@"
+          }
+
+          check_disk() {
+            local used
+            used=$(du -sm -- "$work" ${1:+"_build"} | awk '{sum += $1} END {print sum}')
+            test "$used" -le 512
+            printf 'Generated state in MiB %s\n' "$used"
+          }
+
+          acquire() {
+            local url=$1 digest=$2 archive=$3
+            test "$(within_grant curl --disable --fail --silent --show-error --proto '=https' \
+              --max-filesize 536870912 --output "$archive" --write-out '%{http_code}' "$url")" = 200
+            printf '%s  %s\n' "$digest" "$archive" | sha256sum --check --strict
+            check_disk
+          }
+
+          acquire https://builds.hex.pm/builds/otp/amd64/ubuntu-24.04/OTP-28.1.1.tar.gz \
+            a5731148e8031c35621ab8fd07bceb9e33b86ced6338739556b00a4f3b9be28d "$work/otp.tar.gz"
+          within_grant tar -xzf "$work/otp.tar.gz" --strip-components=1 -C "$work/otp"
+          rm -- "$work/otp.tar.gz"
+          within_grant "$work/otp/Install" -minimal "$work/otp"
+          check_disk
+
+          acquire https://builds.hex.pm/builds/elixir/v1.19.3-otp-28.zip \
+            537e976fd0f78644f6369efa87b64c9204a5ff0e7aa3185a4d3aec4e2805cae8 "$work/elixir.zip"
+          within_grant unzip -q "$work/elixir.zip" -d "$work/elixir"
+          rm -- "$work/elixir.zip"
+          check_disk
+
+          export PATH="$work/elixir/bin:$work/otp/bin:$PATH"
+          otp_version=$(cat "$work/otp/releases/28/OTP_VERSION")
+          test "$otp_version" = 28.1.1
+          printf 'OTP_VERSION %s\n' "$otp_version"
+          elixir_version=$(within_grant elixir --version)
+          printf '%s\n' "$elixir_version"
+          test "$(printf '%s\n' "$elixir_version" | sed -n 's/^Elixir \([^ ]*\) .*/\1/p')" = 1.19.3
+          within_grant python3 --version
+          within_grant bash --version
+          within_grant timeout --version
+          within_grant curl --version
+          within_grant tar --version
+          within_grant unzip -v
+
+          export SFCI_FIXTURE_ROOT="$work/fixtures"
+          export SFCI_FIXTURE_DEV_INO
+          SFCI_FIXTURE_DEV_INO=$(stat -c '%d:%i' -- "$SFCI_FIXTURE_ROOT")
+          export SFCI_TEST_SCRATCH="$work/scratch"
+          test "$(stat -c '%a:%u' -- "$SFCI_FIXTURE_ROOT")" = "700:$(id -u)"
+          printf 'Private fixture root device/inode %s\n' "$SFCI_FIXTURE_DEV_INO"
+
+          within_grant mix format --check-formatted mix.exs 'lib/**/*.ex' 'test/**/*.exs'
+          within_grant mix compile --warnings-as-errors
+          check_disk _build
+          within_grant mix test
+          check_disk _build
+          within_grant mix escript.build
+          check_disk _build
+          within_grant python3 test/mcp_stdio_test.py
+          check_disk _build
+          test "$(git rev-parse HEAD)" = "$EXPECTED_HEAD"
+          git diff --exit-code
+          printf 'Completed product checks on %s\n' "$EXPECTED_HEAD"
