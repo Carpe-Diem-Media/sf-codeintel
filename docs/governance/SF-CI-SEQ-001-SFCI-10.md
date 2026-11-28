@@ -1,0 +1,33 @@
+# SF-CI-SEQ-001 | SFCI-20 sequencing supplement
+
+Revision 0.1. Proposed and inactive. Verify the [SFCI-20 applicability entry](sfci-2-baseline-adoption.md#sfci-20-conditional-sequencing-applicability) before applying this supplement.
+
+## Authority and scope
+
+SFCI-20 is the governance instrument. SFCI-21 is its sole beneficiary and remains a child of SFCI-10, the full P1 assignment. SFCI-21 is Blocked by SFCI-20 pending activation and Plane and roadmap reconciliation. SFCI-10 remains in Backlog with its full gates. [SFCI-20](https://app.plane.so/symphony-development/projects/cf209680-d677-4875-9245-ed7b235654dd/issues/ad548c59-b5fc-4217-ba90-7cc07fe3dabd) · [SFCI-21](https://app.plane.so/symphony-development/projects/cf209680-d677-4875-9245-ed7b235654dd/issues/6b1e50b1-6dd0-4080-8503-4ff3246448d5)
+
+The project owner's decision of 2026-11-28 at 07:35:25.852 UTC, item `turn-item:message:8baa2349-ec89-4fcd-811a-6320c45aa205`, authorizes preparation, independent review and activation of this narrow sequencing change. The Lead Orchestrator acts under GOV §4.1 within that scope. The authoring release and binding addendum cover proposed documentation only, at base `c563a2f7f707c60da86c63bdbcc03f62c0b7ab62`. GOV §5 keeps adoption, technical acceptance and execution permission separate. [Owner decision](t3-thread://v2/fdfd1f03-53cf-41e7-8d37-6f5313c72d55/827e7f14-c680-43c4-b7af-fd7991d7fe52) · [Verified owner authorization](https://app.plane.so/symphony-development/projects/cf209680-d677-4875-9245-ed7b235654dd/issues/2377e960-c5be-4619-b236-77da1c2052b1#comment-d2e9bef0-5986-4ecc-ac2b-bc1e09127cdd) · [Authoring release](https://app.plane.so/symphony-development/projects/cf209680-d677-4875-9245-ed7b235654dd/issues/ad548c59-b5fc-4217-ba90-7cc07fe3dabd#comment-e88d1f9d-3b47-4f40-99ab-0b1df76889e2) · [Binding addendum](https://app.plane.so/symphony-development/projects/cf209680-d677-4875-9245-ed7b235654dd/issues/ad548c59-b5fc-4217-ba90-7cc07fe3dabd#comment-f767b320-3507-4094-931c-5088a7a6c9e7)
+
+The increment is limited to the existing MCP `search_text` and SHA-256-guarded `read_source` over one immutable, read-only snapshot of public `Carpe-Diem-Media/sf-codeintel`. The source path is `lib/sf_codeintel/cli.ex` at commit `c563a2f7f707c60da86c63bdbcc03f62c0b7ab62`. Its Git mode is `100644`, its blob is `d1086613d955cc49d6d24022076b94953106ec1c`, its length is 4,472 bytes, and its SHA-256 is `9e582bf9243df6f347bf4bc4f1455f6c57f18315085c9a060272ab813cf6aa8e`. [Pinned source](https://github.com/Carpe-Diem-Media/sf-codeintel/blob/c563a2f7f707c60da86c63bdbcc03f62c0b7ab62/lib/sf_codeintel/cli.ex)
+
+## Timing after activation
+
+After verified activation and reconciliation, bounded SFCI-21 design may precede applicable P0 exit and acceptance of a viable structural backend. A later implementation under a separate effective bounded grant may precede the same two gates. Apply only those timing changes and only to SFCI-21.
+
+- Apply the timing to the `AGENTS.md` phase-gate paragraph, GOV §§6.1 and 6.3 and §7's P1 design row, and SFCI-2 dispositions D5 and D7. Apply GOV §§3.3–3.4, 4.1–4.2, 7.1–7.2 and 8 in full. [GOV](SF-CI-GOV-001.md) · [SFCI-2 dispositions](sfci-2-baseline-adoption.md)
+- Apply the timing to SPEC §03's MCP + CLI row and §16's phase table and Work sequencing. Retain Q0 and SPEC §§17–18, including slice-specific verification of supported OS/CPU, exact toolchain, MCP transport and actual dependencies, authorized source, retention, grant transport and development and CI hardware. Security, scope, provenance and source verification apply throughout. [SPEC](../architecture/SF-CI-SPEC-001.md)
+- Apply the timing to TDD §§1.3, 2.3, 7, 7.1 and 10.2. Retain the other §2.3 prerequisites and §6 design review, acceptance and change control. [TDD standard](../technical-design/SF-CI-TDD-001.md)
+- ADR-001 remains Proposed. Its §§3.1, 5.1–5.2 and 7, including the selected-qualified-interface row and final Next gate, govern structural backend decisions and backend-dependent P1 design. Apply ADR governance §§2, 3, 5.2 and 8.1 to applicable new decisions. [Backend ADR](../adr/ADR-001-backend-selection.md) · [ADR governance](../adr/SF-CI-ADR-001.md)
+- SPEC §16 and PRD §§11.2–11.3, 13 and 15 retain structural ownership, Q0, full P1 outcomes and exit, and later-phase entry prerequisites. The exception supplies no general P1 dispatch, backend replacement, qualification, provisioning, snapshot acquisition or product execution permission. [SPEC](../architecture/SF-CI-SPEC-001.md) · [PRD](../product/SF-CI-PRD-001.md)
+
+## Separate design and implementation gates
+
+After the Lead verifies activation and reads back the Plane and roadmap reconciliation, assess eligibility for a bounded SFCI-21 design assignment under GOV §7. The design must specify exact immutable provenance, explicit source-slot admission and lifecycle, mandatory digest-guarded retrieval, exact MCP protocol and regression assertions, and execution, storage and output limits.
+
+Before implementation, require independent review and accountable acceptance of the exact design bytes and any applicable ADR, verified local development and hosted CI environments, and a fresh bounded implementation grant effective for both. Before integration require independent review of the exact implementation candidate, applicable passing checks and a separate Lead integration check under GOV §8.
+
+SFCI-19 is Done and its allowance under grant `0d2db704-dc15-4c01-a7ee-03d1bea6f399` is closed. The pinned `product / lexical-cli-mcp` workflow restricts that allowance to `sfci-19/synthetic-search-text`, attempt one. It supplies no execution permission to SFCI-20 or SFCI-21. For the documentation candidate, verify the actual hosted branch-guard result and applicable protections. Record a skip as a skip and route any unsatisfied mandatory check under GOV §§4.2 and 8. [Pinned workflow](https://github.com/Carpe-Diem-Media/sf-codeintel/blob/c563a2f7f707c60da86c63bdbcc03f62c0b7ab62/.github/workflows/ci.yml)
+
+## Track B qualification hold
+
+Apply [SEQ v0.1 Track B](SF-CI-SEQ-001.md#track-b-preserve-the-qualification-hold) in full, including its custody, resource accounting, deadlines and STOP evidence. The frozen SEQ v0.1 blob `682e46612942c4cec01a03a8a4e13e8be8a03a3c` retains its original scope. SFCI-5 remains Blocked. P0-A remains `NOT ADMITTED / NOT RUN` and the qualification clock remains `NOT STARTED`. P0 v0.5 §§0.3, 1, 1A, 3, 5A, 6, 7 and 8.3 retain their full requirements. P0-B requires its own grant and applicable prerequisites. If the applicable P0 gate proceeds without P0-B, the accountable authority must explicitly defer it to P1 and record `NOT RUN`. [P0 qualification](../qualification/SF-CI-P0-001.md)
